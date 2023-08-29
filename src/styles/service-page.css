@@ -1,0 +1,80 @@
+@layer components {
+  /* ====================================
+    |
+    |      BEGIN:   SERVICE PAGE
+    |    
+====================================== */
+
+  /*===================
+BEGIN: gradient-hero-service  
+===================*/
+
+  .red-gradient__hero-service {
+    @apply relative overflow-hidden to-transparent before:absolute before:right-0 before:top-[103px] before:h-[253px] before:w-[253px] before:translate-x-[50%] before:bg-gradient-radial before:from-main before:blur-[60px] before:content-[''] lg:before:top-[60px] lg:before:h-[220px] lg:before:w-[220px] lg:before:blur-[30px] xl:before:top-[64px] xl:before:right-[41px] xl:before:h-[260px] xl:before:w-[260px] xl:before:blur-[60px] 2xl:before:top-[120px] 2xl:before:h-[360px] 2xl:before:w-[360px] 2xl:before:translate-x-[25%] 2xl:before:blur-[60px];
+  }
+
+  /* ================================== 
+BEGIN: 16-section-our-case img-desc-
+================================== */
+
+  .img-desc_s {
+    @apply absolute top-0 flex flex-col py-[14px] px-[18px] lg:py-[14px] lg:px-[19px] xl:py-[20px] xl:px-[22px];
+  }
+
+  .img-desc__wrap_s {
+    @apply mb-[16px] xl:mb-[21px] 2xl:mb-[21px];
+  }
+
+  .wrap-text_s {
+    @apply flex items-center gap-[15px];
+  }
+
+  .img-desc_big_s {
+    @apply text-[30.5px] font-bold leading-[1.1] text-white xl:text-[50px] 2xl:text-[50px];
+  }
+
+  .wrap-text__inner_s {
+    @apply flex flex-col;
+  }
+
+  .wrap-text__gap_s {
+    @apply mb-[7px] flex items-center gap-[7px] lg:mb-[2px] lg:gap-[8px] xl:mb-[3px];
+  }
+
+  .img-desc_small_s {
+    @apply text-[10px] font-medium leading-[1.1] text-white lg:text-base xl:text-[16px] 2xl:text-[16px];
+  }
+
+  /*==============================
+  btn effects 
+  =================================*/
+  .link-oside {
+    @apply relative overflow-hidden;
+  }
+
+  .link-oside::after {
+    @apply absolute left-0 top-full h-full w-full rounded-[70px] bg-[#DC2D45] transition-all ease-in content-[''];
+  }
+
+  .link-oside:hover {
+    @apply scale-105;
+  }
+
+  .link-oside:hover::after {
+    @apply absolute left-0 top-0 -z-10 h-full w-full rounded-[70px] bg-[#DC2D45] content-[''];
+  }
+
+  /* ================================
+  Border position
+  ==================================*/
+  .border__rounded_s {
+    @apply rounded-full border-[1px] border-middleGrey
+   transition ease-in
+   
+    hover:border-white;
+  }
+
+  .border__vertical_s-09::before {
+    @apply xl:absolute xl:top-[-12px] xl:left-[-41px] xl:h-[471px] xl:w-[1px] xl:bg-[#919191] xl:content-[''] 2xl:top-[-12px] 2xl:left-[-57px] 2xl:h-[661px];
+  }
+}

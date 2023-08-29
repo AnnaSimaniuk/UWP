@@ -1,0 +1,29 @@
+@layer components {
+  /* =========== blog ============ */
+  .blog-page__post-wrapper {
+    @apply xl:grid xl:h-full xl:grid-rows-[auto_auto_1fr];
+  }
+  .blog-page__main-post-info-name {
+    @apply text-[46px] font-bold uppercase leading-[50px] text-white drop-shadow-[0px_0px_1px_#000] lg:mr-20  xl:mr-0 xl:text-[64px] xl:leading-[70px];
+  }
+  .blog__pagination-active {
+    @apply bg-dark text-white dark:bg-light dark:text-dark;
+  }
+  .swiperNews .swiper-scrollbar {
+    @apply !top-0 !h-[5px] bg-scrollBar;
+  }
+  .swiperNews .swiper-scrollbar-drag {
+    @apply !bg-main;
+  }
+  @keyframes gradient {
+    0% {
+      background-size: 0% 100%;
+    }
+    50% {
+      background-size: 50% 100%;
+    }
+    100% {
+      background-size: 100% 100%;
+    }
+  }
+}

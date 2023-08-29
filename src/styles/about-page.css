@@ -1,0 +1,53 @@
+@layer components {
+  .about__team-list-item {
+    @apply border-t border-middleGrey xl:border-t-0;
+  }
+  .about__team-card {
+    @apply mt-5 border-middleGrey   xl:mt-0;
+  }
+  .about__team-list-item > div > div {
+    @apply mb-5 xl:mb-0 xl:pb-5;
+  }
+  .about__team-list-item:nth-child(2n + 1) > div > div {
+    @apply pr-[9px] lg:px-0;
+  }
+  .about__team-list-item:nth-child(2n + 2) > div > div {
+    @apply pl-[9px] lg:px-0;
+  }
+  .about__team-list-item:nth-child(3n + 1) > div > div {
+    @apply lg:pr-6 xl:px-0;
+  }
+  .about__team-list-item:nth-child(3n + 3) > div > div {
+    @apply lg:pl-6  xl:px-0;
+  }
+  .about__team-list-item:nth-child(3n + 2) > div > div {
+    @apply lg:pl-6 lg:pr-6 xl:px-0;
+  }
+  .about__team-list-item:nth-child(3n + 1) > div {
+    @apply xl:pr-[55px];
+  }
+  .about__team-list-item:nth-child(3n + 3) > div {
+    @apply xl:pl-[55px];
+  }
+  .about__team-list-item:nth-child(3n + 2) > div {
+    @apply xl:pr-[55px] xl:pl-[55px];
+  }
+  .about__team-list-item:nth-child(2n + 1) > div {
+    @apply border-r lg:border-r-0;
+  }
+  .about__team-list-item:nth-child(3n + 1) > div {
+    @apply lg:border-r xl:border-r-0;
+  }
+  .about__team-list-item:nth-child(3n + 3) > div {
+    @apply lg:border-l xl:border-l-0;
+  }
+  .about__team-list-item:nth-child(n + 4) > div > div {
+    @apply xl:border-t xl:pt-[50px];
+  }
+  .about__team-list-item:nth-child(3n + 1) {
+    @apply xl:border-r;
+  }
+  .about__team-list-item:nth-child(3n + 3) {
+    @apply xl:border-l;
+  }
+}

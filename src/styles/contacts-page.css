@@ -1,0 +1,24 @@
+/*=============== CONTACTS-PAGE ============= */
+
+@layer components {
+  .contacts-form__label-text {
+    @apply inline-block text-xl lg:text-4xl  2xl:text-[42px];
+  }
+  .contactsFormControl.error div {
+    @apply block;
+  }
+
+  .popuptext {
+    @apply absolute  top-[125%] z-[1] hidden  max-w-[340px]  rounded border border-dark bg-light p-2  pl-10  text-sm text-dark  transition-all;
+  }
+  .popuptext svg {
+    @apply absolute top-[5px] left-2;
+  }
+
+  .popuptext::before {
+    @apply absolute -top-[16px] left-[34px] z-0 border-[8px] border-transparent border-b-black    content-[''];
+  }
+  .popuptext::after {
+    @apply absolute -top-[15px] left-[34px] z-0 border-[8px]   border-transparent border-b-light content-[''];
+  }
+}

@@ -1,0 +1,38 @@
+@layer components {
+  /*=============== FOOTER ============= */
+
+  /*================================================
+ BEGIN: footer
+ =============================================== */
+
+  /*lg:bottom-0*/
+  .footer {
+    @apply sticky bottom-[-320px] shrink-0 sm:bottom-[-0px];
+  }
+}
+
+/*=========================================
+BEGIN: icons-menu
+=========================================*/
+.social__link-menu span {
+  @apply flex h-[46.24px] w-[46.24px] items-center justify-center rounded-full bg-grey  transition-all ease-in hover:text-white xl:h-[50px] xl:w-[50px];
+}
+
+.social__link-menu:hover .icon-menu {
+  @apply bg-main text-white transition ease-in;
+}
+
+/*=========================================
+END: icons-menu
+=========================================*/
+/* TODO these two classes changed  25.03*/
+.social__link span {
+  @apply flex h-[46.24px] w-[46.24px] items-center justify-center rounded-full bg-lightGrey text-dark transition-all dark:text-dark xl:h-[50px] xl:w-[50px];
+}
+.social__link:hover .icon {
+  @apply bg-main text-white dark:text-white;
+}
+
+/*================================================
+END: footer 
+================================================ */

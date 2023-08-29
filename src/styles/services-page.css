@@ -1,0 +1,98 @@
+@layer components {
+  /* =========== services page ============== */
+
+  .services-page__list-item-link .animated-arrow-wrapper {
+    @apply ml-auto;
+  }
+  /* =============== animate on services list (services page) ================  */
+  .onhover-gradient-to-top {
+    @apply bg-[length:100%_0%] bg-[0%_100%] transition-all duration-300;
+  }
+  .onhover-gradient-to-top:hover {
+    @apply bg-gradient-to-t from-black to-black bg-[length:100%_100%]  bg-no-repeat;
+  }
+
+  /*========= animate link arrows ============  */
+  .link-arrow-animation {
+    @apply relative h-[19px] w-[19px] overflow-hidden lg:h-[21px] lg:w-[21px];
+  }
+  .link-arrow-animation svg {
+    @apply absolute h-[19px] w-[19px] text-white transition-all duration-300 ease-in-out lg:h-[21px] lg:w-[21px];
+  }
+  .link-arrow-animation svg:first-child {
+    @apply top-0 right-0;
+  }
+  .animated-hover-container:hover svg:first-child {
+    @apply top-[-100%] right-[-100%];
+  }
+  .link-arrow-animation svg:last-child {
+    @apply top-[100%] right-[100%];
+  }
+  .animated-hover-container:hover svg:last-child {
+    @apply top-0 right-0;
+  }
+
+  /* =============== how we work section (services page) ================  */
+
+  .how__list-item {
+    @apply lg:mt-[100px];
+  }
+  .how__list-item:nth-child(odd) {
+    @apply lg:mt-0 lg:border-r lg:border-middleGrey;
+  }
+  .how__list-item:nth-child(even) > * {
+    @apply lg:pl-[75px] xl:pl-[50px];
+  }
+
+  .how__card-list {
+    @apply border-b-[1px] border-middleGrey pb-10 lg:mb-10 xl:pb-[50px];
+  }
+  .how__card-list-item {
+    @apply flex items-center;
+  }
+  .how__card-list-item svg {
+    @apply mr-4 h-4 w-4;
+  }
+  .how__card-list-item:not(:last-child) {
+    @apply mb-[26px];
+  }
+  .how__card-list-item-text {
+    @apply uppercase xl:text-2xl;
+  }
+
+  /* ========== 
+img-desc-
+========== */
+
+  /* gap-[16px] */
+  .services-page__img-desc {
+    @apply absolute top-0 z-[1] flex flex-col py-4 px-[17px] transition-all;
+  }
+  .services-page__img-desc:hover {
+    @apply text-main;
+  }
+
+  .services-page__img-desc_wrap {
+    @apply mb-[20px] lg:mb-3 xl:mb-[22px] 2xl:mb-[30px];
+  }
+
+  .services-page__wrap-text {
+    @apply flex items-center gap-[10px];
+  }
+
+  .services-page__img-desc_big {
+    @apply text-[30px] font-bold leading-[1.1] text-white lg:text-[30px] xl:text-[50px];
+  }
+
+  .services-page__wrap-text_inner {
+    @apply flex flex-col;
+  }
+
+  .services-page__wrap-text_gap {
+    @apply mb-[5px] flex items-center gap-[5px] lg:mb-[2px] lg:gap-[8px] xl:mb-[20px];
+  }
+
+  .services-page__img-desc_small {
+    @apply text-[10px] font-medium leading-[1.1] text-white lg:text-[10px] lg:leading-[1.1] xl:text-base 2xl:leading-[1.1];
+  }
+}

@@ -1,0 +1,63 @@
+@layer components {
+  /* ====================================
+    |
+    |      BEGIN:   ATRICLE PAGE
+    |
+====================================== */
+
+  /*=========================================
+BEGIN: icons-menu
+=========================================*/
+
+  .social__link_a span {
+    @apply flex h-[31px] w-[31px] items-center justify-center rounded-full text-dark transition-all ease-in hover:text-white;
+  }
+  .icon {
+    @apply dark:border-white dark:text-white;
+  }
+  .social__link_a:hover .icon {
+    @apply border-main bg-main text-white transition ease-in dark:border-main;
+  }
+
+  /*======================================
+  BEGIN: scrolling-sticky
+  ========================================*/
+  .section-nav li.active > a {
+    @apply border-b-[2px] border-b-main text-main;
+  }
+
+  /*==============================
+  btn effects
+  =================================*/
+  .link-oside_a {
+    @apply relative overflow-hidden;
+  }
+  .link-oside_a::after {
+    @apply absolute left-0 top-full h-full w-full rounded-[70px] bg-[#313131] transition-all ease-in content-[''];
+  }
+  .link-oside_a:hover {
+    @apply scale-105;
+  }
+  .link-oside_a:hover::after {
+    @apply absolute left-0 top-0 -z-10 h-full w-full rounded-[70px] bg-[#313131] content-[''];
+  }
+
+  /* ================================
+  Border position
+  ==================================*/
+  .border__top_a {
+    @apply border-t-[4px] border-t-dark dark:border-t-white;
+  }
+  .border__rounded_s {
+    @apply rounded-full border-[1px] border-middleGrey transition ease-in hover:border-white;
+  }
+  .border__vertical_a::before {
+    @apply xl:absolute xl:top-[-12px] xl:left-[-41px] xl:h-[471px] xl:w-[1px] xl:bg-[#919191] xl:content-[''] 2xl:top-[-12px] 2xl:left-[-57px] 2xl:h-[661px];
+  }
+  .next-article__title::after {
+    @apply lg:absolute lg:top-[0px] lg:right-[50%] lg:h-[calc(100%+40px)] lg:w-[1px] lg:bg-[#919191] lg:content-[''] xl:top-[-16px] xl:right-[0px] xl:h-[calc(100%+40px)] 2xl:top-[-35px] 2xl:h-[calc(100%+70px)];
+  }
+  .next-article__title-right::after {
+    @apply xl:absolute xl:top-[-16px] xl:right-[0px] xl:h-[calc(100%+40px)] xl:w-[1px] xl:bg-[#919191] xl:content-[''] 2xl:top-[-35px] 2xl:h-[calc(100%+70px)];
+  }
+}
