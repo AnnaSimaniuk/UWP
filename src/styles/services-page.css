@@ -1,4 +1,4 @@
-@layer components {
+
   /* =========== services page ============== */
 
   .services-page__list-item-link .animated-arrow-wrapper {
@@ -95,4 +95,4 @@ img-desc-
   .services-page__img-desc_small {
     @apply text-[10px] font-medium leading-[1.1] text-white lg:text-[10px] lg:leading-[1.1] xl:text-base 2xl:leading-[1.1];
   }
-}
+

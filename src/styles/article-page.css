@@ -1,4 +1,4 @@
-@layer components {
+
   /* ====================================
     |
     |      BEGIN:   ATRICLE PAGE
@@ -60,4 +60,4 @@ BEGIN: icons-menu
   .next-article__title-right::after {
     @apply xl:absolute xl:top-[-16px] xl:right-[0px] xl:h-[calc(100%+40px)] xl:w-[1px] xl:bg-[#919191] xl:content-[''] 2xl:top-[-35px] 2xl:h-[calc(100%+70px)];
   }
-}
+

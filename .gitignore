@@ -6,7 +6,6 @@
 
 # Development
 node_modules
-*.local
 
 # Cache
 .cache
@@ -25,9 +24,7 @@ lerna-debug.log*
 
 # Editor
 .vscode/*
-!.vscode/launch.json
-!.vscode/*.code-snippets
-
+!.vscode/extensions.json
 .idea
 .DS_Store
 *.suo
@@ -39,3 +36,8 @@ lerna-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
+
+/test-results/
+/playwright-report/
+salt
+tmp

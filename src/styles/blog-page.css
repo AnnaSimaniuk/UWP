@@ -1,4 +1,4 @@
-@layer components {
+
   /* =========== blog ============ */
   .blog-page__post-wrapper {
     @apply xl:grid xl:h-full xl:grid-rows-[auto_auto_1fr];
@@ -26,4 +26,4 @@
       background-size: 100% 100%;
     }
   }
-}
+

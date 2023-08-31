@@ -1,4 +1,4 @@
-@layer components {
+
   .about__team-list-item {
     @apply border-t border-middleGrey xl:border-t-0;
   }
@@ -50,4 +50,4 @@
   .about__team-list-item:nth-child(3n + 3) {
     @apply xl:border-l;
   }
-}
+

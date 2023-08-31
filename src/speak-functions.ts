@@ -18,3 +18,4 @@ const loadTranslation$ = server$(async function (lang: string, asset: string) {
 export const translationFn: TranslationFn = {
   loadTranslation$: loadTranslation$,
 };
+

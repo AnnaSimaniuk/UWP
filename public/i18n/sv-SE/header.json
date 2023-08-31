@@ -1,0 +1,15 @@
+{
+  "header": {
+    "label_logo": "Hem",
+    "href_about": "about-us",
+    "text_about": "About us",
+    "href_case": "case",
+    "text_case": "Case studies",
+    "text_services": "Services",
+    "href_services_all": "services",
+    "href_blog": "blog",
+    "text_blog": "Blog",
+    "href_contact": "contact",
+    "text_contact": "Contact"
+  }
+}

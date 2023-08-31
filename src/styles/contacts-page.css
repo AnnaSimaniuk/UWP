@@ -1,6 +1,6 @@
 /*=============== CONTACTS-PAGE ============= */
 
-@layer components {
+
   .contacts-form__label-text {
     @apply inline-block text-xl lg:text-4xl  2xl:text-[42px];
   }
@@ -21,4 +21,4 @@
   .popuptext::after {
     @apply absolute -top-[15px] left-[34px] z-0 border-[8px]   border-transparent border-b-light content-[''];
   }
-}
+

@@ -4,32 +4,31 @@ import {
   RouterOutlet,
   ServiceWorkerRegister,
 } from "@builder.io/qwik-city";
+import { QwikSpeakProvider } from "qwik-speak";
+
 import { RouterHead } from "./components/router-head/router-head";
+import { config } from "./speak-config";
+import { translationFn } from "./speak-functions";
 
 import "./global.css";
-import { translationFn } from "~/speak-functions";
-import { QwikSpeakProvider } from "qwik-speak";
-import { config } from "~/speak-config";
+import { DarkThemeLauncher } from "~/components/ui/button/ButtonTheme";
 
 export default component$(() => {
-  /**
-   * The root of a QwikCity site always start with the <QwikCityProvider> component,
-   * immediately followed by the document's <head> and <body>.
-   *
-   * Don't remove the `<head>` and `<body>` elements.
-   */
-
   return (
+    /**
+     * Init Qwik Speak (only available in child components)
+     */
     <QwikSpeakProvider config={config} translationFn={translationFn}>
       <QwikCityProvider>
         <head>
           <meta charSet="utf-8" />
           <link rel="manifest" href="/manifest.json" />
           <RouterHead />
-          <ServiceWorkerRegister />
         </head>
-        <body lang="en">
+        <body lang="en" class={"bg-light dark:bg-dark"}>
           <RouterOutlet />
+          <ServiceWorkerRegister />
+          <DarkThemeLauncher />
         </body>
       </QwikCityProvider>
     </QwikSpeakProvider>
