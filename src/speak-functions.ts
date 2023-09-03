@@ -3,7 +3,7 @@ import type { TranslationFn } from "qwik-speak";
 
 const loadTranslation$ = server$(async function (lang: string, asset: string) {
   // Absolute urls on server
-  const url = `${this.url.origin}/i18n/${lang}/${asset}.json`;
+  const url = `${this.env.get("URI_API")}/i18n/${lang}/${asset}.json`;
   const response = await fetch(url);
 
   if (response.ok) {
@@ -18,4 +18,3 @@ const loadTranslation$ = server$(async function (lang: string, asset: string) {
 export const translationFn: TranslationFn = {
   loadTranslation$: loadTranslation$,
 };
-

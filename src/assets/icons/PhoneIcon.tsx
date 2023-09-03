@@ -1,12 +1,12 @@
 import { component$ } from "@builder.io/qwik";
+import { IIcon } from "~/types/IIcon";
 
-export const PhoneIcon = component$(() => (
+export const PhoneIcon = component$((props: IIcon) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="23"
-    height="22"
     viewBox="0 0 23 22"
     fill="none"
+    class={`w-[18px] h-[18px] lg:w-[22px] lg:h-[22px]`}
   >
     <g clip-path="url(#clip0_8464_5956)">
       <path

@@ -15,13 +15,26 @@ export const ModalContextProvider = component$(() => {
   const modalData = useStore<ModalDataStore>({
     dynamicFormWrapperClass: "translate-x-full",
     formMenuClass: "invisible opacity-0",
+    headerClass: "",
+    wrapperClass: "",
+    lockClass: "",
     showDynamicForm: $(function (this: ModalDataStore) {
       this.formMenuClass = "";
       this.dynamicFormWrapperClass = "";
+      this.headerClass = "z-0";
+      this.wrapperClass = "overflow-y-hidden h-screen";
     }),
     closeDynamicForm: $(function (this: ModalDataStore) {
       this.formMenuClass = "invisible opacity-0";
       this.dynamicFormWrapperClass = "translate-x-full";
+      this.headerClass = "";
+      this.wrapperClass = "";
+    }),
+    lockWrapper: $(function (this: ModalDataStore) {
+      this.lockClass = "overflow-y-hidden";
+    }),
+    unlockWrapper: $(function (this: ModalDataStore) {
+      this.lockClass = "";
     }),
   });
   useContextProvider(ModalProvider, modalData);

@@ -6,7 +6,7 @@ export const NavbarDropdownContent = component$(() => {
   return (
     <ul class={"grid grid-cols-2 gap-x-[106px] gap-y-[10px]"}>
       {NAV_LINKS.map((link) => (
-        <NavbarDropdownLink text={link.name} link={link.path} />
+        <NavbarDropdownLink text={link.name} link={link.path} key={link.name} />
       ))}
     </ul>
   );

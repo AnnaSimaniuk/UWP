@@ -1,14 +1,14 @@
-/*@import "./styles/header.css";*/
-/*@import "./styles/index-page.css";*/
-/*@import "./styles/footer.css";*/
-/*@import "./styles/cases-page.css";*/
-/*@import "./styles/case-page.css";*/
-/*@import "./styles/service-page.css";*/
-/*@import "./styles/article-page.css";*/
-/*@import "./styles/services-page.css";*/
-/*@import "./styles/blog-page.css";*/
-/*@import "./styles/about-page.css";*/
-/*@import "./styles/contacts-page.css";*/
+@import "./styles/header.css";
+@import "./styles/index-page.css";
+@import "./styles/footer.css";
+@import "./styles/cases-page.css";
+@import "./styles/case-page.css";
+@import "./styles/service-page.css";
+@import "./styles/article-page.css";
+@import "./styles/services-page.css";
+@import "./styles/blog-page.css";
+@import "./styles/about-page.css";
+@import "./styles/contacts-page.css";
 
 @font-face {
     font-family: "Montserrat";

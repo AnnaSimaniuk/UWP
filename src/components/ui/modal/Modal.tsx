@@ -10,8 +10,12 @@ import { Button } from "~/components/ui";
 import { ModalProvider } from "~/context";
 
 export const Modal = component$(() => {
-  const { closeDynamicForm, dynamicFormWrapperClass, formMenuClass } =
-    useContext(ModalProvider);
+  const {
+    closeDynamicForm,
+    dynamicFormWrapperClass,
+    formMenuClass,
+    lockClass,
+  } = useContext(ModalProvider);
 
   useOnDocument(
     "keydown",
@@ -25,7 +29,7 @@ export const Modal = component$(() => {
 
   return (
     <div
-      class={`lazyload header__contact-body right-0 z-40 h-full overflow-y-auto overflow-x-hidden ${formMenuClass}`}
+      class={`lazyload header__contact-body right-0 z-40 h-full overflow-y-auto overflow-x-hidden ${formMenuClass} ${lockClass}`}
       id="formMenu"
     >
       <div class="wrapper-form-tablet absolute top-0 right-0 w-full">
@@ -42,7 +46,7 @@ export const Modal = component$(() => {
           id="dynamicFormWrapper"
         >
           <Button
-            ariaLabel="close"
+            aria-label="close"
             variant={"iconBorder"}
             id="btnFormMenu"
             type="button"

@@ -1,6 +1,7 @@
 import { cva } from "class-variance-authority";
-import { component$, QwikIntrinsicElements, Slot } from "@builder.io/qwik";
+import { component$, QwikIntrinsicElements } from "@builder.io/qwik";
 import type { VariantProps } from "class-variance-authority";
+import { NodeProps } from "postcss";
 
 const chipVariants = cva("", {
   variants: {
@@ -14,25 +15,34 @@ const chipVariants = cva("", {
   },
 });
 
-interface ChipProps extends VariantProps<typeof chipVariants> {
+interface ChipProps extends NodeProps, VariantProps<typeof chipVariants> {
   attributes?: QwikIntrinsicElements["div"];
   className?: string;
   id?: string;
   label: string;
   onClick$?: () => void;
+  name: string;
 }
 
 export const Chip = component$((props: ChipProps) => {
-  const { onClick$, variant, attributes, label, className, ...otherProps } =
-    props;
+  const {
+    name,
+    onClick$,
+    variant,
+    attributes,
+    label,
+    className,
+    ...otherProps
+  } = props;
   return (
     <div class={`h-[29px] lg:h-[38px]`} {...attributes} onClick$={onClick$}>
       <input
         class="peer sr-only"
         id={label}
-        name={label}
+        name={name}
         type="checkbox"
         value={label}
+        {...otherProps}
       />
       <label class={chipVariants({ variant, className })} for={label}>
         {label}

@@ -3,7 +3,7 @@ import { NavbarList } from "~/components/shared/navbar/navbar-list/NavbarList";
 
 export const Navbar = component$(() => {
   return (
-    <nav class="w-[450px] xl:ml-auto xl:mr-auto xl:block xl:w-[573px] 2xl:ml-0 2xl:mr-0 2xl:w-[568px]">
+    <nav class="xl:block w-[450px] xl:ml-auto xl:mr-auto xl:w-[573px] 2xl:ml-0 2xl:mr-0 2xl:w-[568px]">
       <NavbarList />
     </nav>
   );

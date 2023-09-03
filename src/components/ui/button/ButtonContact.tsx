@@ -1,25 +1,52 @@
-import { component$, useContext } from "@builder.io/qwik";
+import { component$, Signal, useContext } from "@builder.io/qwik";
 import { PencilIcon } from "~/assets/icons";
 import { ModalProvider } from "~/context";
 
-export const ButtonContact = component$(() => {
+interface ButtonContactProps {
+  isHoveredPhoneLink: {
+    isHovered: boolean;
+  };
+  burgerMenuData: {
+    isActive: boolean;
+  };
+}
+
+export const ButtonContact = component$((props: ButtonContactProps) => {
   const { showDynamicForm } = useContext(ModalProvider);
 
   return (
     <>
       <button
         aria-label="{label}"
-        class="ml-5 light-theme-white-text btn_a--svg group transition-all ease-in-out duration-250 bg-main lg:bg-transparent uppercase relative w-[40px] h-[40px] lg:w-[190px] lg:h-[46px] hover:bg-white lg:hover:bg-transparent hover:ring-1 hover:ring-inset lg:hover:ring-0 overflow-hidden rounded-full active:ring-main text-white dark:hover:text-white hover:text-white fill-white hover:fill-dark lg:hover:fill-white dark:hover:fill-dark lg:dark:hover:fill-white"
+        class={`
+          light-theme-white-text btn_a--svg group transition-all ease-in-out duration-250 bg-main lg:bg-transparent uppercase relative w-[40px] h-[40px] hover:bg-white lg:hover:bg-transparent hover:ring-1 hover:ring-inset lg:hover:ring-0 overflow-hidden rounded-full active:ring-main text-white dark:hover:text-white hover:text-white fill-white hover:fill-dark lg:hover:fill-white dark:hover:fill-dark lg:dark:hover:fill-white
+        ${
+          props.isHoveredPhoneLink.isHovered
+            ? "lg:w-[46px] lg:h-[46px]"
+            : "lg:w-[190px] lg:h-[46px]"
+        }
+        `}
         id="{id}"
-        onClick$={() => showDynamicForm()}
+        onClick$={() => {
+          props.burgerMenuData.isActive = false;
+          showDynamicForm();
+        }}
       >
-        <span class="absolute top-[50%] left-[50%] translate-x-[-60%] translate-y-[-50%] text-inherit z-[3] w-full hidden text-base font-medium leading-[21px] transition-all ease-in-out lg:duration-250 group-active:text-main dark:group-active:text-main lg:block">
+        <span
+          class={`absolute top-[50%] left-[50%] translate-x-[-60%] translate-y-[-50%] text-inherit z-[3] w-full hidden text-base font-medium leading-[21px] transition-all ease-in-out lg:duration-250 group-active:text-main dark:group-active:text-main ${
+            props.isHoveredPhoneLink.isHovered
+              ? "lg:hidden opacity-0"
+              : "lg:block opacity-100"
+          }`}
+        >
           Let's talk
         </span>
         <PencilIcon
-          class={
-            "h-[15px] w-[16px] top-[13px] right-[12px] lg:top-[14px] lg:right-[23px] z-[3] absolute light-theme-white-text transition-all ease-in lg:duration-250 fill-inherit group-active:fill-main dark:group-active:fill-main lg:dark:group-active:fill-main"
-          }
+          class={`h-[15px] w-[16px] top-[13px] right-[12px] lg:top-[14px] ${
+            props.isHoveredPhoneLink.isHovered
+              ? "lg:right-[16px]"
+              : "lg:right-[23px]"
+          } z-[3] absolute light-theme-white-text transition-all ease-in lg:duration-250 fill-inherit group-active:fill-main dark:group-active:fill-main lg:dark:group-active:fill-main`}
         />
         <svg
           class="btn_a--svg__border hidden lg:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] origin-center"
@@ -52,7 +79,7 @@ export const ButtonContact = component$(() => {
           </g>
         </svg>
         <svg
-          class=" hidden lg:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] origin-center"
+          class="hidden lg:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] origin-center"
           enable-background="new 0 0 60 60"
           viewBox="0 0 60 60"
           width="190"

@@ -43,5 +43,9 @@
     "vite": "4.4.1",
     "vite-tsconfig-paths": "4.2.0",
     "vitest": "^0.33.0"
+  },
+  "dependencies": {
+    "@modular-forms/qwik": "^0.20.2",
+    "swiper": "^10.2.0"
   }
 }

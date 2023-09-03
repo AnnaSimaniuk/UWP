@@ -1,3 +1,5 @@
+import { MinesIcon } from "~/assets/icons/MinesIcon";
+
 export { LogoIcon } from "./LogoIcon";
 export { DarkThemeIcon } from "./DarkThemeIcon";
 export { LightThemeIcon } from "./LightThemeIcon";
@@ -6,3 +8,14 @@ export { ArrowLinkDropdownIcon } from "./ArrowLinkDropdownIcon";
 export { PhoneIcon } from "./PhoneIcon";
 export { PencilIcon } from "./PencilIcon";
 export { CloseIcon } from "./CloseIcon";
+export { ClipIcon } from "./ClipIcon";
+export { SpinnerIcon } from "./SpinnerIcon";
+export { ArrowUpIcon } from "./ArrowUpIcon";
+export { BackIcon } from "./BackIcon";
+export { ArrowRightIcon } from "./ArrowRightIcon";
+export { ArrowBigRedBtnIcon } from "./ArrowBigRedBtnIcon";
+export { MutedIcon } from "./MutedIcon";
+export { UnmutedIcon } from "./UnmutedIcon";
+export { ArrowCardIcon } from "./ArrowCardIcon";
+export { PlusIcon } from "./PlusIcon";
+export { MinesIcon } from "./MinesIcon";

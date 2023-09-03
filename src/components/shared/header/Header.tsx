@@ -1,15 +1,88 @@
-import { component$ } from "@builder.io/qwik";
+import {
+  $,
+  component$,
+  useContext,
+  useOnWindow,
+  useSignal,
+  useStore,
+  useTask$,
+} from "@builder.io/qwik";
 import { HeaderLogo } from "~/components/shared/header/header-logo/HeaderLogo";
 import { ButtonTheme } from "~/components/ui";
 import { Navbar } from "~/components/shared/navbar/Navbar";
 import { Speak } from "qwik-speak";
 import { PhoneLink } from "~/components/shared/header/phone-link/PhoneLink";
 import { ButtonContact } from "~/components/ui/button/ButtonContact";
+import {
+  ButtonLanguage,
+  data,
+} from "~/components/shared/header/button-language/ButtonLanguage";
+import { useMediaQuery } from "~/hooks/useMediaQuery";
+import { ButtonBurgerMenu } from "~/components/ui/button/ButtonBurgerMenu";
+import { useLocation } from "@builder.io/qwik-city";
+import { BurgerMenu } from "~/components/shared/header/burger-menu/BurgerMenu";
+import { ModalProvider } from "~/context";
+
+const urlWhiteHeader = ["case", "contact", "blog"];
 
 const HeaderApp = component$(() => {
+  const { url } = useLocation();
+  const isHoveredPhoneLink = useStore({ isHovered: false });
+  const isXlScreen = useMediaQuery("xl");
+  const isLgScreen = useMediaQuery("lg");
+  const burgerMenuData = useStore({
+    isActive: false,
+    whiteHeader: false,
+  });
+  const headerScroll = useSignal("");
+  const { headerClass } = useContext(ModalProvider);
+  const y = useSignal(0);
+
+  useOnWindow(
+    "load",
+    $(() => {
+      y.value = scrollY;
+    }),
+  );
+
+  useOnWindow(
+    "scroll",
+    $(() => {
+      if (scrollY > 300 && scrollY > y.value) {
+        headerScroll.value = "isFixed";
+      }
+      if (scrollY < y.value && headerScroll.value === "isFixed") {
+        headerScroll.value = "isFixed isVisible";
+      }
+      if (scrollY === 0) {
+        headerScroll.value = "";
+      }
+      y.value = scrollY;
+    }),
+  );
+
+  useTask$(async ({ track }) => {
+    track(() => url.pathname);
+    if (url.pathname.includes("services")) {
+      const regex = /\/services\/.+/;
+      burgerMenuData.whiteHeader = regex.test(url.pathname);
+      return;
+    }
+    burgerMenuData.whiteHeader = urlWhiteHeader.some((item) => {
+      return url.pathname.includes(item);
+    });
+    return;
+  });
+
   return (
     <header
-      class="header min-h-[var(--header-h)] bg-dark text-white md:min-h-[var(--header-h-lg)] lg:min-h-[var(--header-h-xl)] white-header"
+      class={`header min-h-[var(--header-h)] bg-dark text-white md:min-h-[var(--header-h-lg)] lg:min-h-[var(--header-h-xl)] ${
+        burgerMenuData.whiteHeader ? "white-header" : ""
+      } ${
+        burgerMenuData.whiteHeader && burgerMenuData.isActive
+          ? "burger-paint-header-dark"
+          : ""
+      } ${headerScroll.value} ${headerClass}`}
       id="mainNav"
     >
       <div
@@ -19,125 +92,54 @@ const HeaderApp = component$(() => {
         <div class="flex grow items-center justify-between">
           <div class="lg:block">
             <div
-              class="flex items-center gap-[20px] sm:gap-[40px] lg:gap-[51px] xl:gap-[38px] 2xl:gap-[51px]"
+              class={`flex items-center gap-[20px] sm:gap-[40px] lg:gap-[51px] xl:gap-[38px] 2xl:gap-[51px] transition-all ease-linear
+              ${
+                burgerMenuData.isActive
+                  ? "lg:-translate-y-5 lg:opacity-0"
+                  : "opacity-100 transform-none"
+              }
+              `}
               id="logoOpacity"
             >
-              <HeaderLogo />
+              <HeaderLogo isBurgerActive={burgerMenuData.isActive} />
               <ButtonTheme />
             </div>
           </div>
-          <Navbar />
-          <PhoneLink />
-          <div class="flex xl:items-center">
-            <ButtonContact />
-            {/*{button_language}*/}
-            <button
-              aria-label="button burger"
-              class="burger ml-[33px] items-center lg:ml-[37px] xl:hidden"
-              type="button"
+          {isXlScreen && <Navbar />}
+          <div class="flex lg:items-center">
+            {isLgScreen && !isXlScreen && (
+              <div
+                class={`${
+                  burgerMenuData.isActive
+                    ? "lg:translate-y-0 opacity-100 transition-all ease-linear delay-150"
+                    : "opacity-0"
+                } lg:-translate-y-5 mr-[37px] opacity-0`}
+              >
+                <HeaderLogo isBurgerActive={burgerMenuData.isActive} />
+              </div>
+            )}
+            <div
+              class={`flex items-center lg:w-[260px] lg:justify-between gap-[10px]`}
             >
-              <span class="burger__box">
-                <span class="burger__inner"></span>
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        class="invisible absolute top-[76px] left-0 right-0 z-30 h-[calc(100vh-76px)] overflow-hidden opacity-0 transition-all lg:top-0 lg:h-[100vh] xl:hidden"
-        id="menu"
-      >
-        <div class="wrapper-menu-tablet h-full lg:flex">
-          <div
-            class="bg-main/70 backdrop-blur-xl lg:h-full lg:w-full"
-            id="backdrop_01"
-          ></div>
-          <div
-            class="red-gradient-menu header__contact-body absolute right-0 flex w-full translate-x-full flex-col justify-between overflow-y-auto bg-dark px-5 pt-[33px] pb-20 lg:w-[56.7%] lg:px-[32px] lg:pb-[50px] lg:pt-[22px]"
-            id="dynamicMenu"
-          >
-            <div class="dynamicMenuContainer z-10">
-              <div class="hidden lg:mb-[66px] lg:block">
-                <div class="menu-tablet flex items-center justify-between">
-                  <div>
-                    <a
-                      aria-label="{label_logo}"
-                      class="logo__link flex h-10 md:h-[42px] lg:h-12"
-                      href="{href_logo}"
-                    >
-                      <svg
-                        class="h-[41px] w-[103px] md:h-[42px]"
-                        fill="none"
-                        viewBox="0 0 103 41"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          clip-rule="evenodd"
-                          d="m11.309 14.922 24.39 19.494H.392l10.916-19.494zM10.669 6.54l8.354-5.344L37.54 34.198 10.669 6.54z"
-                          fill="#fff"
-                          fill-rule="evenodd"
-                        />
-                        <path
-                          clip-rule="evenodd"
-                          d="m13.31 11.384 22.388 23.031-24.39-19.493 2.002-3.538z"
-                          fill="#ACACAC"
-                          fill-rule="evenodd"
-                        />
-                        <path
-                          clip-rule="evenodd"
-                          d="M88.01 13.249v9.79h-2.084V11.126H96.504c1.442 0 2.628-.587 3.433-1.846a3.86 3.86 0 0 0 .35-3.426 3.77 3.77 0 0 0-.984-1.454 3.626 3.626 0 0 0-1.522-.83 5.209 5.209 0 0 0-1.322-.181c-3.105-.017-6.212 0-9.316-.012a.342.342 0 0 0-.229.052.358.358 0 0 0-.145.19c-3.114 6.385-6.231 12.77-9.352 19.155l-.15.253L66.074 1.253h.289c.578 0 1.158.044 1.73 0 .47-.048.672.158.874.559 2.476 4.93 4.961 9.86 7.457 14.786.277.546.552 1.095.85 1.692.07-.133.124-.22.167-.314 1.472-3.1 2.954-6.199 4.408-9.309 1.108-2.37 2.184-4.76 3.264-7.145a.402.402 0 0 1 .161-.216.383.383 0 0 1 .257-.062c3.813.01 7.626.01 11.44 0a6.586 6.586 0 0 1 2.476.461c.689.257 1.307.683 1.801 1.24a4.713 4.713 0 0 1 1.036 1.957 7.226 7.226 0 0 1-.106 4.606c-.705 1.851-1.98 3.079-3.859 3.584a5.429 5.429 0 0 1-1.409.15c-2.863.014-5.723 0-8.586 0l-.315.007zM56.964 4.552v10.299a12.356 12.356 0 0 1-.322 3.108c-.634 2.436-2.114 4.03-4.483 4.69-2.048.57-4.131.646-6.158 0-2.396-.773-3.835-2.505-4.312-5.06a16.525 16.525 0 0 1-.235-3.044V1.273h2.08v.324c0 4.686.005 9.37.013 14.052a5.436 5.436 0 0 0 1.033 3.366 4.476 4.476 0 0 0 2.51 1.672 7.56 7.56 0 0 0 4.698-.212c1.792-.68 2.757-2.074 3.013-3.997.056-.473.08-.95.073-1.426V1.271c.098 0 .176-.015.253-.015h2.708c.08-.01.16.01.226.054.068.044.118.11.143.188a7156.59 7156.59 0 0 0 7.252 15.299c.573 1.208 1.144 2.416 1.724 3.625a.449.449 0 0 1 0 .442c-.326.662-.641 1.334-.96 2-.022.042-.047.083-.097.172L57.02 4.55l-.056.002z"
-                          fill="#fff"
-                          fill-rule="evenodd"
-                        />
-                        <path
-                          d="M42.349 27.852h2.583c2.024 0 3.389 1.34 3.389 3.253 0 1.914-1.364 3.255-3.389 3.255h-2.583v-6.508zm2.538 5.904c1.68 0 2.765-1.097 2.765-2.658s-1.085-2.658-2.765-2.658H43.01v5.316h1.878zM53.876 27.852h.669v6.508h-.67v-6.508zM65.125 31.097h.634v2.49a3.433 3.433 0 0 1-2.322.828c-1.924 0-3.335-1.404-3.335-3.31 0-1.907 1.409-3.311 3.344-3.311.958 0 1.79.316 2.348.94l-.408.43a2.578 2.578 0 0 0-.877-.584 2.518 2.518 0 0 0-1.03-.18c-1.562 0-2.71 1.146-2.71 2.697 0 1.552 1.148 2.697 2.7 2.697a2.69 2.69 0 0 0 1.656-.503v-2.194zM71.72 27.852h.667v6.508h-.667v-6.508zM79.742 28.44h-2.224v-.595h5.115v.594H80.41v5.92h-.667v-5.92zM91.415 32.62h-3.523l-.761 1.74h-.705l2.891-6.508h.66l2.891 6.508h-.704l-.75-1.74zm-.235-.558-1.517-3.494-1.53 3.497 3.047-.003zM97.99 27.852h.67v5.904h3.541v.597h-4.21v-6.5z"
-                          fill="#fff"
-                        />
-                        <path
-                          d="M.393 36.455h1.63v.338H.782v1.035h1.143v.33H.782v1.41h-.39v-3.113zM3.48 38.168v.3H2.373v-.3h1.109zM3.887 39.152c.156.1.336.157.521.161.287 0 .423-.147.423-.333 0-.186-.113-.3-.404-.41-.392-.143-.575-.366-.575-.634 0-.36.284-.655.749-.655.187-.001.371.046.535.138l-.098.297a.837.837 0 0 0-.447-.13c-.234 0-.361.14-.361.304 0 .165.129.268.41.38.379.147.571.34.571.674 0 .394-.295.67-.812.67a1.218 1.218 0 0 1-.61-.153l.098-.31zM6.106 38.347c.054-.077.13-.174.193-.242l.639-.773h.47l-.832.918.956 1.317H7.06l-.75-1.07-.201.23v.84h-.39v-3.279h.387v2.059zM9.107 39.567l-.033-.283a.814.814 0 0 1-.293.25.788.788 0 0 1-.371.084.605.605 0 0 1-.469-.171.64.64 0 0 1-.196-.47c0-.541.47-.836 1.306-.833v-.04a.474.474 0 0 0-.125-.38.446.446 0 0 0-.368-.136c-.2 0-.396.058-.566.166l-.09-.268c.213-.13.457-.2.705-.198.665 0 .824.467.824.914v.836c-.003.18.01.359.038.536l-.362-.007zm-.058-1.14c-.433 0-.921.07-.921.502a.37.37 0 0 0 .102.28.35.35 0 0 0 .271.104.53.53 0 0 0 .322-.1.555.555 0 0 0 .202-.274.424.424 0 0 0 .024-.13v-.388.005zM10.524 36.69v.642h.566v.31h-.566v1.208c0 .278.077.435.296.435a.832.832 0 0 0 .235-.03l.018.305a.915.915 0 0 1-.35.056.535.535 0 0 1-.427-.172.84.84 0 0 1-.153-.58v-1.208h-.34v-.324h.336v-.536l.385-.106zM12.01 36.69v.642h.566v.31h-.566v1.208c0 .278.078.435.296.435a.81.81 0 0 0 .235-.03l.019.305a.914.914 0 0 1-.35.056.54.54 0 0 1-.427-.172.851.851 0 0 1-.15-.58v-1.208h-.346v-.324h.338v-.536l.386-.106zM14.075 39.282c.105.007.212.002.317-.014.228-.029.441-.13.61-.29.215-.213.352-.495.388-.8h-.014a.861.861 0 0 1-.308.244.836.836 0 0 1-.38.08.824.824 0 0 1-.627-.265.873.873 0 0 1-.236-.653 1.06 1.06 0 0 1 .28-.752 1.004 1.004 0 0 1 .719-.316c.596 0 .965.5.965 1.266.013.258-.024.515-.11.757-.087.242-.22.464-.393.652a1.465 1.465 0 0 1-.85.4c-.12.022-.24.03-.361.025v-.334zm.143-1.727a.594.594 0 0 0 .142.448.56.56 0 0 0 .419.19.645.645 0 0 0 .328-.08.667.667 0 0 0 .247-.234.29.29 0 0 0 .036-.148c0-.515-.184-.906-.597-.906-.338 0-.575.314-.575.73zM16.149 39.568v-.242l.307-.31c.747-.724 1.083-1.116 1.088-1.57a.548.548 0 0 0-.154-.436.517.517 0 0 0-.427-.149.985.985 0 0 0-.62.254l-.124-.288c.232-.198.525-.305.827-.304a.799.799 0 0 1 .638.228.842.842 0 0 1 .254.644c0 .556-.39 1.003-1.005 1.612l-.235.222h1.308v.339H16.15zM20.388 38.036c0 1.02-.367 1.582-1.013 1.582-.57 0-.955-.548-.965-1.541-.01-.993.423-1.561 1.015-1.561.592 0 .963.563.963 1.52zm-1.583.045c0 .781.235 1.223.592 1.223.404 0 .596-.483.596-1.252 0-.768-.183-1.222-.592-1.222-.345 0-.596.435-.596 1.252zM21.607 36.946l-.507.28-.076-.31.637-.35h.338v3.002h-.392v-2.622zM24.72 36.854c-.099-.004-.199.001-.297.017-.26.038-.501.163-.685.356-.183.193-.3.444-.33.712h.014a.889.889 0 0 1 .462-.313.866.866 0 0 1 .552.028c.177.069.328.194.43.358a.936.936 0 0 1 .141.55 1.03 1.03 0 0 1-.265.742.975.975 0 0 1-.705.314c-.624 0-1.033-.497-1.033-1.278a1.925 1.925 0 0 1 .495-1.353c.257-.252.588-.407.94-.442.096-.016.192-.024.289-.025v.334h-.007zm-.112 1.73c0-.43-.235-.689-.601-.689a.633.633 0 0 0-.334.104.658.658 0 0 0-.232.266.344.344 0 0 0-.045.181c0 .484.235.858.641.858.34.01.571-.29.571-.715v-.005zM25.45 39.101c.197.119.42.184.647.189.507 0 .664-.331.66-.58 0-.42-.374-.602-.754-.602h-.221v-.304h.22c.287 0 .651-.153.651-.508 0-.242-.148-.452-.512-.452a1.051 1.051 0 0 0-.582.198l-.106-.294c.226-.156.492-.24.763-.242.576 0 .836.35.836.725a.763.763 0 0 1-.154.446.726.726 0 0 1-.383.262c.18.026.345.12.464.26.12.142.186.323.186.51 0 .484-.364.902-1.064.902a1.45 1.45 0 0 1-.758-.203l.108-.307zM28.7 38.168v.3h-1.11v-.3h1.11zM30.7 36.854a1.466 1.466 0 0 0-.295.017c-.26.038-.501.163-.684.356-.184.193-.3.444-.33.712h.013a.889.889 0 0 1 .462-.313.867.867 0 0 1 .553.028c.176.069.327.194.43.358a.936.936 0 0 1 .14.55 1.03 1.03 0 0 1-.265.742.974.974 0 0 1-.704.314c-.625 0-1.032-.497-1.032-1.278-.008-.248.03-.495.116-.727.084-.233.213-.445.378-.626.256-.252.587-.407.94-.442.094-.016.19-.024.286-.025v.334H30.7zm-.11 1.73c0-.43-.235-.689-.601-.689a.635.635 0 0 0-.333.104.661.661 0 0 0-.233.266.343.343 0 0 0-.045.181c0 .484.235.858.642.858.34.01.57-.29.57-.715v-.005zM32.196 36.946l-.508.28-.075-.31.637-.35h.336v3.002h-.38v-2.622h-.01zM33.734 39.101c.197.118.419.183.646.189.508 0 .665-.331.66-.58 0-.42-.373-.602-.754-.602h-.22v-.304h.223c.286 0 .65-.153.65-.508 0-.242-.148-.452-.51-.452-.209.006-.412.075-.584.198l-.103-.294c.225-.157.49-.24.763-.242.573 0 .834.35.834.725a.76.76 0 0 1-.154.446.724.724 0 0 1-.384.262c.18.026.345.12.464.26.12.142.186.323.186.51 0 .484-.364.902-1.064.902a1.456 1.456 0 0 1-.758-.203l.105-.307zM35.933 39.568v-.242l.31-.31c.744-.724 1.082-1.116 1.087-1.57a.551.551 0 0 0-.154-.435.52.52 0 0 0-.426-.15.98.98 0 0 0-.62.254l-.125-.288c.232-.197.524-.305.825-.304a.8.8 0 0 1 .639.228.847.847 0 0 1 .256.644c0 .556-.393 1.003-1.008 1.612l-.235.222h1.33v.339h-1.88z"
-                          fill="#F8F8F8"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="flex items-center">
-                    {/*{button_contact_tablet}*/}
-                    <button
-                      aria-label="close"
-                      class="ml-[33px]"
-                      id="closeMenuTablet"
-                      type="button"
-                    >
-                      <svg
-                        fill="none"
-                        height="28"
-                        viewBox="0 0 27 28"
-                        width="27"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M2.45459 0.908203L27.0001 25.4537L24.5455 27.9082L4.12164e-05 3.36275L2.45459 0.908203Z"
-                          fill="white"
-                        />
-                        <path
-                          d="M0 25.4541L24.5455 0.908614L27 3.36316L2.45455 27.9087L0 25.4541Z"
-                          fill="white"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="border__bottom flex gap-[1px] pb-[28px]">
-                {/*{button_language_tablet}*/}
-              </div>
-              {/*{nav_mobile}*/}
+              <PhoneLink
+                isHoveredPhoneLink={isHoveredPhoneLink}
+                isBurgerActive={burgerMenuData.isActive}
+                isWhiteHeader={burgerMenuData.whiteHeader}
+              />
+              <ButtonContact
+                isHoveredPhoneLink={isHoveredPhoneLink}
+                burgerMenuData={burgerMenuData}
+              />
             </div>
-            {/*{social}*/}
+            {isXlScreen && <ButtonLanguage languageData={data} />}
+            {!isXlScreen && (
+              <ButtonBurgerMenu burgerMenuData={burgerMenuData} />
+            )}
           </div>
         </div>
       </div>
       <div id="progressline"></div>
+      {!isXlScreen && <BurgerMenu burgerMenuData={burgerMenuData} />}
     </header>
   );
 });
