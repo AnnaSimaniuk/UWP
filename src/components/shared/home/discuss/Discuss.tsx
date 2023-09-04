@@ -1,7 +1,4 @@
 import { component$, useStyles$, useVisibleTask$ } from "@builder.io/qwik";
-// @ts-ignore
-// import swiperStyles from "swiper/css";
-import Swiper from "swiper";
 import { ButtonSticky } from "~/components/ui/button/ButtonSticky";
 import { DiscussSlide } from "~/components/shared/home/discuss/discuss-slide/DiscussSlide";
 
@@ -39,28 +36,6 @@ const data = [
 ];
 
 export const Discuss = component$(() => {
-  // useStyles$(swiperStyles);
-  useVisibleTask$(() => {
-    const swiper = new Swiper(".mySwiper", {
-      loop: true,
-      autoplay: { delay: 1e4 },
-      pagination: { el: ".swiper-pagination", clickable: true },
-      effect: "fade",
-      fadeEffect: { crossFade: true },
-      navigation: { nextEl: ".swiper-next-slide" },
-    });
-    // const swiperBlog = new Swiper(".blogSwiper", {
-    //   spaceBetween: 31,
-    //   breakpoints: {
-    //     820: { spaceBetween: 20 },
-    //     1280: { spaceBetween: 30 },
-    //   },
-    //   slidesPerView: "auto",
-    //   freeMode: true,
-    // });
-    // swiperBlog.setGrabCursor();
-  });
-
   return (
     <section class="discuss bg-dark pt-[62px] pb-[80px] lg:pt-[65px] lg:pb-[80px] xl:pt-[47px] xl:pb-[41px] 2xl:pt-[110px] 2xl:pb-[41px]">
       <div class="container sm:max-w-full lg:px-[30px] 3xl:max-w-[1920px] 3xl:px-[135px]">
