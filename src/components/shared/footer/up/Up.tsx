@@ -1,24 +1,27 @@
-import { $, component$, useOnDocument } from "@builder.io/qwik";
+import { component$, useStore, useVisibleTask$ } from "@builder.io/qwik";
 
 export const Up = component$(() => {
-  useOnDocument(
-    "click",
-    $((ev) => {
-      console.log(ev);
-      //
-      // document.body.scrollTop = 0;
-      // document.documentElement.scrollTop = 0;
-    }),
-  );
+  const upButton = useStore({ click: false });
+
+  useVisibleTask$(({ track }) => {
+    track(upButton);
+    if (upButton.click) {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      upButton.click = false;
+    }
+  });
   return (
     <div class="mb-[42px] flex justify-between">
-      <span class="text-sm font-medium leading-[1.3] text-middleGrey">Up</span>
+      <span class="text-sm font-medium leading-[1.3] text-middleGrey">
+        Look also
+      </span>
       <button
         aria-label="button up"
         class="flex items-center text-sm font-medium leading-[1.3] text-middleGrey transition-all hover:text-main active:text-main"
         id="upButton"
         type="button"
-        onClick$={() => {}}
+        onClick$={() => (upButton.click = true)}
       >
         Up
         <svg

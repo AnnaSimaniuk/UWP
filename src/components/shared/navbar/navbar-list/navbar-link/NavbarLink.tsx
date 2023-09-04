@@ -1,6 +1,5 @@
 import { component$, useSignal, useTask$ } from "@builder.io/qwik";
-import { Link, useLocation } from "@builder.io/qwik-city";
-import "../../../../../styles/header.css";
+import { useLocation } from "@builder.io/qwik-city";
 import { useTranslate } from "qwik-speak";
 import { useHref } from "~/hooks/useHref";
 import { ArrowDownIcon } from "~/assets/icons";
@@ -22,10 +21,6 @@ export const NavbarLink = component$((props: NavbarLinkProps) => {
 
   useTask$(({ track }) => {
     track(() => url.pathname);
-    if (url.pathname === "/") {
-      activeLink.value = href === "/";
-      return;
-    }
     activeLink.value = url.pathname.includes(href);
   });
   return (

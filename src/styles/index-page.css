@@ -16,7 +16,7 @@ BEGIN: 05-sections-our-cases    achievements
   }
 
   .achievements__subtitle {
-    @apply pt-[30px] pb-[20px] text-base font-medium leading-[22px] text-dark dark:text-white lg:pt-[31px] lg:pb-[38px] xl:hidden;
+    @apply pt-[30px] pb-[20px] text-base font-medium leading-[22px] text-dark dark:text-white lg:pt-[31px] lg:pb-[38px];
   }
 
   /* ============

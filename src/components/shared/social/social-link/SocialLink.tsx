@@ -6,21 +6,23 @@ interface SocialLinkProps {
   href: string;
   icon: string;
   title: string;
+  classLink?: string;
+  classIcon?: string;
 }
 
 export const SocialLink = component$((props: SocialLinkProps) => {
-  const { label, href, icon, title } = props;
+  const { label, href, icon, title, classIcon, classLink } = props;
   return (
     <li>
       <Link
         aria-label={label}
-        class="social__link-menu"
+        class={classLink}
         href={href}
         rel="noopener noreferrer"
         target="_blank"
         title={title}
       >
-        <span class="icon-menu" dangerouslySetInnerHTML={icon} />
+        <span class={classIcon} dangerouslySetInnerHTML={icon} />
       </Link>
     </li>
   );

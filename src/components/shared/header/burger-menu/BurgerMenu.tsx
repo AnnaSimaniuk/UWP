@@ -116,7 +116,13 @@ export const BurgerMenu = component$((props: BurgerMenuProps) => {
                 </ul>
               </nav>
             </div>
-            <Social />
+            <Social
+              classList={
+                "flex flex-wrap items-center justify-center gap-2 sm:gap-5"
+              }
+              classIcon={"icon-menu"}
+              classLink={"social__link-menu"}
+            />
           </div>
         </div>
       </div>

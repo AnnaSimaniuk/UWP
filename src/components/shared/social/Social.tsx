@@ -39,12 +39,19 @@ const socialLinks = [
     title: "Instagram",
   },
 ];
-export const Social = component$(() => {
+
+interface SocialProps {
+  classList?: string;
+  classLink?: string;
+  classIcon?: string;
+}
+export const Social = component$((props: SocialProps) => {
+  const { classList, classLink, classIcon } = props;
   return (
     <div>
-      <ul class="flex flex-wrap items-center justify-center gap-2 sm:gap-5">
+      <ul class={classList}>
         {socialLinks.map((link) => (
-          <SocialLink {...link} />
+          <SocialLink {...link} classIcon={classIcon} classLink={classLink} />
         ))}
       </ul>
     </div>
