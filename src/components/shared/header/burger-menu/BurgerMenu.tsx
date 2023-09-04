@@ -78,6 +78,7 @@ export const BurgerMenu = component$((props: BurgerMenuProps) => {
                       key={link.path}
                       classWrapper={"mb-[30px]"}
                       serviceMenuActive={serviceMenuActive}
+                      burgerMenuData={props.burgerMenuData}
                     />
                   ))}
                 </ul>
@@ -111,6 +112,7 @@ export const BurgerMenu = component$((props: BurgerMenuProps) => {
                       key={link.path}
                       classWrapper={"mb-[17px]"}
                       serviceMenuActive={serviceMenuActive}
+                      burgerMenuData={props.burgerMenuData}
                     />
                   ))}
                 </ul>
