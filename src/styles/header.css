@@ -1,10 +1,10 @@
 /* form */
 .header__contact-body {
-    @apply absolute top-0  z-20 h-full w-full bg-dark
+  @apply absolute top-0  z-20 h-full w-full bg-dark
     transition-all ease-in;
 }
 
-.isFixed {
+/* .isFixed {
     @apply top-[-78px] right-0 left-0
     transition-all  duration-300 ease-in
     lg:top-[-87px]
@@ -18,7 +18,7 @@
 
 .header--active .btn-language {
     @apply absolute left-5 top-[128px] flex;
-}
+} */
 
 /* .header__contact-body::-webkit-scrollbar-thumb {
   @apply h-[5px]  rounded-[20px] bg-main;
@@ -30,10 +30,10 @@ BEGIN: wrapper
 
 /* max-w-[1000px] */
 /* h-screen   igor remove*/
-.wrapper {
-    @apply relative m-auto flex  max-w-full flex-col
+/* .wrapper {
+  @apply relative m-auto flex  max-w-full flex-col
     pt-[var(--header-h)] lg:pt-[var(--header-h-xl)] xl:pt-[var(--header-h-xl)];
-}
+} */
 
 /*================================================
 BEGIN: 01-section-header
@@ -43,9 +43,9 @@ BEGIN: 01-section-header
 BEGIN: menu.js scroll
 ===================== */
 
-header {
-    @apply fixed top-0 right-0 left-0 z-30;
-}
+/* header {
+  @apply fixed top-0 right-0 left-0 z-30;
+} */
 
 /*.isFixed {*/
 /*    @apply top-[-78px] right-0 left-0*/
@@ -63,24 +63,24 @@ header {
 END: menu.js scroll
 ==================== */
 
-.header--active .btn-language {
-    @apply absolute left-5 top-[128px] flex;
-}
+/* .header--active .btn-language {
+  @apply absolute left-5 top-[128px] flex;
+} */
 
-.nav {
-    @apply flex items-center justify-between py-3.5;
-}
+/* .nav {
+  @apply flex items-center justify-between py-3.5;
+} */
 
 .link__list {
-    @apply absolute top-[184px] left-full mx-5 flex w-[92%] scale-0 flex-col gap-[30px] border-t border-lightDarkGrey px-2 pt-[30px] font-montserrat text-base uppercase text-lightGrey transition-all;
+  @apply absolute top-[184px] left-full mx-5 flex w-[92%] scale-0 flex-col gap-[30px] border-t border-lightDarkGrey px-2 pt-[30px] font-montserrat text-base uppercase text-lightGrey transition-all;
 }
 
 .link__list-btn {
-    @apply flex max-w-min gap-[10px] font-montserrat text-xs font-medium uppercase text-main before:font-mono before:text-[16px] before:content-['<'];
+  @apply flex max-w-min gap-[10px] font-montserrat text-xs font-medium uppercase text-main before:font-mono before:text-[16px] before:content-['<'];
 }
 
 .nav__btn {
-    @apply flex items-center gap-[33px];
+  @apply flex items-center gap-[33px];
 }
 
 /* ========================================
@@ -92,7 +92,7 @@ END: Backdrop menu header
 =========================================*/
 
 .btn__contact {
-    @apply flex items-center justify-end gap-[16px] transition-all;
+  @apply flex items-center justify-end gap-[16px] transition-all;
 }
 
 /* ===============
@@ -100,11 +100,11 @@ BEGIN: burger
 =============== */
 
 .burger {
-    @apply relative flex bg-transparent  text-white transition-all;
+  @apply relative flex bg-transparent  text-white transition-all;
 }
 
 .burger:hover .burger__inner {
-    @apply text-lightDarkGrey;
+  @apply text-lightDarkGrey;
 }
 
 /* .burger:hover .burger__inner {
@@ -116,11 +116,11 @@ BEGIN: burger
 } */
 
 .burger__box {
-    @apply relative h-[28px] w-[31px];
+  @apply relative h-[28px] w-[31px];
 }
 
 .burger__inner {
-    @apply absolute top-0 left-0 h-[3px] w-[31px] bg-current transition-all before:absolute
+  @apply absolute top-0 left-0 h-[3px] w-[31px] bg-current transition-all before:absolute
     before:top-3 before:block before:h-[3px] before:w-[31px] before:bg-current
     before:transition-all before:content-['']
     after:absolute after:top-[25px] after:block after:h-[3px] after:w-[31px] after:bg-current
@@ -145,33 +145,33 @@ BEGIN: burger-black
 
 /* bg-lightDarkGrey */
 .burger:hover .burger__inner-dark {
-    @apply bg-lightDarkGrey;
+  @apply bg-lightDarkGrey;
 }
 
 .burger:hover .burger__inner-dark {
-    @apply before:bg-lightDarkGrey;
+  @apply before:bg-lightDarkGrey;
 }
 
 .burger:hover .burger__inner-dark {
-    @apply after:bg-lightDarkGrey;
+  @apply after:bg-lightDarkGrey;
 }
 
 .burger__box {
-    @apply relative h-[28px] w-[31px];
+  @apply relative h-[28px] w-[31px];
 }
 
 /* bg-white */
 .burger__inner-dark {
-    @apply absolute top-0 left-0 h-[3px] w-[31px] bg-dark transition-all dark:bg-white;
+  @apply absolute top-0 left-0 h-[3px] w-[31px] bg-dark transition-all dark:bg-white;
 }
 
 /* before:bg-white */
 .burger__inner-dark {
-    @apply before:absolute before:top-3 before:block before:h-[3px] before:w-[31px] before:bg-dark before:transition-all before:content-[''] before:dark:bg-white;
+  @apply before:absolute before:top-3 before:block before:h-[3px] before:w-[31px] before:bg-dark before:transition-all before:content-[''] before:dark:bg-white;
 }
 
 .burger__inner-dark {
-    @apply after:absolute after:top-[25px] after:block after:h-[3px] after:w-[31px] after:bg-dark after:transition-all after:content-[''] after:dark:bg-white;
+  @apply after:absolute after:top-[25px] after:block after:h-[3px] after:w-[31px] after:bg-dark after:transition-all after:content-[''] after:dark:bg-white;
 }
 
 /*============================
@@ -179,23 +179,23 @@ BEGIN: burger-black
  ===========================*/
 
 .is-active {
-    @apply transition-all;
+  @apply transition-all;
 }
 
 .is-active.nav {
-    @apply top-0 transition-all;
+  @apply top-0 transition-all;
 }
 
 .is-active .burger__inner {
-    @apply !bg-transparent;
+  @apply !bg-transparent;
 }
 
 .is-active .burger__inner {
-    @apply before:top-0 before:translate-y-[13px] before:rotate-45 before:bg-lightGrey before:transition-all;
+  @apply before:top-0 before:translate-y-[13px] before:rotate-45 before:bg-lightGrey before:transition-all;
 }
 
 .is-active .burger__inner {
-    @apply after:top-0 after:translate-y-[13px] after:rotate-[-45deg] after:bg-lightGrey after:transition-all;
+  @apply after:top-0 after:translate-y-[13px] after:rotate-[-45deg] after:bg-lightGrey after:transition-all;
 }
 
 /* ==================
@@ -203,7 +203,7 @@ Menu header gradient
 ==================== */
 
 .red-gradient-menu {
-    @apply relative overflow-hidden
+  @apply relative overflow-hidden
     to-transparent before:absolute
     before:top-[135px] before:right-0
     before:h-[190px]
@@ -219,7 +219,7 @@ Menu header gradient
 }
 
 .header-scroll-menu {
-    @apply z-20 h-[calc(100vh)] overflow-y-scroll
+  @apply z-20 h-[calc(100vh)] overflow-y-scroll
     transition-all
     ease-in;
 }
@@ -231,7 +231,7 @@ translate-underline-header-menu
 /* active:text-main  */
 
 .translate-underline__hover-line__dark {
-    @apply relative cursor-pointer transition-all duration-100
+  @apply relative cursor-pointer transition-all duration-100
     before:absolute before:-bottom-1 before:right-0 before:h-px before:w-0
     before:bg-lightDarkGrey before:opacity-0 before:transition-all
     before:duration-1000 before:content-['']
@@ -247,12 +247,12 @@ translate-underline__hover-line
 ================================*/
 
 .translate-underline__hover {
-    @apply hover:translate-x-6 hover:text-main
+  @apply hover:translate-x-6 hover:text-main
     hover:underline hover:underline-offset-8 hover:transition-all;
 }
 
 .translate-underline__hover-line {
-    @apply relative cursor-pointer transition-all duration-500 before:absolute before:-bottom-0
+  @apply relative cursor-pointer transition-all duration-500 before:absolute before:-bottom-0
     before:right-0 before:h-px before:w-0 before:bg-main before:opacity-0
     before:transition-all before:duration-1000 before:content-['']
     hover:before:left-0 hover:before:right-auto
@@ -268,7 +268,7 @@ translate-underline__hover-line
 }*/
 
 .translate-underline__hover-line-back {
-    @apply relative cursor-pointer transition-all duration-500 before:absolute before:-bottom-0
+  @apply relative cursor-pointer transition-all duration-500 before:absolute before:-bottom-0
     before:left-0 before:h-px before:w-0 before:bg-main before:opacity-0
     before:transition-all before:duration-1000 before:content-['']
     hover:before:right-0 hover:before:left-auto
@@ -276,15 +276,15 @@ translate-underline__hover-line
 }
 
 .transition-arrov {
-    @apply transition-all group-hover:translate-x-2;
+  @apply transition-all group-hover:translate-x-2;
 }
 
 .transition-arrov__back {
-    @apply transition-all group-hover:-translate-x-2;
+  @apply transition-all group-hover:-translate-x-2;
 }
 
 .hover-text__grey {
-    @apply hover:text-middleGrey active:text-main;
+  @apply hover:text-middleGrey active:text-main;
 }
 
 /*.hover-icons__grey {*/
@@ -296,7 +296,7 @@ translate-underline__hover-line
 } */
 
 .btn-hover__white {
-    @apply transition-all ease-out hover:ring-white;
+  @apply transition-all ease-out hover:ring-white;
 }
 
 /*================================================
@@ -315,40 +315,40 @@ btn header
 */
 
 .link-oside__red {
-    @apply relative overflow-hidden;
+  @apply relative overflow-hidden;
 }
 
 .link-oside__red::after {
-    @apply absolute left-0 top-full h-full
+  @apply absolute left-0 top-full h-full
     w-full rounded-[70px] bg-main transition-all content-[''];
 }
 
 .link-oside__red:hover {
-    @apply scale-105 text-white;
+  @apply scale-105 text-white;
 }
 
 .link-oside__red:hover::after {
-    @apply absolute left-0 top-0 -z-10
+  @apply absolute left-0 top-0 -z-10
     h-full w-full rounded-[70px] bg-main
     transition-all content-[''];
 }
 
 /*================================================*/
 .link-oside {
-    @apply relative overflow-hidden;
+  @apply relative overflow-hidden;
 }
 
 .link-oside::after {
-    @apply absolute left-0 top-full h-full w-full
+  @apply absolute left-0 top-full h-full w-full
     rounded-[70px] bg-[#DC2D45] transition-all ease-in content-[''];
 }
 
 .link-oside:hover {
-    @apply scale-105;
+  @apply scale-105;
 }
 
 .link-oside:hover::after {
-    @apply absolute left-0 top-0 -z-10 h-full w-full
+  @apply absolute left-0 top-0 -z-10 h-full w-full
     rounded-[70px] bg-[#DC2D45] content-[''];
 }
 
@@ -357,58 +357,57 @@ Border position
 ==================================*/
 
 .border__top {
-    @apply border-t-[1px] border-t-middleGrey;
+  @apply border-t-[1px] border-t-middleGrey;
 }
 
 .border__left {
-    @apply border-l-[1px] border-l-middleGrey;
+  @apply border-l-[1px] border-l-middleGrey;
 }
 
 .border__right {
-    @apply border-r-[1px] border-r-middleGrey;
+  @apply border-r-[1px] border-r-middleGrey;
 }
 
 .border__bottom {
-    @apply border-b-[1px] border-b-middleGrey;
+  @apply border-b-[1px] border-b-middleGrey;
 }
 
 .border__rounded {
-    @apply rounded-full border-[1px] border-middleGrey
+  @apply rounded-full border-[1px] border-middleGrey
     hover:border-white;
 }
 
 .border__rounded-red {
-    @apply rounded-full border-[1px] border-middleGrey
+  @apply rounded-full border-[1px] border-middleGrey
     hover:border-main;
 }
 
-
 .btn_a--svg:hover .btn_a--svg__border--left .path_a,
 .btn_a--svg:hover .btn_a--svg__border--right .path_a {
-    stroke-dasharray: 61.8204345703125 61.8204345703125;
-    stroke-dashoffset: 0;
+  stroke-dasharray: 61.8204345703125 61.8204345703125;
+  stroke-dashoffset: 0;
 
-    transition-delay: 0.25s;
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
-    transition-property: stroke-dashoffset;
+  transition-delay: 0.25s;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-property: stroke-dashoffset;
 }
 
 @media (min-width: 820px) {
-    .btn_a--svg__border .btn_a--svg__border--left .path_a,
-    .btn_a--svg__border .btn_a--svg__border--right .path_a {
-        stroke-dasharray: 61.8204345703125 61.8204345703125;
-        transition-duration: 0s;
-        transition-timing-function: ease-in-out;
-        transition-property: stroke-dashoffset;
-        transition-delay: 0.5s;
-    }
+  .btn_a--svg__border .btn_a--svg__border--left .path_a,
+  .btn_a--svg__border .btn_a--svg__border--right .path_a {
+    stroke-dasharray: 61.8204345703125 61.8204345703125;
+    transition-duration: 0s;
+    transition-timing-function: ease-in-out;
+    transition-property: stroke-dashoffset;
+    transition-delay: 0.5s;
+  }
 
-    .btn_a--svg__border--left .path_a {
-        stroke-dashoffset: -61.8204345703125;
-    }
+  .btn_a--svg__border--left .path_a {
+    stroke-dashoffset: -61.8204345703125;
+  }
 
-    .btn_a--svg__border--right .path_a {
-        stroke-dashoffset: 61.8204345703125;
-    }
+  .btn_a--svg__border--right .path_a {
+    stroke-dashoffset: 61.8204345703125;
+  }
 }
