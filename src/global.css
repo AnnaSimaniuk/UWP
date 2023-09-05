@@ -11,60 +11,84 @@
 @import "./styles/contacts-page.css";
 
 @font-face {
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url("/fonts/montserrat/400.eot");
-    src: local(""), url("/fonts/montserrat/400.eot?#iefix") format("embedded-opentype"), url("/fonts/montserrat/400.woff2") format("woff2"), url("/fonts/montserrat/400.woff") format("woff"), url("/fonts/montserrat/400.ttf") format("truetype"), url('/fonts/montserrat/400.svg#Montserrat') format("svg")
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/montserrat/400.eot");
+  src:
+    local(""),
+    url("/fonts/montserrat/400.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/montserrat/400.woff2") format("woff2"),
+    url("/fonts/montserrat/400.woff") format("woff"),
+    url("/fonts/montserrat/400.ttf") format("truetype"),
+    url("/fonts/montserrat/400.svg#Montserrat") format("svg");
 }
 
 @font-face {
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url('/fonts/montserrat/500.eot');
-    src: local(""), url("/fonts/montserrat/500.eot?#iefix") format("embedded-opentype"), url('/fonts/montserrat/500.woff2') format("woff2"), url('/fonts/montserrat/500.woff') format("woff"), url('/fonts/montserrat/500.ttf') format("truetype"), url('/fonts/montserrat/500.svg#Montserrat') format("svg")
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/montserrat/500.eot");
+  src:
+    local(""),
+    url("/fonts/montserrat/500.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/montserrat/500.woff2") format("woff2"),
+    url("/fonts/montserrat/500.woff") format("woff"),
+    url("/fonts/montserrat/500.ttf") format("truetype"),
+    url("/fonts/montserrat/500.svg#Montserrat") format("svg");
 }
 
 @font-face {
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url("/fonts/montserrat/600.eot");
-    src: local(""), url("/fonts/montserrat/600.eot?#iefix") format("embedded-opentype"), url("/fonts/montserrat/600.woff2") format("woff2"), url("/fonts/montserrat/600.woff") format("woff"), url("/fonts/montserrat/600.ttf") format("truetype"), url("/fonts/montserrat/600.svg#Montserrat") format("svg")
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/montserrat/600.eot");
+  src:
+    local(""),
+    url("/fonts/montserrat/600.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/montserrat/600.woff2") format("woff2"),
+    url("/fonts/montserrat/600.woff") format("woff"),
+    url("/fonts/montserrat/600.ttf") format("truetype"),
+    url("/fonts/montserrat/600.svg#Montserrat") format("svg");
 }
 
 @font-face {
-    font-family: "Montserrat";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url("/fonts/montserrat/700.eot");
-    src: local(""), url("/fonts/montserrat/700.eot?#iefix") format("embedded-opentype"), url("/fonts/montserrat/700.woff2") format("woff2"), url("/fonts/montserrat/700.woff") format("woff"), url("/fonts/montserrat/700.ttf") format("truetype"), url("/fonts/montserrat/700.svg#Montserrat") format("svg")
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/montserrat/700.eot");
+  src:
+    local(""),
+    url("/fonts/montserrat/700.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/montserrat/700.woff2") format("woff2"),
+    url("/fonts/montserrat/700.woff") format("woff"),
+    url("/fonts/montserrat/700.ttf") format("truetype"),
+    url("/fonts/montserrat/700.svg#Montserrat") format("svg");
 }
 
 @tailwind base;
 @layer base {
-    *::selection {
-        @apply bg-main text-white;
-    }
+  *::selection {
+    @apply bg-main text-white;
+  }
 
-    .header__contact-body::-webkit-scrollbar,
-    .form__header::-webkit-scrollbar,
-    html::-webkit-scrollbar,
-    #popupForms::-webkit-scrollbar {
-        @apply w-[10px]  bg-dark;
-    }
-    /* popupForms */
-    .form__header::-webkit-scrollbar-thumb,
-    html::-webkit-scrollbar-thumb,
-    .header__contact-body::-webkit-scrollbar-thumb,
-    #popupForms::-webkit-scrollbar-thumb {
-        @apply rounded-full bg-main;
-    }
+  .header__contact-body::-webkit-scrollbar,
+  .form__header::-webkit-scrollbar,
+  html::-webkit-scrollbar,
+  #popupForms::-webkit-scrollbar {
+    @apply w-[10px]  bg-dark;
+  }
+  /* popupForms */
+  .form__header::-webkit-scrollbar-thumb,
+  html::-webkit-scrollbar-thumb,
+  .header__contact-body::-webkit-scrollbar-thumb,
+  #popupForms::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-main;
+  }
 }
 @tailwind components;
 
@@ -74,202 +98,201 @@ BEGIN: html  scroll
 =================================================*/
 /* header height */
 :root {
-    --header-h: 77px;
-    --header-h-lg: 87px;
-    --header-h-xl: 90px;
+  --header-h: 77px;
+  --header-h-lg: 87px;
+  --header-h-xl: 90px;
 
-    /* scrollbar colors firefox */
-    --primary: #171717;
-    --secondary: #ff304d;
+  /* scrollbar colors firefox */
+  --primary: #171717;
+  --secondary: #ff304d;
 }
 
 /* Firefox */
 * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--secondary) var(--primary);
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary) var(--primary);
 }
 
 @layer components {
-    html {
-        @apply scroll-smooth  text-base font-medium text-dark;
-    }
-    body {
-        @apply font-montserrat;
-    }
+  html {
+    @apply scroll-smooth  text-base font-medium text-dark;
+  }
+  body {
+    @apply font-montserrat;
+  }
 
-    .wrapper {
-        @apply relative m-auto flex  max-w-full flex-col  pt-[var(--header-h)] lg:pt-[var(--header-h-xl)] xl:pt-[var(--header-h-xl)];
-    }
+  .wrapper {
+    @apply relative m-auto flex  max-w-full flex-col  pt-[var(--header-h)] lg:pt-[var(--header-h-xl)] xl:pt-[var(--header-h-xl)];
+  }
 
-    .lock-wrapper {
-        @apply h-screen overflow-hidden;
-    }
-    /* =========== TOTAL WHITE HEADER ============ */
+  .lock-wrapper {
+    @apply h-screen overflow-hidden;
+  }
+  /* =========== TOTAL WHITE HEADER ============ */
 
-    .header.white-header {
-        @apply bg-light text-dark dark:bg-dark dark:text-white;
-    }
-    .white-header #nav {
-        @apply text-dark dark:text-white;
-    }
-    .white-header .burger {
-        @apply text-dark dark:text-white;
-    }
-    .white-header .light-theme-white-text {
-        @apply hover:fill-dark hover:text-dark
+  .header.white-header {
+    @apply bg-light text-dark dark:bg-dark dark:text-white;
+  }
+  .white-header #nav {
+    @apply text-dark dark:text-white;
+  }
+  .white-header .burger {
+    @apply text-dark dark:text-white;
+  }
+  .white-header .light-theme-white-text {
+    @apply hover:fill-dark hover:text-dark
         dark:hover:fill-dark dark:hover:text-white
         lg:dark:hover:fill-white;
-    }
-    .white-header .white-header-language {
-        @apply hover:bg-lightGrey dark:hover:bg-transparent;
-    }
+  }
+  .white-header .white-header-language {
+    @apply hover:bg-lightGrey dark:hover:bg-transparent;
+  }
 
-    /* ========= button language header =========== */
-    .white-header .language-wrapper {
-        @apply bg-[#D9D9D9] dark:bg-[#343434];
-    }
+  /* ========= button language header =========== */
+  .white-header .language-wrapper {
+    @apply bg-[#D9D9D9] dark:bg-[#343434];
+  }
 
-    .white-header .language-list {
-        @apply text-dark dark:text-lightGrey;
-    }
+  .white-header .language-list {
+    @apply text-dark dark:text-lightGrey;
+  }
 
-    .white-header .language-item {
-        @apply hover:bg-[#BABABA] dark:hover:bg-[#4E4E4E];
-    }
+  .white-header .language-item {
+    @apply hover:bg-[#BABABA] dark:hover:bg-[#4E4E4E];
+  }
 
-    /* ======== burger ======== */
+  /* ======== burger ======== */
 
-    .burger-paint-header-dark.header.white-header {
-        @apply bg-dark text-white dark:bg-dark dark:text-white;
-    }
-    .burger-paint-header-dark.white-header #nav {
-        @apply text-white dark:text-white;
-    }
-    .burger-paint-header-dark.white-header .burger {
-        @apply text-white dark:text-white;
-    }
-    .burger-paint-header-dark.white-header .white-header-language {
-        @apply hover:bg-transparent dark:hover:bg-transparent;
-    }
-    .breadcrums-slot {
-        @apply flex items-center gap-1;
-    }
-    /* =========== BIG RED ROUND BUTTON ============ */
+  .burger-paint-header-dark.header.white-header {
+    @apply bg-dark text-white dark:bg-dark dark:text-white;
+  }
+  .burger-paint-header-dark.white-header #nav {
+    @apply text-white dark:text-white;
+  }
+  .burger-paint-header-dark.white-header .burger {
+    @apply text-white dark:text-white;
+  }
+  .burger-paint-header-dark.white-header .white-header-language {
+    @apply hover:bg-transparent dark:hover:bg-transparent;
+  }
+  .breadcrums-slot {
+    @apply flex items-center gap-1;
+  }
+  /* =========== BIG RED ROUND BUTTON ============ */
 
-    .big-red-btn {
-        @apply relative flex h-[133px] w-[133px] flex-col items-center justify-center gap-3 rounded-full text-center text-sm font-bold uppercase text-light transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:h-full before:w-full before:rounded-full before:bg-main before:transition-all before:content-[''] lg:h-[142px] lg:w-[142px] xl:h-[145px] xl:w-[145px] xl:px-2 xl:text-base xl:hover:before:scale-[0.8] 1xl:h-[158px] 1xl:w-[158px] 2xl:h-[177px] 2xl:w-[177px];
-    }
-    .big-red-btn.cases-page__big-red-btn {
-        @apply h-[125px] w-[125px]  lg:h-[125px] lg:w-[125px] xl:h-[177px] xl:w-[177px];
-    }
-    .big-red-btn#btn-close-popup-forms {
-        @apply relative mx-auto;
-    }
-    .big-red-btn#btnDiscuss {
-        @apply absolute;
-    }
-    .big-red-btn:disabled {
-        @apply transition-all before:bg-middleGrey xl:hover:before:scale-100;
-    }
+  .big-red-btn {
+    @apply relative flex h-[133px] w-[133px] flex-col items-center justify-center gap-3 rounded-full text-center text-sm font-bold uppercase text-light transition-all before:absolute before:top-0 before:left-0 before:z-[-1] before:h-full before:w-full before:rounded-full before:bg-main before:transition-all before:content-[''] lg:h-[142px] lg:w-[142px] xl:h-[145px] xl:w-[145px] xl:px-2 xl:text-base xl:hover:before:scale-[0.8] 1xl:h-[158px] 1xl:w-[158px] 2xl:h-[177px] 2xl:w-[177px];
+  }
+  .big-red-btn.cases-page__big-red-btn {
+    @apply h-[125px] w-[125px]  lg:h-[125px] lg:w-[125px] xl:h-[177px] xl:w-[177px];
+  }
+  .big-red-btn#btn-close-popup-forms {
+    @apply relative mx-auto;
+  }
+  .big-red-btn#btnDiscuss {
+    @apply absolute;
+  }
+  .big-red-btn:disabled {
+    @apply transition-all before:bg-middleGrey xl:hover:before:scale-100;
+  }
 
-    /* =================  SWIPER ================*/
+  /* =================  SWIPER ================*/
 
-    .mySwiper-container {
-        @apply w-full overflow-hidden;
-    }
-    .mySwiper .swiper-pagination {
-        @apply !bottom-[30px] lg:!bottom-[40px] xl:!bottom-[10px];
-    }
-    .mySwiper .swiper-pagination-bullet {
-        @apply !mx-[5px] bg-middleGrey opacity-100 transition-all hover:bg-white active:bg-main lg:!mx-[7px] lg:h-[10px] lg:w-[10px] xl:!mx-[10px] xl:h-[14px] xl:w-[14px] xl:bg-white xl:hover:bg-middleGrey;
-    }
-    .mySwiper .swiper-pagination-bullet-active {
-        @apply bg-main transition-all hover:bg-main;
-    }
-    /* -----------blog swiper main page---------- */
+  .mySwiper-container {
+    @apply w-full overflow-hidden;
+  }
+  .mySwiper .swiper-pagination {
+    @apply !bottom-[30px] lg:!bottom-[40px] xl:!bottom-[10px];
+  }
+  .mySwiper .swiper-pagination-bullet {
+    @apply !mx-[5px] bg-middleGrey opacity-100 transition-all hover:bg-white active:bg-main lg:!mx-[7px] lg:h-[10px] lg:w-[10px] xl:!mx-[10px] xl:h-[14px] xl:w-[14px] xl:bg-white xl:hover:bg-middleGrey;
+  }
+  .mySwiper .swiper-pagination-bullet-active {
+    @apply bg-main transition-all hover:bg-main;
+  }
+  /* -----------blog swiper main page---------- */
 
-    .blogSwiper .swiper-slide {
-        @apply w-auto;
-    }
+  .blogSwiper .swiper-slide {
+    @apply w-auto;
+  }
 
-    /*=====================================
+  /*=====================================
   STYLES
   ======================================*/
 
-    ._nav-item-activ {
-        @apply text-main;
-    }
+  ._nav-item-activ {
+    @apply text-main;
+  }
 
-    /*------------- menu mobile button language ------------*/
+  /*------------- menu mobile button language ------------*/
 
-    .active-language-menu {
-        @apply pointer-events-none order-1 bg-grey;
-    }
+  .active-language-menu {
+    @apply pointer-events-none order-1 bg-grey;
+  }
 
-    /*================================================
+  /*================================================
   Styles borders  btn
   ================================================ */
-    /* border-lightDarkGrey xl:border-t */
+  /* border-lightDarkGrey xl:border-t */
 
-    .btn {
-        @apply m-auto flex w-full items-center justify-center gap-[10px] rounded-full bg-main py-[16px] text-base font-bold uppercase text-white transition-all sm:max-w-[357px];
-    }
+  .btn {
+    @apply m-auto flex w-full items-center justify-center gap-[10px] rounded-full bg-main py-[16px] text-base font-bold uppercase text-white transition-all sm:max-w-[357px];
+  }
 
-    .btn__transparent {
-        @apply m-auto flex w-full items-center justify-center gap-[10px] rounded-full border-[2px] border-main p-[12px] text-sm font-bold uppercase leading-[24px] text-dark transition-all sm:max-w-[357px];
-    }
+  .btn__transparent {
+    @apply m-auto flex w-full items-center justify-center gap-[10px] rounded-full border-[2px] border-main p-[12px] text-sm font-bold uppercase leading-[24px] text-dark transition-all sm:max-w-[357px];
+  }
 
-    .btn__red {
-        @apply flex flex-row items-center justify-center gap-[10px] rounded-[70px] border-[1px] border-main bg-main py-4 px-9 text-base font-bold uppercase leading-5 text-white;
-    }
+  .btn__red {
+    @apply flex flex-row items-center justify-center gap-[10px] rounded-[70px] border-[1px] border-main bg-main py-4 px-9 text-base font-bold uppercase leading-5 text-white;
+  }
 
-    .btn__red-service {
-        @apply flex flex-row items-center justify-center gap-[10px] rounded-[70px] border-[1px] border-main bg-main py-[13px] px-[28px] text-sm font-bold uppercase leading-[171%] text-white;
-    }
+  .btn__red-service {
+    @apply flex flex-row items-center justify-center gap-[10px] rounded-[70px] border-[1px] border-main bg-main py-[13px] px-[28px] text-sm font-bold uppercase leading-[171%] text-white;
+  }
 
-    .btn__dark-atricle {
-        @apply flex flex-row items-center justify-center rounded-[70px] border-[1px]  bg-dark py-[13px] px-[20px] text-sm font-bold uppercase  leading-[171%] text-white;
-    }
+  .btn__dark-atricle {
+    @apply flex flex-row items-center justify-center rounded-[70px] border-[1px]  bg-dark py-[13px] px-[20px] text-sm font-bold uppercase  leading-[171%] text-white;
+  }
 
-    /*============== 404 page =============== */
-    .nopage__button:hover ~ div {
-        @apply text-main;
-    }
-    .nopage__button:hover ~ #back-home {
-        @apply visible opacity-100;
-    }
-    .nopage__button:hover ~ #not-found {
-        @apply invisible opacity-0;
-    }
+  /*============== 404 page =============== */
+  .nopage__button:hover ~ div {
+    @apply text-main;
+  }
+  .nopage__button:hover ~ #back-home {
+    @apply visible opacity-100;
+  }
+  .nopage__button:hover ~ #not-found {
+    @apply invisible opacity-0;
+  }
 
-    /*=== submit button spunner === */
-    .spinner_ajPY {
-        transform-origin: center;
-        animation: spinner_AtaB 0.75s infinite linear;
+  /*=== submit button spunner === */
+  .spinner_ajPY {
+    transform-origin: center;
+    animation: spinner_AtaB 0.75s infinite linear;
+  }
+  @keyframes spinner_AtaB {
+    100% {
+      transform: rotate(360deg);
     }
-    @keyframes spinner_AtaB {
-        100% {
-            transform: rotate(360deg);
-        }
-    }
+  }
 
-    /*------ filter button ----- */
-    .category__filter-btn {
-        @apply flex gap-2 rounded-[40px] border border-transparent bg-lightGrey px-4 py-[11px] text-sm uppercase leading-[1.2] transition-all hover:bg-dark hover:text-white active:border-main dark:border-lightGrey dark:text-dark dark:hover:text-white;
-    }
-    .category__filter-btn--active {
-        @apply bg-dark text-white dark:text-white;
-    }
+  /*------ filter button ----- */
+  .category__filter-btn {
+    @apply flex gap-2 rounded-[40px] border border-transparent bg-lightGrey px-4 py-[11px] text-sm uppercase leading-[1.2] transition-all hover:bg-dark hover:text-white active:border-main dark:border-lightGrey dark:text-dark dark:hover:text-white;
+  }
+  .category__filter-btn--active {
+    @apply bg-dark text-white dark:text-white;
+  }
 
-    section.carusel-total-white {
-        @apply bg-light text-dark dark:bg-dark dark:text-white;
-    }
+  section.carusel-total-white {
+    @apply bg-light text-dark dark:bg-dark dark:text-white;
+  }
 
-    .to-animate {
-        @apply translate-y-10 opacity-0 transition duration-1000 ease-out;
-    }
-    .to-animate.in-view {
-        @apply translate-y-0 opacity-100;
-    }
+  .to-animate {
+    @apply translate-y-10 opacity-0 transition duration-1000 ease-out;
+  }
+  .to-animate.in-view {
+    @apply translate-y-0 opacity-100;
+  }
 }
-

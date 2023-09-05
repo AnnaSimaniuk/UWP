@@ -18,7 +18,7 @@ export const HomeApp = component$(() => {
       <Agency />
       <Cases />
       <Services />
-      {/*<Discuss />*/}
+      <Discuss />
       {/*<Blog/>*/}
       <Cooperation />
       <Faq />

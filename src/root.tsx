@@ -23,6 +23,9 @@ export default component$(() => {
         <head>
           <meta charSet="utf-8" />
           <link rel="manifest" href="/manifest.json" />
+          <script src="path-to-the-file/splide.min.js"></script>
+          {/* <link rel="stylesheet" href="path-to-the-file/splide.min.css" /> */}
+          {/* <link rel="stylesheet" href="url-to-cdn/splide.min.css" /> */}
           <RouterHead />
         </head>
         <body lang="en" class={"bg-light dark:bg-dark"}>
