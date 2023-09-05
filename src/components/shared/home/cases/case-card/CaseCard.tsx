@@ -2,6 +2,8 @@ import { component$ } from "@builder.io/qwik";
 import { CaseCardPicture } from "~/components/shared/home/cases/case-card/case-card-picture/CaseCardPicture";
 import { ArrowCardIcon } from "~/assets/icons";
 import { Link } from "@builder.io/qwik-city";
+import { useTranslate } from "qwik-speak";
+import { useHref } from "~/hooks/useHref";
 
 interface CaseCardProps {
   heading: string;
@@ -19,7 +21,16 @@ interface CaseCardProps {
   srcSetJpeg: string;
 }
 
+// {
+//   "name": "Marketing services for online casino",
+//     "href": "case/marketing-services-for-online-casino",
+//     "image": "https://uwp.zoometr.com/images/marketing-services-online-casino-banner-1-origin.webp",
+//     "short_description": "Attracting new players with the help of marketing projects",
+//     "category": "Digital marketing"
+// }
 export const CaseCardRight = component$((props: CaseCardProps) => {
+  const t = useTranslate();
+  // const { href } = useHref(t("cases.btn_href"));
   const { heading, href, subtitle, text } = props;
   return (
     <div

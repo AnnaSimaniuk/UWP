@@ -1,7 +1,8 @@
-import { component$, Signal } from "@builder.io/qwik";
+import { component$, Signal, useSignal, useTask$ } from "@builder.io/qwik";
 import { ArrowRightIcon } from "~/assets/icons";
 import { useTranslate } from "qwik-speak";
-import { Link, useNavigate } from "@builder.io/qwik-city";
+import { Link, useLocation, useNavigate } from "@builder.io/qwik-city";
+import { useHref } from "~/hooks/useHref";
 
 interface BurgerNavItemProps {
   text: string;
@@ -17,16 +18,28 @@ interface BurgerNavItemProps {
 export const BurgerNavItem = component$((props: BurgerNavItemProps) => {
   const { burgerMenuData, text, link, classWrapper, serviceMenuActive } = props;
   const t = useTranslate();
+  const { url } = useLocation();
+  const { href } = useHref(t(`${link}`));
+  const activeLink = useSignal(false);
   const nav = useNavigate();
-
+  useTask$(({ track }) => {
+    track(() => url.pathname);
+    if (text === "header.text_services") {
+      activeLink.value = url.pathname.includes(href);
+      return;
+    }
+    activeLink.value = url.pathname.endsWith(`${href}/`);
+  });
   return (
     <>
-      {t(text) === "Services" ? (
+      {text === "header.text_services" ? (
         <li class={`${classWrapper}`}>
           <div>
             <button
               aria-label={t(text)}
-              class="uppercase translate-underline__hover-line__dark hover-text__grey flex w-[120px] items-center pr-8{class_active_services}"
+              class={`uppercase translate-underline__hover-line__dark hover-text__grey flex w-[120px] items-center pr-8 ${
+                activeLink.value ? "_nav-item-activ" : ""
+              }`}
               id="btnServices"
               onClick$={() => {
                 if (serviceMenuActive) serviceMenuActive.value = true;
@@ -41,16 +54,18 @@ export const BurgerNavItem = component$((props: BurgerNavItemProps) => {
         </li>
       ) : (
         <li class={classWrapper}>
-          <Link
+          <button
             aria-label={t(text)}
-            class="translate-underline__hover-line__dark hover-text__grey{class_active_blog}"
-            href={link}
+            class={`translate-underline__hover-line__dark hover-text__grey uppercase ${
+              activeLink.value ? "_nav-item-activ" : ""
+            }`}
             onClick$={() => {
-              burgerMenuData.isActive = false;
+              nav(href);
+              props.burgerMenuData.isActive = !burgerMenuData.isActive;
             }}
           >
             {t(text)}
-          </Link>
+          </button>
         </li>
       )}
     </>

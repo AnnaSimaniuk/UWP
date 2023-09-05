@@ -4,6 +4,8 @@ import {
   CaseCardLeft,
   CaseCardRight,
 } from "~/components/shared/home/cases/case-card/CaseCard";
+import { useTranslate } from "qwik-speak";
+import { useHref } from "~/hooks/useHref";
 
 const cases = [
   {
@@ -43,15 +45,14 @@ const cases = [
 ];
 
 export const Cases = component$(() => {
+  const t = useTranslate();
+  const { href } = useHref(t("cases.btn_href"));
   return (
     <section class="achievements bg-light pt-1 pb-[82px] dark:bg-dark lg:pb-[90px] xl:pb-[172px] xl:pt-10">
       <div class="container sm:max-w-full lg:px-[30px] 3xl:max-w-[1920px] 3xl:px-[135px]">
-        <h2 class="achievements__title dark:text-white">OUR ACHIEVEMENTS</h2>
+        <h2 class="achievements__title dark:text-white">{t("cases.title")}</h2>
         <p class="achievements__subtitle border-t-[1px] border-t-middleGrey border-b-[1px] border-b-middleGrey dark:text-white">
-          Whether you need to create a website, develop a UX UI design, conduct
-          SEO optimization, develop a marketing strategy for your business, set
-          up Google ads, and Facebook ads, or get more followers on Instagram —
-          welcome to UWP Digital.
+          {t("cases.description")}
         </p>
         <div class="wrapper_01 xl:border-t-[1px] xl:border-t-middleGrey xl:flex xl:flex-row-reverse xl:justify-between xl:gap-[29px] 2xl:gap-[44px]">
           <div class="overflow-x-hidden">
@@ -65,12 +66,9 @@ export const Cases = component$(() => {
           </div>
           <div class="mt-[20px] lg:mt-0 xl:mt-0 xl:max-w-[287px] 2xl:max-w-[362px]">
             <p class="achievements__subtitle hidden xl:flex xl:pt-[31px] xl:pb-[53px] 2xl:pt-[50px] 2xl:pb-[39px]">
-              Whether you need to create a website, develop a UX UI design,
-              conduct SEO optimization, develop a marketing strategy for your
-              business, set up Google ads, and Facebook ads, or get more
-              followers on Instagram — welcome to UWP Digital.
+              {t("cases.description")}
             </p>
-            <ButtonSticky text="View all cases" href="/cases" />
+            <ButtonSticky text={t("cases.btn_text")} href={href} />
           </div>
         </div>
       </div>

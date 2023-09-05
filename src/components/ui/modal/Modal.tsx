@@ -4,12 +4,14 @@ import {
   Slot,
   useContext,
   useOnDocument,
+  useStyles$,
 } from "@builder.io/qwik";
 import { CloseIcon } from "~/assets/icons";
 import { Button } from "~/components/ui";
 import { ModalProvider } from "~/context";
-
+import styles from "./Modal.css?inline";
 export const Modal = component$(() => {
+  useStyles$(styles);
   const {
     closeDynamicForm,
     dynamicFormWrapperClass,

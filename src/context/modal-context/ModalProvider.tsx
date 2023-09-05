@@ -31,10 +31,10 @@ export const ModalContextProvider = component$(() => {
       this.wrapperClass = "";
     }),
     lockWrapper: $(function (this: ModalDataStore) {
-      this.lockClass = "overflow-y-hidden";
+      this.wrapperClass = "overflow-y-hidden h-screen";
     }),
     unlockWrapper: $(function (this: ModalDataStore) {
-      this.lockClass = "";
+      this.wrapperClass = "";
     }),
   });
   useContextProvider(ModalProvider, modalData);

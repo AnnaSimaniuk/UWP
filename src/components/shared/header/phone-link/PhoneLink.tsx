@@ -1,6 +1,7 @@
 import { component$, Signal } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
 import { PhoneIcon } from "~/assets/icons";
+import { useTranslate } from "qwik-speak";
 
 interface PhoneLinkProps {
   isHoveredPhoneLink: {
@@ -11,10 +12,11 @@ interface PhoneLinkProps {
 }
 
 export const PhoneLink = component$((props: PhoneLinkProps) => {
+  const t = useTranslate();
   return (
     <Link
-      href={"tel:+46 73 718 77 47"}
-      aria-label="+46 73 718 77 47"
+      href={t("header.phone_href")}
+      aria-label={t("header.phone_aria_label")}
       class={`relative group/item lg:h-[48px] w-[40px] h-[40px] py-[2px]`}
       onMouseEnter$={() => (props.isHoveredPhoneLink.isHovered = true)}
       onMouseLeave$={() => (props.isHoveredPhoneLink.isHovered = false)}
@@ -45,14 +47,14 @@ export const PhoneLink = component$((props: PhoneLinkProps) => {
               props.isBurgerActive || !props.isWhiteHeader ? "text-white" : ""
             }`}
           >
-            +46 73 718 77 47
+            {t("header.phone_text")}
           </span>
           <span
             class={`text-xs opacity-50 text-black dark:text-light ${
               props.isBurgerActive || !props.isWhiteHeader ? "text-light" : ""
             }`}
           >
-            Mon - Fri: 10:00 - 18:00
+            {t("header.schedule")}
           </span>
         </div>
       </div>

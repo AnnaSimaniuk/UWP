@@ -1,7 +1,8 @@
-import { component$, Signal, useContext } from "@builder.io/qwik";
+import { component$, Signal, useContext, useStyles$ } from "@builder.io/qwik";
 import { PencilIcon } from "~/assets/icons";
 import { ModalProvider } from "~/context";
-
+import { useTranslate } from "qwik-speak";
+import styles from "./ButtonContact.css?inline";
 interface ButtonContactProps {
   isHoveredPhoneLink: {
     isHovered: boolean;
@@ -12,12 +13,14 @@ interface ButtonContactProps {
 }
 
 export const ButtonContact = component$((props: ButtonContactProps) => {
+  useStyles$(styles);
+  const t = useTranslate();
   const { showDynamicForm } = useContext(ModalProvider);
 
   return (
     <>
       <button
-        aria-label="{label}"
+        aria-label={t("header.btn_text")}
         class={`
           light-theme-white-text btn_a--svg group transition-all ease-in-out duration-250 bg-main lg:bg-transparent uppercase relative w-[40px] h-[40px] hover:bg-white lg:hover:bg-transparent hover:ring-1 hover:ring-inset lg:hover:ring-0 overflow-hidden rounded-full active:ring-main text-white dark:hover:text-white hover:text-white fill-white hover:fill-dark lg:hover:fill-white dark:hover:fill-dark lg:dark:hover:fill-white
         ${
@@ -39,7 +42,7 @@ export const ButtonContact = component$((props: ButtonContactProps) => {
               : "lg:block opacity-100"
           }`}
         >
-          Let's talk
+          {t("header.btn_text")}
         </span>
         <PencilIcon
           class={`h-[15px] w-[16px] top-[13px] right-[12px] lg:top-[14px] ${

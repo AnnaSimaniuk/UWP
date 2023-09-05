@@ -91,14 +91,14 @@ BEGIN: html  scroll
 
 @layer components {
     html {
-        @apply scroll-smooth  text-base font-medium text-dark;
+        @apply scroll-smooth text-base font-medium text-dark;
     }
     body {
         @apply font-montserrat;
     }
 
     .wrapper {
-        @apply relative m-auto flex  max-w-full flex-col  pt-[var(--header-h)] lg:pt-[var(--header-h-xl)] xl:pt-[var(--header-h-xl)];
+        @apply relative m-auto flex max-w-full flex-col  pt-[var(--header-h)] lg:pt-[var(--header-h-xl)] xl:pt-[var(--header-h-xl)];
     }
 
     .lock-wrapper {

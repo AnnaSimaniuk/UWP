@@ -1,27 +1,30 @@
 import {
   $,
   component$,
+  useContext,
   useOnDocument,
-  useOnWindow,
   useSignal,
+  useStyles$,
 } from "@builder.io/qwik";
 import { BurgerLanguage } from "~/components/shared/header/burger-menu/burger-language/BurgerLanguage";
-import { data } from "~/components/shared/header/button-language/ButtonLanguage";
 import { BackIcon } from "~/assets/icons";
 import { Button } from "~/components/ui";
 import { NAV_LINKS } from "~/tools/variables/navLinks";
 import { BurgerNavItem } from "~/components/shared/header/burger-menu/burger-nav-item/BurgerNavItem";
 import { Social } from "~/components/shared/social/Social";
-
+import { ILanguage } from "~/types/ILanguage";
+import { MenuServices } from "~/routes/layout";
 interface BurgerMenuProps {
   burgerMenuData: {
     isActive: boolean;
     whiteHeader: boolean;
   };
+  languageData: ILanguage[];
 }
 
 export const BurgerMenu = component$((props: BurgerMenuProps) => {
   const serviceMenuActive = useSignal(false);
+  const servicesLinks = useContext(MenuServices);
 
   useOnDocument(
     "keydown",
@@ -36,13 +39,11 @@ export const BurgerMenu = component$((props: BurgerMenuProps) => {
   return (
     <>
       <div
-        class={`absolute top-[76px] left-0 right-0 h-[calc(100vh-76px)] transition-all lg:top-[90px] lg:h-[calc(100vh-90px)] xl:hidden
-        ${
+        class={`absolute top-[76px] left-0 right-0 h-[calc(100vh-76px)] transition-all lg:top-[90px] lg:h-[calc(100vh-90px)] xl:hidden ${
           props.burgerMenuData.isActive
             ? "opacity-100 visible"
             : "opacity-0 invisible"
-        }
-        `}
+        }`}
         id="menu"
       >
         <div
@@ -60,9 +61,13 @@ export const BurgerMenu = component$((props: BurgerMenuProps) => {
             `}
             id="dynamicMenu"
           >
-            <div class="dynamicMenuContainer z-10">
+            <div
+              class={`dynamicMenuContainer z-10 ${
+                serviceMenuActive.value ? "min-h-[700px]" : ""
+              }`}
+            >
               <div class="border__bottom flex gap-[1px] pb-[28px]">
-                <BurgerLanguage languageData={data} />
+                <BurgerLanguage languageData={props.languageData} />
               </div>
               <nav class="relative">
                 <ul
@@ -91,7 +96,7 @@ export const BurgerMenu = component$((props: BurgerMenuProps) => {
                   <li>
                     <Button
                       variant={"icon"}
-                      aria-label="{back}"
+                      aria-label="back"
                       class="uppercase translate-underline__hover-line-back group mb-[30px] flex w-[52px] items-center gap-[10px] text-xs text-main"
                       id="backMenuServices"
                       type="button"
@@ -105,11 +110,11 @@ export const BurgerMenu = component$((props: BurgerMenuProps) => {
                       Back
                     </Button>
                   </li>
-                  {NAV_LINKS.map((link) => (
+                  {servicesLinks.map((link) => (
                     <BurgerNavItem
                       text={link.name}
-                      link={link.path}
-                      key={link.path}
+                      link={link.href}
+                      key={link.href}
                       classWrapper={"mb-[17px]"}
                       serviceMenuActive={serviceMenuActive}
                       burgerMenuData={props.burgerMenuData}

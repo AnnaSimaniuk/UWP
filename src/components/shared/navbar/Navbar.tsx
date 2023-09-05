@@ -1,5 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import { NavbarList } from "~/components/shared/navbar/navbar-list/NavbarList";
+import { ILink } from "~/types/ILink";
 
 export const Navbar = component$(() => {
   return (

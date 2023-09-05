@@ -1,4 +1,5 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
+import { ModalProvider } from "~/context";
 
 interface ButtonBurgerMenuProps {
   burgerMenuData: {
@@ -7,15 +8,16 @@ interface ButtonBurgerMenuProps {
 }
 
 export const ButtonBurgerMenu = component$((props: ButtonBurgerMenuProps) => {
-  const { isActive } = props.burgerMenuData;
   return (
     <button
       aria-label="button burger"
       class={`burger ml-[20px] items-center md:ml-[37px] xl:hidden ${
-        isActive ? "is-active" : ""
+        props.burgerMenuData.isActive ? "is-active" : ""
       }`}
       type="button"
-      onClick$={() => (props.burgerMenuData.isActive = !isActive)}
+      onClick$={() =>
+        (props.burgerMenuData.isActive = !props.burgerMenuData.isActive)
+      }
     >
       <span class="burger__box">
         <span class="burger__inner"></span>

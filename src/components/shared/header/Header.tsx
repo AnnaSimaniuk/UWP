@@ -5,27 +5,28 @@ import {
   useOnWindow,
   useSignal,
   useStore,
+  useStyles$,
   useTask$,
 } from "@builder.io/qwik";
+import styles from "./Header.css?inline";
 import { HeaderLogo } from "~/components/shared/header/header-logo/HeaderLogo";
 import { ButtonTheme } from "~/components/ui";
 import { Navbar } from "~/components/shared/navbar/Navbar";
 import { Speak } from "qwik-speak";
 import { PhoneLink } from "~/components/shared/header/phone-link/PhoneLink";
 import { ButtonContact } from "~/components/ui/button/ButtonContact";
-import {
-  ButtonLanguage,
-  data,
-} from "~/components/shared/header/button-language/ButtonLanguage";
+import { ButtonLanguage } from "~/components/shared/header/button-language/ButtonLanguage";
 import { useMediaQuery } from "~/hooks/useMediaQuery";
 import { ButtonBurgerMenu } from "~/components/ui/button/ButtonBurgerMenu";
 import { useLocation } from "@builder.io/qwik-city";
 import { BurgerMenu } from "~/components/shared/header/burger-menu/BurgerMenu";
 import { ModalProvider } from "~/context";
+import { useLanguageData, useMenuServices } from "~/routes/layout";
 
-const urlWhiteHeader = ["case", "contact", "blog"];
+const urlWhiteHeader = ["case", "contact", "blog", "blogg", "kontakt"];
 
 const HeaderApp = component$(() => {
+  useStyles$(styles);
   const { url } = useLocation();
   const isHoveredPhoneLink = useStore({ isHovered: false });
   const isXlScreen = useMediaQuery("xl");
@@ -37,6 +38,8 @@ const HeaderApp = component$(() => {
   const headerScroll = useSignal("");
   const { headerClass } = useContext(ModalProvider);
   const y = useSignal(0);
+  const languageData = useLanguageData();
+  const { lockWrapper, unlockWrapper } = useContext(ModalProvider);
 
   useOnWindow(
     "load",
@@ -68,10 +71,24 @@ const HeaderApp = component$(() => {
       burgerMenuData.whiteHeader = regex.test(url.pathname);
       return;
     }
+    if (url.pathname.includes("tjanster")) {
+      const regex = /\/tjanster\/.+/;
+      burgerMenuData.whiteHeader = regex.test(url.pathname);
+      return;
+    }
     burgerMenuData.whiteHeader = urlWhiteHeader.some((item) => {
       return url.pathname.includes(item);
     });
     return;
+  });
+
+  useTask$(({ track }) => {
+    track(burgerMenuData);
+    if (burgerMenuData.isActive) {
+      lockWrapper();
+    } else {
+      unlockWrapper();
+    }
   });
 
   return (
@@ -82,7 +99,7 @@ const HeaderApp = component$(() => {
         burgerMenuData.whiteHeader && burgerMenuData.isActive
           ? "burger-paint-header-dark"
           : ""
-      } ${headerScroll.value} ${headerClass}`}
+      }${headerScroll.value} ${headerClass}`}
       id="mainNav"
     >
       <div
@@ -131,7 +148,7 @@ const HeaderApp = component$(() => {
                 burgerMenuData={burgerMenuData}
               />
             </div>
-            {isXlScreen && <ButtonLanguage languageData={data} />}
+            {isXlScreen && <ButtonLanguage languageData={languageData.value} />}
             {!isXlScreen && (
               <ButtonBurgerMenu burgerMenuData={burgerMenuData} />
             )}
@@ -139,7 +156,12 @@ const HeaderApp = component$(() => {
         </div>
       </div>
       <div id="progressline"></div>
-      {!isXlScreen && <BurgerMenu burgerMenuData={burgerMenuData} />}
+      {!isXlScreen && (
+        <BurgerMenu
+          burgerMenuData={burgerMenuData}
+          languageData={languageData.value}
+        />
+      )}
     </header>
   );
 });

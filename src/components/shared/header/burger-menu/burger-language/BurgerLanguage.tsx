@@ -1,9 +1,9 @@
-import { component$, useComputed$, useStore, useTask$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import { useLocale } from "~/hooks/useLocale";
-import { Language } from "~/components/shared/header/button-language/ButtonLanguage";
+import { ILanguage } from "~/types/ILanguage";
 
 interface BurgerLanguageProps {
-  languageData: Language[];
+  languageData: ILanguage[];
 }
 
 export const BurgerLanguage = component$((props: BurgerLanguageProps) => {
@@ -18,7 +18,7 @@ export const BurgerLanguage = component$((props: BurgerLanguageProps) => {
               key={lang.text}
               class="order-2 group active-language-menu z-20 flex items-center gap-[4.7px] rounded-[2.85px] p-[7px] transition-all ease-in hover:bg-grey lg:flex"
             >
-              <div dangerouslySetInnerHTML={lang?.icon}></div>
+              <img width="33" height="24" src={lang.icon} alt={lang.text} />
               <span class="font-medium text-[12px] leading-[1.3] uppercase text-white transition-all ease-in group-hover:text-main">
                 {lang.text}
               </span>
@@ -34,10 +34,10 @@ export const BurgerLanguage = component$((props: BurgerLanguageProps) => {
             <button
               key={lang.text}
               onClick$={() => navigateByLocale$(lang.href)}
-              aria-label={lang.label}
+              aria-label={lang.text}
               class="order-2 group flex items-center gap-[4.7px] rounded-[2.85px] p-[7px] transition-all ease-in hover:bg-grey lg:flex"
             >
-              <div dangerouslySetInnerHTML={lang?.icon}></div>
+              <img width="33" height="24" src={lang.icon} alt={lang.text} />
               <span class="font-medium text-[12px] leading-[1.3] uppercase text-middleGrey transition-all ease-in group-hover:text-main">
                 {lang.text}
               </span>

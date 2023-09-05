@@ -5,6 +5,8 @@ import {
   ServicesCardRight,
 } from "~/components/shared/home/services/services-card/ServicesCard";
 import { useMediaQuery } from "~/hooks/useMediaQuery";
+import { useTranslate } from "qwik-speak";
+import { useHref } from "~/hooks/useHref";
 
 const data = [
   {
@@ -77,7 +79,8 @@ const data = [
 
 export const Services = component$(() => {
   const isLgScreen = useMediaQuery("lg");
-
+  const t = useTranslate();
+  const { href } = useHref(t("services.btn_href"));
   return (
     <section
       class="services bg-light pt-[24px] pb-[44px] dark:bg-dark dark:text-white lg:pt-[2px] lg:pb-[111px] xl:pt-[31px] xl:pb-[182px]"
@@ -85,13 +88,10 @@ export const Services = component$(() => {
     >
       <div class="container sm:max-w-full lg:px-[30px] 3xl:max-w-[1920px] 3xl:px-[135px]">
         <h2 class="mb-[29px] text-4xl font-bold uppercase lg:mb-[39px] lg:text-[45px] lg:leading-[54px] xl:mb-[26px] xl:text-[50px] 2xl:mb-[73px] 2xl:text-[90px]">
-          OUR SERVICES
+          {t("services.title")}
         </h2>
         <p class="border-t-[1px] border-t-middleGrey pt-[31px] text-base font-medium leading-[137%] lg:mb-0 lg:pt-[40px] lg:leading-[140%] xl:hidden">
-          Our advantage is not in one-time contact with the customer, but in
-          complex interaction with him. It allows for attracting attention and
-          forming a trusting relationship between the company and customers for
-          a long time.
+          {t("services.description")}
         </p>
         <div class="xl:border-t-[1px] xl:border-t-middleGrey xl:flex xl:flex-row-reverse xl:justify-between xl:gap-[28px] 2xl:gap-[48px]">
           <div
@@ -129,13 +129,10 @@ export const Services = component$(() => {
           </div>
           <div class="xl:mt-0 xl:max-w-[287px] 2xl:max-w-[357px]">
             <p class="achievements__subtitle hidden xl:flex xl:pt-[27px] xl:pb-[33px] 2xl:pt-[50px] 2xl:pb-[51px]">
-              Our advantage is not in one-time contact with the customer, but in
-              complex interaction with him. It allows for attracting attention
-              and forming a trusting relationship between the company and
-              customers for a long time.
+              {t("services.description")}
             </p>
             {isLgScreen && (
-              <ButtonSticky text={"Oder consult"} href={"/contact"} />
+              <ButtonSticky text={t("services.btn_text")} href={href} />
             )}
           </div>
         </div>
