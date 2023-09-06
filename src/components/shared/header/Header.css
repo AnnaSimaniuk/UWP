@@ -1,7 +1,3 @@
-/* header {
-  @apply fixed top-0 right-0 left-0 z-30;
-} */
-
 .header {
   @apply fixed top-0 right-0 left-0 z-30;
 }
@@ -20,4 +16,8 @@
 
 .header--active .btn-language {
   @apply absolute left-5 top-[128px] flex;
+}
+
+header {
+  @apply fixed top-0 right-0 left-0 z-30;
 }

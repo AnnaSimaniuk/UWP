@@ -1,8 +1,8 @@
 /* form */
-.header__contact-body {
+/* .header__contact-body {
   @apply absolute top-0  z-20 h-full w-full bg-dark
     transition-all ease-in;
-}
+} */
 
 /* .isFixed {
     @apply top-[-78px] right-0 left-0
@@ -20,9 +20,9 @@
     @apply absolute left-5 top-[128px] flex;
 } */
 
-.header__contact-body::-webkit-scrollbar-thumb {
+/* .header__contact-body::-webkit-scrollbar-thumb {
   @apply h-[5px]  rounded-[20px] bg-main;
-}
+} */
 
 /*================================================
 BEGIN: wrapper
@@ -59,15 +59,15 @@ BEGIN: menu.js scroll
 END: menu.js scroll
 ==================== */
 
-.header--active .btn-language {
+/* .header--active .btn-language {
   @apply absolute left-5 top-[128px] flex;
-}
+} */
 
-.nav {
+/* .nav {
   @apply flex items-center justify-between py-3.5;
-}
+} */
 
-.link__list {
+/* .link__list {
   @apply absolute top-[184px] left-full mx-5 flex w-[92%] scale-0 flex-col gap-[30px] border-t border-lightDarkGrey px-2 pt-[30px] font-montserrat text-base uppercase text-lightGrey transition-all;
 }
 
@@ -77,7 +77,7 @@ END: menu.js scroll
 
 .nav__btn {
   @apply flex items-center gap-[33px];
-}
+} */
 
 /* ========================================
 BEGIN: Backdrop menu header
@@ -87,21 +87,21 @@ BEGIN: Backdrop menu header
 END: Backdrop menu header
 =========================================*/
 
-.btn__contact {
+/* .btn__contact {
   @apply flex items-center justify-end gap-[16px] transition-all;
-}
+} */
 
 /* ===============
 BEGIN: burger
 =============== */
 
-.burger {
+/* .burger {
   @apply relative flex bg-transparent  text-white transition-all;
 }
 
 .burger:hover .burger__inner {
   @apply text-lightDarkGrey;
-}
+} */
 
 /* .burger:hover .burger__inner {
   @apply before:bg-lightDarkGrey;
@@ -111,7 +111,7 @@ BEGIN: burger
   @apply after:bg-lightDarkGrey;
 } */
 
-.burger__box {
+/* .burger__box {
   @apply relative h-[28px] w-[31px];
 }
 
@@ -121,7 +121,7 @@ BEGIN: burger
     before:transition-all before:content-['']
     after:absolute after:top-[25px] after:block after:h-[3px] after:w-[31px] after:bg-current
     after:transition-all after:content-[''];
-}
+} */
 
 /* .burger__inner {
   @apply ;
@@ -140,7 +140,7 @@ BEGIN: burger-black
 }*/
 
 /* bg-lightDarkGrey */
-.burger:hover .burger__inner-dark {
+/* .burger:hover .burger__inner-dark {
   @apply bg-lightDarkGrey;
 }
 
@@ -154,27 +154,27 @@ BEGIN: burger-black
 
 .burger__box {
   @apply relative h-[28px] w-[31px];
-}
+} */
 
 /* bg-white */
-.burger__inner-dark {
+/* .burger__inner-dark {
   @apply absolute top-0 left-0 h-[3px] w-[31px] bg-dark transition-all dark:bg-white;
-}
+} */
 
 /* before:bg-white */
-.burger__inner-dark {
+/* .burger__inner-dark {
   @apply before:absolute before:top-3 before:block before:h-[3px] before:w-[31px] before:bg-dark before:transition-all before:content-[''] before:dark:bg-white;
-}
-
+} */
+/* 
 .burger__inner-dark {
   @apply after:absolute after:top-[25px] after:block after:h-[3px] after:w-[31px] after:bg-dark after:transition-all after:content-[''] after:dark:bg-white;
-}
+} */
 
 /*============================
  END: burger-black
  ===========================*/
 
-.is-active {
+/* .is-active {
   @apply transition-all;
 }
 
@@ -192,7 +192,7 @@ BEGIN: burger-black
 
 .is-active .burger__inner {
   @apply after:top-0 after:translate-y-[13px] after:rotate-[-45deg] after:bg-lightGrey after:transition-all;
-}
+} */
 
 /* ==================
 Menu header gradient

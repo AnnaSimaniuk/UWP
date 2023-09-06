@@ -6,7 +6,7 @@ import {
   useSignal,
   useStyles$,
 } from "@builder.io/qwik";
-// import styles from "./BurgerMenu.css?inline";
+import styles from "./BurgerMenu.css?inline";
 import { BurgerLanguage } from "~/components/shared/header/burger-menu/burger-language/BurgerLanguage";
 import { BackIcon } from "~/assets/icons";
 import { Button } from "~/components/ui";
@@ -24,7 +24,7 @@ interface BurgerMenuProps {
 }
 
 export const BurgerMenu = component$((props: BurgerMenuProps) => {
-  // useStyles$(styles);
+  useStyles$(styles);
   const serviceMenuActive = useSignal(false);
   const servicesLinks = useContext(MenuServices);
 
