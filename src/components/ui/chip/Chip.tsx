@@ -1,5 +1,10 @@
 import { cva } from "class-variance-authority";
-import { component$, QwikIntrinsicElements } from "@builder.io/qwik";
+import {
+  component$,
+  QwikIntrinsicElements,
+  useStyles$,
+} from "@builder.io/qwik";
+import styles from "./Chip.css?inline";
 import type { VariantProps } from "class-variance-authority";
 import { NodeProps } from "postcss";
 
@@ -25,6 +30,7 @@ interface ChipProps extends NodeProps, VariantProps<typeof chipVariants> {
 }
 
 export const Chip = component$((props: ChipProps) => {
+  useStyles$(styles);
   const {
     name,
     onClick$,

@@ -9,3 +9,10 @@
       hover:after:scale-100 active:text-main active:before:bg-main
       active:before:text-main;
 } */
+
+.transition-arrov {
+  @apply transition-all group-hover:translate-x-2;
+}
+.hover-text__grey {
+  @apply hover:text-middleGrey active:text-main;
+}

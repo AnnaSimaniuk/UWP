@@ -1,0 +1,3 @@
+.btn-hover__white {
+  @apply transition-all ease-out hover:ring-white;
+}

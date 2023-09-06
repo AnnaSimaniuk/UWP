@@ -263,15 +263,15 @@ translate-underline__hover-line
   hover:before:w-full hover:before:opacity-100 hover:before:duration-500;
 }*/
 
-.translate-underline__hover-line-back {
+/* .translate-underline__hover-line-back {
   @apply relative cursor-pointer transition-all duration-500 before:absolute before:-bottom-0
     before:left-0 before:h-px before:w-0 before:bg-main before:opacity-0
     before:transition-all before:duration-1000 before:content-['']
     hover:before:right-0 hover:before:left-auto
     hover:before:w-full  hover:before:opacity-100 hover:before:duration-500;
-}
+} */
 
-.transition-arrov {
+/* .transition-arrov {
   @apply transition-all group-hover:translate-x-2;
 }
 
@@ -281,7 +281,7 @@ translate-underline__hover-line
 
 .hover-text__grey {
   @apply hover:text-middleGrey active:text-main;
-}
+} */
 
 /*.hover-icons__grey {*/
 /*    @apply hover:fill-middtext-middleGrey;*/
@@ -291,9 +291,9 @@ translate-underline__hover-line
   @apply transition-all ease-out hover:bg-white hover:text-mainTextBlack;
 } */
 
-.btn-hover__white {
+/* .btn-hover__white {
   @apply transition-all ease-out hover:ring-white;
-}
+} */
 
 /*================================================
 END: header
