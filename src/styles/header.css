@@ -310,7 +310,7 @@ btn header
 }
 */
 
-.link-oside__red {
+/* .link-oside__red {
   @apply relative overflow-hidden;
 }
 
@@ -327,10 +327,10 @@ btn header
   @apply absolute left-0 top-0 -z-10
     h-full w-full rounded-[70px] bg-main
     transition-all content-[''];
-}
+} */
 
 /*================================================*/
-.link-oside {
+/* .link-oside {
   @apply relative overflow-hidden;
 }
 
@@ -346,7 +346,7 @@ btn header
 .link-oside:hover::after {
   @apply absolute left-0 top-0 -z-10 h-full w-full
     rounded-[70px] bg-[#DC2D45] content-[''];
-}
+} */
 
 /* ================================
 Border position

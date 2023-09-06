@@ -1,0 +1,36 @@
+.link-oside__red {
+  @apply relative overflow-hidden;
+}
+
+.link-oside__red::after {
+  @apply absolute left-0 top-full h-full
+      w-full rounded-[70px] bg-main transition-all content-[''];
+}
+
+.link-oside__red:hover {
+  @apply scale-105 text-white;
+}
+
+.link-oside__red:hover::after {
+  @apply absolute left-0 top-0 -z-10
+      h-full w-full rounded-[70px] bg-main
+      transition-all content-[''];
+}
+
+.link-oside {
+  @apply relative overflow-hidden;
+}
+
+.link-oside::after {
+  @apply absolute left-0 top-full h-full w-full
+    rounded-[70px] bg-[#DC2D45] transition-all ease-in content-[''];
+}
+
+.link-oside:hover {
+  @apply scale-105;
+}
+
+.link-oside:hover::after {
+  @apply absolute left-0 top-0 -z-10 h-full w-full
+    rounded-[70px] bg-[#DC2D45] content-[''];
+}
