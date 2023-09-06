@@ -1,4 +1,6 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
+import styles from "./CaseCard.css?inline";
+
 import { CaseCardPicture } from "~/components/shared/home/cases/case-card/case-card-picture/CaseCardPicture";
 import { ArrowCardIcon } from "~/assets/icons";
 import { Link } from "@builder.io/qwik-city";
@@ -29,6 +31,7 @@ interface CaseCardProps {
 //     "category": "Digital marketing"
 // }
 export const CaseCardRight = component$((props: CaseCardProps) => {
+  useStyles$(styles);
   const t = useTranslate();
   // const { href } = useHref(t("cases.btn_href"));
   const { heading, href, subtitle, text } = props;

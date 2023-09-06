@@ -352,26 +352,26 @@ btn header
 Border position
 ==================================*/
 
-.border__top {
+/* .border__top {
   @apply border-t-[1px] border-t-middleGrey;
-}
+} */
 
-.border__left {
+/* .border__left {
   @apply border-l-[1px] border-l-middleGrey;
-}
+} */
 
-.border__right {
+/* .border__right {
   @apply border-r-[1px] border-r-middleGrey;
-}
+} */
 
-.border__bottom {
+/* .border__bottom {
   @apply border-b-[1px] border-b-middleGrey;
-}
+} */
 
-.border__rounded {
+/* .border__rounded {
   @apply rounded-full border-[1px] border-middleGrey
     hover:border-white;
-}
+} */
 
 .border__rounded-red {
   @apply rounded-full border-[1px] border-middleGrey

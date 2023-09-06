@@ -1,5 +1,6 @@
-import { component$, HTMLAttributes } from "@builder.io/qwik";
+import { component$, HTMLAttributes, useStyles$ } from "@builder.io/qwik";
 import { cva } from "class-variance-authority";
+import styles from "./Input.css?inline";
 import type { VariantProps } from "class-variance-authority";
 import { ErrorField } from "~/components/ui/error-field/ErrorField";
 
@@ -32,6 +33,8 @@ interface InputProps
 }
 
 export const Input = component$((props: InputProps) => {
+  useStyles$(styles);
+
   const {
     required,
     value,

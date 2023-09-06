@@ -44,3 +44,7 @@
 .transition-arrov__back {
   @apply transition-all group-hover:-translate-x-2;
 }
+
+.border__bottom {
+  @apply border-b-[1px] border-b-middleGrey;
+}
