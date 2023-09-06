@@ -1,4 +1,5 @@
-import { $, component$, useSignal, useTask$ } from "@builder.io/qwik";
+import { component$, useSignal, useStyles$, useTask$ } from "@builder.io/qwik";
+import styles from "./ServiceCard.css?inline";
 import {
   ServicesCardPicture,
   ServicesCardPictureMobile,
@@ -24,6 +25,8 @@ interface ServicesCardProps {
 }
 
 export const ServicesCardRight = component$((props: ServicesCardProps) => {
+  useStyles$(styles);
+
   const {
     heading,
     href,
@@ -66,7 +69,7 @@ export const ServicesCardRight = component$((props: ServicesCardProps) => {
         class="lg:border-b-[1px] lg:border-b-middleGrey pointer-events-none relative block lg:pointer-events-auto"
         href={href}
       >
-        <h3 class="btn_key border-b-[1px] border-b-middleGrey text__hover-red xl:translate-underline__hover-line__white pointer-events-auto mb-0 pr-[50px] pb-[17px] text-[19px] font-bold uppercase sm:text-[24px] lg:border-b-0 lg:capitalize lg:pl-[29px] lg:pb-[27px] xl:pt-[8px] xl:pb-[40px] xl:pl-[50px] 2xl:text-[42px] 2xl:leading-[50px]">
+        <h3 class="btn_key border-b-[1px] border-b-middleGrey text__hover-red translate-underline__hover-line__white pointer-events-auto mb-0 pr-[50px] pb-[17px] text-[19px] font-bold uppercase sm:text-[24px] lg:border-b-0 lg:capitalize lg:pl-[29px] lg:pb-[27px] xl:pt-[8px] xl:pb-[40px] xl:pl-[50px] 2xl:text-[42px] 2xl:leading-[50px]">
           {heading}
         </h3>
         <div class="absolute top-[calc(50%-17px)] right-[0px] mt-[-14px] rounded-full p-[13.5px] transition-all ease-in group-hover/card:bg-main lg:top-0 lg:right-[10px] lg:mt-[-16px] lg:p-[23px] xl:top-[-6px] xl:right-[10px] xl:p-[26px] 2xl:top-[-8px] 2xl:p-8">
@@ -157,7 +160,7 @@ export const ServicesCardLeft = component$((props: ServicesCardProps) => {
           }
         }}
       >
-        <h3 class="btn_key border-b-[1px] border-b-middleGrey text__hover-red xl:translate-underline__hover-line__white pointer-events-auto mb-0 pr-[50px] pb-[17px] text-[19px] font-bold uppercase sm:text-[24px] lg:border-b-0 lg:capitalize lg:pb-[27px] xl:pb-[40px] 2xl:text-[42px] 2xl:leading-[50px]">
+        <h3 class="btn_key border-b-[1px] border-b-middleGrey text__hover-red translate-underline__hover-line__white pointer-events-auto mb-0 pr-[50px] pb-[17px] text-[19px] font-bold uppercase sm:text-[24px] lg:border-b-0 lg:capitalize lg:pb-[27px] xl:pb-[40px] 2xl:text-[42px] 2xl:leading-[50px]">
           {heading}
         </h3>
         <div class="absolute top-[calc(50%-17px)] right-[0px] mt-[-14px] rounded-full p-[13.5px] transition-all ease-in group-hover/card:bg-main lg:top-0 lg:right-[10px] lg:mt-[-16px] lg:p-[23px] xl:top-[-6px] xl:right-[10px] xl:p-[26px] 2xl:top-[-8px] 2xl:p-8">

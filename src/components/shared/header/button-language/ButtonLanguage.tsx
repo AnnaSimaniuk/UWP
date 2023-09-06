@@ -2,6 +2,7 @@ import { component$, useComputed$, useStore, useTask$ } from "@builder.io/qwik";
 import { useLocale } from "~/hooks/useLocale";
 import { useTranslate } from "qwik-speak";
 import { ILanguage } from "~/types/ILanguage";
+import { Image } from "@unpic/qwik";
 
 interface ButtonLanguageProps {
   languageData: ILanguage[];
@@ -34,7 +35,12 @@ export const ButtonLanguage = component$((props: ButtonLanguageProps) => {
     <div class="hidden xl:block">
       <div class="flex items-center pl-[22px] group/item xl:relative xl:pl-[37px] 2xl:pl-[22px]">
         <span class="gap-2.5 rounded-lg p-2.5 transition-all ease-in hover:text-main dark:hover:bg-none lg:flex">
-          <img src={activeLanguage.icon} alt={activeLanguage.text} />
+          <Image
+            src={activeLanguage.icon}
+            alt={activeLanguage.text}
+            width={33}
+            height={24}
+          />
           <span class="btn__language-desc uppercase transition-all ease-in">
             {activeLanguage?.text}
           </span>
@@ -52,7 +58,12 @@ export const ButtonLanguage = component$((props: ButtonLanguageProps) => {
                           class="language-item flex items-center gap-[5.5px] rounded-[5px] p-2.5 transition-all ease-in hover:bg-[#4E4E4E] lg:flex"
                           onClick$={() => navigateByLocale$(t(lang.href))}
                         >
-                          <img src={lang.icon} alt={t(lang.text)} />
+                          <Image
+                            src={lang.icon}
+                            alt={t(lang.text)}
+                            width={33}
+                            height={24}
+                          />
                           <span class="btn__language-desc uppercase  transition-all ease-in group-hover:text-main">
                             {t(lang.text)}
                           </span>

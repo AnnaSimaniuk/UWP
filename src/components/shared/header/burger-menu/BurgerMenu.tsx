@@ -56,7 +56,7 @@ export const BurgerMenu = component$((props: BurgerMenuProps) => {
             id="backdrop_01"
           ></div>
           <div
-            class={`red-gradient-menu header__contact-body right-0 flex w-full flex-col justify-between overflow-y-auto bg-dark px-5 pt-[33px] pb-20 lg:w-[63.7%] lg:px-[32px] lg:pb-[50px] lg:pt-[22px]
+            class={`red-gradient-menu header__contact-body right-0 flex w-full flex-col justify-between overflow-y-auto bg-dark px-5 pt-[33px] pb-20 lg:w-[64%] lg:px-[32px] lg:pb-[50px] lg:pt-[22px]
          
             `}
             id="dynamicMenu"
