@@ -1,4 +1,5 @@
-import { component$, useSignal, useTask$ } from "@builder.io/qwik";
+import { component$, useSignal, useTask$, useStyles$ } from "@builder.io/qwik";
+import styles from "../../../../ui/custom-link/CustomLink.css?inline";
 import { useLocation } from "@builder.io/qwik-city";
 import { useTranslate } from "qwik-speak";
 import { useHref } from "~/hooks/useHref";
@@ -12,6 +13,7 @@ interface NavbarLinkProps {
 }
 
 export const NavbarLink = component$((props: NavbarLinkProps) => {
+  useStyles$(styles);
   const { text, link } = props;
   const t = useTranslate();
   const { url } = useLocation();

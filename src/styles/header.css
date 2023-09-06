@@ -198,7 +198,7 @@ BEGIN: burger-black
 Menu header gradient
 ==================== */
 
-.red-gradient-menu {
+/* .red-gradient-menu {
   @apply relative overflow-hidden
     to-transparent before:absolute
     before:top-[135px] before:right-0
@@ -212,13 +212,13 @@ Menu header gradient
 
     lg:before:w-[220px] lg:before:translate-x-[50%]  lg:before:blur-[75px] xl:before:top-[0px]
     xl:before:h-[591px] xl:before:w-[591px];
-}
+} */
 
-.header-scroll-menu {
+/* .header-scroll-menu {
   @apply z-20 h-[calc(100vh)] overflow-y-scroll
     transition-all
     ease-in;
-}
+} */
 
 /* =============================
 translate-underline-header-menu
@@ -226,7 +226,7 @@ translate-underline-header-menu
 
 /* active:text-main  */
 
-.translate-underline__hover-line__dark {
+/* .translate-underline__hover-line__dark {
   @apply relative cursor-pointer transition-all duration-100
     before:absolute before:-bottom-1 before:right-0 before:h-px before:w-0
     before:bg-lightDarkGrey before:opacity-0 before:transition-all
@@ -236,13 +236,13 @@ translate-underline-header-menu
     hover:before:duration-300
     hover:after:scale-100 active:text-main active:before:bg-main
     active:before:text-main;
-}
+} */
 
 /*==============================
 translate-underline__hover-line
 ================================*/
 
-.translate-underline__hover {
+/* .translate-underline__hover {
   @apply hover:translate-x-6 hover:text-main
     hover:underline hover:underline-offset-8 hover:transition-all;
 }
@@ -253,7 +253,7 @@ translate-underline__hover-line
     before:transition-all before:duration-1000 before:content-['']
     hover:before:left-0 hover:before:right-auto
     hover:before:w-full hover:before:opacity-100 hover:before:duration-500;
-}
+} */
 
 /*.translate-underline__hover-line__cases {
   @apply relative cursor-pointer transition-all duration-500 before:absolute before:-bottom-[13px]

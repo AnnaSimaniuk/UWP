@@ -6,3 +6,25 @@
 .header__contact-body::-webkit-scrollbar-thumb {
   @apply h-[5px]  rounded-[20px] bg-main;
 }
+
+.red-gradient-menu {
+  @apply relative overflow-hidden
+    to-transparent before:absolute
+    before:top-[135px] before:right-0
+    before:h-[190px]
+    before:w-[190px] before:translate-x-[28%] before:bg-gradient-radial
+
+    before:from-main
+    before:blur-[60px] before:content-['']
+    lg:before:top-[240px]
+    lg:before:h-[220px]
+
+    lg:before:w-[220px] lg:before:translate-x-[50%]  lg:before:blur-[75px] xl:before:top-[0px]
+    xl:before:h-[591px] xl:before:w-[591px];
+}
+
+.header-scroll-menu {
+  @apply z-20 h-[calc(100vh)] overflow-y-scroll
+    transition-all
+    ease-in;
+}

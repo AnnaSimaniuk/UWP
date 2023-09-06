@@ -1,4 +1,10 @@
-import { component$, QwikIntrinsicElements, Slot } from "@builder.io/qwik";
+import {
+  component$,
+  QwikIntrinsicElements,
+  Slot,
+  useStyles$,
+} from "@builder.io/qwik";
+import styles from "./CustomLink.css?inline";
 import { Link } from "@builder.io/qwik-city";
 import { cva } from "class-variance-authority";
 import type { VariantProps } from "class-variance-authority";
@@ -25,6 +31,7 @@ interface CustomLinkProps extends VariantProps<typeof linkVariants> {
 }
 
 export const CustomLink = component$((props: CustomLinkProps) => {
+  useStyles$(styles);
   const { ariaLabel, variant, href, className, ...otherProps } = props;
   return (
     <Link
