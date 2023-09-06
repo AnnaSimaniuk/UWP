@@ -20,9 +20,9 @@
     @apply absolute left-5 top-[128px] flex;
 } */
 
-/* .header__contact-body::-webkit-scrollbar-thumb {
+.header__contact-body::-webkit-scrollbar-thumb {
   @apply h-[5px]  rounded-[20px] bg-main;
-} */
+}
 
 /*================================================
 BEGIN: wrapper
@@ -43,10 +43,6 @@ BEGIN: 01-section-header
 BEGIN: menu.js scroll
 ===================== */
 
-/* header {
-  @apply fixed top-0 right-0 left-0 z-30;
-} */
-
 /*.isFixed {*/
 /*    @apply top-[-78px] right-0 left-0*/
 /*    transition-all  duration-300 ease-in*/
@@ -63,13 +59,13 @@ BEGIN: menu.js scroll
 END: menu.js scroll
 ==================== */
 
-/* .header--active .btn-language {
+.header--active .btn-language {
   @apply absolute left-5 top-[128px] flex;
-} */
+}
 
-/* .nav {
+.nav {
   @apply flex items-center justify-between py-3.5;
-} */
+}
 
 .link__list {
   @apply absolute top-[184px] left-full mx-5 flex w-[92%] scale-0 flex-col gap-[30px] border-t border-lightDarkGrey px-2 pt-[30px] font-montserrat text-base uppercase text-lightGrey transition-all;
