@@ -47,7 +47,6 @@
   "dependencies": {
     "@glidejs/glide": "^3.6.0",
     "@modular-forms/qwik": "^0.20.2",
-    "@splidejs/splide": "^4.1.4",
-    "swiper": "^10.2.0"
+    "@splidejs/splide": "^4.1.4"
   }
 }

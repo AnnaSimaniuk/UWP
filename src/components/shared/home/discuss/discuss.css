@@ -1,0 +1,72 @@
+.discussSlider {
+}
+
+.discussSlider > .splide__track {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+  display: block;
+}
+
+.discussSlider > .splide__pagination {
+  display: flex;
+  width: 150px;
+  gap: 15px;
+  position: relative;
+  bottom: -300px;
+  left: 65%;
+  z-index: 2;
+}
+
+.discussSlider > .splide__pagination > li > .splide__pagination__page {
+  width: 15px;
+  height: 15px;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.discussSlider > .splide__pagination > li > .is-active {
+  background-color: #ff304d;
+}
+
+.discussSlider > .splide__track > .splide__list {
+}
+
+.discussSlider > .splide__track > .splide__list > .splide__slide {
+  /* width: 1442px; */
+}
+
+.discussSlider > .splide__arrows {
+}
+
+.discussSlider > .splide__arrows > .splide__arrow--prev {
+  display: none;
+  background-color: blue;
+  position: relative;
+  left: -1024px;
+  top: 550px;
+  z-index: 9999999999;
+}
+
+.discussSlider > .splide__arrows > .splide__arrow--next {
+  background-color: #f8f8f8;
+  position: relative;
+  right: 925px;
+  top: 534px;
+  z-index: 2;
+  padding: 16px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  background-image: url(./right_arrow_icon.svg);
+  background-repeat: no-repeat;
+  background-position: -8px;
+  background-size: 90px;
+}
+.discussSlider > .splide__arrows > .splide__arrow--next:hover {
+  --tw-text-opacity: 1;
+  border-color: #ff304d;
+}

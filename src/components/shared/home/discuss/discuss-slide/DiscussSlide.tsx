@@ -28,10 +28,11 @@ export const DiscussSlide = component$((props: DiscussSlideProps) => {
     text_2,
     text_3,
   } = props;
+
   return (
-    <div class="swiper-slide">
+    <div class="splide__slide">
       <div class="relative float-left w-full">
-        <div class="border-t-[1px] border-middleGrey pb-[76px] lg:flex lg:pb-[88px] xl:gap-[40px] xl:border-t-0 xl:pl-[50px] 2xl:gap-[63px] 2xl:pl-[152px]">
+        <div class=" border-t-[1px] border-middleGrey pb-[76px] lg:flex lg:pb-[88px] xl:gap-[40px] xl:border-t-0 xl:pl-[50px] 2xl:gap-[63px] 2xl:pl-[152px]">
           <div class="relative mt-[34px] mb-9 flex lg:mt-10 lg:mb-0 lg:basis-[320px] xl:mt-[50px]">
             <div class="relative h-fit">
               <picture>
@@ -47,11 +48,21 @@ export const DiscussSlide = component$((props: DiscussSlideProps) => {
                   height="520"
                 />
               </picture>
-              <button
-                aria-label="button"
-                class="swiper-next-slide group absolute bottom-0 left-0 flex h-[39px] w-[39px] translate-y-1/2 items-center justify-center rounded-full border-0 bg-light p-0 text-center text-white hover:text-main lg:left-0 lg:h-[58px] lg:w-[58px] lg:rounded-full xl:h-[72px] xl:w-[72px]"
+              {/* <button
+                aria-label="Next slide"
+                aria-controls="splide01-track"
+                class="splide__arrow splide__arrow--next  group absolute bottom-0 left-0 flex h-[39px] w-[39px] translate-y-1/2 items-center justify-center rounded-full border-0 bg-light p-0 text-center text-white hover:text-main lg:left-0 lg:h-[58px] lg:w-[58px] lg:rounded-full xl:h-[72px] xl:w-[72px]"
                 type="button"
+                onClick$={() => {
+                  console.log("CLICK");
+                  const el: HTMLElement =
+                    document.querySelector("#splide01-list")!;
+                  if (el) {
+                    // el.style.transform = `translateX(-1240px)`;
+                  }
+                }}
               >
+
                 <svg
                   class="rounded-full"
                   fill="none"
@@ -81,7 +92,7 @@ export const DiscussSlide = component$((props: DiscussSlideProps) => {
                     y=".5"
                   />
                 </svg>
-              </button>
+              </button> */}
             </div>
             <div class="mt-2 ml-5 lg:hidden">
               <svg
