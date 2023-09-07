@@ -5,10 +5,6 @@
   @apply 2xl:w-[calc(100%-2px)];
 }
 
-.cards-text__left {
-  @apply lg:pr-[33px];
-}
-
 .cards-text__right {
   @apply lg:pl-[33px];
 }

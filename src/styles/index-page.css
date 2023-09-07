@@ -2,9 +2,9 @@
 BEGIN: gradient-hero  
 ===================*/
 
-.red-gradient-hero {
+/* .red-gradient-hero {
   @apply relative overflow-hidden to-transparent before:absolute before:right-0 before:h-[212px] before:w-[212px] before:translate-x-[50%] before:bg-gradient-radial before:from-main before:blur-[45px] before:content-[''] lg:before:top-[50px] lg:before:h-[322px] lg:before:w-[322px] lg:before:blur-[60px] xl:before:top-[0px] xl:before:h-[591px] xl:before:w-[591px] xl:before:blur-[90px];
-}
+} */
 
 /*================================================ 
 BEGIN: 05-sections-our-cases    achievements
@@ -98,22 +98,22 @@ cards__wrap
 /*================================================
 BEGIN: 06-section-services
  =============================================== */
-.text__hover-red {
+/* .text__hover-red {
   @apply transition ease-in group-hover/card:text-main;
-}
+} */
 
 /* cards__btn */
-.wrap-svg__hover-red {
+/* .wrap-svg__hover-red {
   @apply rounded-full transition-all ease-in xl:p-[26px] xl:group-hover/card:bg-main 2xl:p-8;
 }
 
 .svg__hover-red {
   @apply transition-all ease-in group-hover/card:fill-main xl:group-hover/card:fill-white;
-}
+} */
 
-.translate-underline__hover-line__white {
+/* .translate-underline__hover-line__white {
   @apply relative cursor-pointer transition-all duration-100 before:absolute before:-bottom-[1px] before:right-0 before:h-[2px] before:w-0 before:bg-white before:opacity-0 before:transition-all before:duration-1000 before:content-[''] group-hover/card:before:left-0 group-hover/card:before:right-auto group-hover/card:before:w-full group-hover/card:before:opacity-100 group-hover/card:before:duration-300 group-hover/card:after:scale-100;
-}
+} */
 
 /*================================================
 END: 06-section-services
@@ -123,46 +123,46 @@ END: 06-section-services
  BEGIN: 10-section-support FAQ 
  =============================================== */
 
-.title + .content {
+/* .title + .content {
   @apply hidden;
 }
 
 .title + .content.c_active {
   @apply block;
-}
+} */
 
 /* =======================
 spoller-decor-02
 ======================= */
 
 /* min-w-[24px] min-h-[24px] */
-.spoller-decor {
+/* .spoller-decor {
   @apply relative block h-[24px] w-[24px] transition-all ease-in;
-}
+} */
 
 /* .c_active */
 /* | */
-.spoller-decor::before {
+/* .spoller-decor::before {
   @apply absolute  left-[50%] top-0 h-full w-[3px] content-[''] dark:bg-white;
-}
+} */
 
 /* translate-x-[-50%] */
 /* -- */
-.spoller-decor::after {
+/* .spoller-decor::after {
   @apply absolute left-0 top-[50%] h-[3px] w-full content-[''] dark:bg-white;
-}
+} */
 
-.t_active .spoller-decor {
+/* .t_active .spoller-decor {
   @apply rotate-90;
-}
+} */
 
-.t_active .spoller-decor::before {
+/* .t_active .spoller-decor::before {
   @apply absolute left-[50%] top-0 h-full w-[3px] translate-x-[-50%] content-[''] dark:bg-white;
-}
+} */
 
-.t_active .spoller-decor::after {
+/* .t_active .spoller-decor::after {
   @apply absolute left-0 top-[50%] h-[3px] w-full translate-y-[-50%] opacity-0 content-[''] dark:bg-white;
-}
+} */
 
 /* ==============
 =============== */
@@ -239,6 +239,6 @@ Form menu header
  BEGIN: form
  =============================================== */
 
-.red-gradient-form {
+/* .red-gradient-form {
   @apply relative overflow-hidden to-transparent before:absolute before:top-[46px] before:right-0 before:h-[130px] before:w-[130px] before:translate-x-[24%] before:bg-gradient-radial before:from-main before:blur-[45px] before:content-[''] lg:before:top-[25px] lg:before:h-[200px] lg:before:w-[200px] lg:before:translate-x-[24%] lg:before:blur-[80px] xl:before:top-[256px] xl:before:h-[300px] xl:before:w-[300px] xl:before:translate-x-[14%] xl:before:blur-[80px] 2xl:before:top-[180px] 2xl:before:h-[350px] 2xl:before:w-[350px] 2xl:before:translate-x-[24%];
-}
+} */

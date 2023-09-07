@@ -1,4 +1,6 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
+import styles from "./HomeForm.css?inline";
+
 import { FeedbackForm } from "~/components/form/FeedbackForm";
 import { Address } from "~/components/shared/home/home-form/address/Address";
 import { Contacts } from "~/components/shared/home/home-form/contacts/Contacts";
@@ -23,6 +25,8 @@ const data = [
 ];
 
 export const HomeForm = component$(() => {
+  useStyles$(styles);
+
   return (
     <section class="form red-gradient-form rounded-b-[30px] bg-dark pt-8 pb-[50px] lg:rounded-b-[40px] lg:pt-[49px] lg:pb-[49px] xl:rounded-b-[50px] xl:pt-[41px] xl:pb-[58px] 2xl:pt-[90px] 2xl:pb-[58px]">
       <div class="container sm:max-w-full lg:px-[30px] 3xl:max-w-[1920px] 3xl:px-[135px]">

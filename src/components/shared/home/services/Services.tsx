@@ -1,4 +1,5 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
+import styles from "./Services.css?inline";
 import { ButtonSticky } from "~/components/ui/button/ButtonSticky";
 import {
   ServicesCardLeft,
@@ -78,6 +79,7 @@ const data = [
 ];
 
 export const Services = component$(() => {
+  useStyles$(styles);
   const isLgScreen = useMediaQuery("lg");
   const t = useTranslate();
   const { href } = useHref(t("services.btn_href"));

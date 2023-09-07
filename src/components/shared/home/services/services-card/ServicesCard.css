@@ -1,36 +1,33 @@
-.link-oside__red {
-  @apply relative overflow-hidden;
+.text__hover-red {
+  @apply transition ease-in group-hover/card:text-main;
 }
 
-.link-oside__red::after {
-  @apply absolute left-0 top-full h-full
-      w-full rounded-[70px] bg-main transition-all content-[''];
+.translate-underline__hover-line__white {
+  @apply relative cursor-pointer transition-all duration-100 before:absolute before:-bottom-[1px] before:right-0 before:h-[2px] before:w-0 before:bg-white before:opacity-0 before:transition-all before:duration-1000 before:content-[''] group-hover/card:before:left-0 group-hover/card:before:right-auto group-hover/card:before:w-full group-hover/card:before:opacity-100 group-hover/card:before:duration-300 group-hover/card:after:scale-100;
 }
 
-.link-oside__red:hover {
-  @apply scale-105 text-white;
+.spoller-decor {
+  @apply relative block h-[24px] w-[24px] transition-all ease-in;
 }
 
-.link-oside__red:hover::after {
-  @apply absolute left-0 top-0 -z-10
-      h-full w-full rounded-[70px] bg-main
-      transition-all content-[''];
+.spoller-decor::before {
+  @apply absolute  left-[50%] top-0 h-full w-[3px] content-[''] dark:bg-white;
 }
 
-.link-oside {
-  @apply relative overflow-hidden;
+/* translate-x-[-50%] */
+/* -- */
+.spoller-decor::after {
+  @apply absolute left-0 top-[50%] h-[3px] w-full content-[''] dark:bg-white;
 }
 
-.link-oside::after {
-  @apply absolute left-0 top-full h-full w-full
-    rounded-[70px] bg-[#DC2D45] transition-all ease-in content-[''];
+.t_active .spoller-decor {
+  @apply rotate-90;
 }
 
-.link-oside:hover {
-  @apply scale-105;
+.t_active .spoller-decor::before {
+  @apply absolute left-[50%] top-0 h-full w-[3px] translate-x-[-50%] content-[''] dark:bg-white;
 }
 
-.link-oside:hover::after {
-  @apply absolute left-0 top-0 -z-10 h-full w-full
-    rounded-[70px] bg-[#DC2D45] content-[''];
+.t_active .spoller-decor::after {
+  @apply absolute left-0 top-[50%] h-[3px] w-full translate-y-[-50%] opacity-0 content-[''] dark:bg-white;
 }

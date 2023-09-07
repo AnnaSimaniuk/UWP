@@ -1,0 +1,3 @@
+.red-gradient-form {
+  @apply relative overflow-hidden to-transparent before:absolute before:top-[46px] before:right-0 before:h-[130px] before:w-[130px] before:translate-x-[24%] before:bg-gradient-radial before:from-main before:blur-[45px] before:content-[''] lg:before:top-[25px] lg:before:h-[200px] lg:before:w-[200px] lg:before:translate-x-[24%] lg:before:blur-[80px] xl:before:top-[256px] xl:before:h-[300px] xl:before:w-[300px] xl:before:translate-x-[14%] xl:before:blur-[80px] 2xl:before:top-[180px] 2xl:before:h-[350px] 2xl:before:w-[350px] 2xl:before:translate-x-[24%];
+}
