@@ -1,5 +1,8 @@
-import { component$, useContext } from "@builder.io/qwik";
+import { component$, useContext, useStyles$ } from "@builder.io/qwik";
+import styles from "./ButtonBurgerMenu.css?inline";
+
 import { ModalProvider } from "~/context";
+import { ButtonBurgerMenu } from "~/components/ui/button/ButtonBurgerMenu";
 
 interface ButtonBurgerMenuProps {
   burgerMenuData: {
@@ -8,6 +11,7 @@ interface ButtonBurgerMenuProps {
 }
 
 export const ButtonBurgerMenu = component$((props: ButtonBurgerMenuProps) => {
+  useStyles$(styles);
   return (
     <button
       aria-label="button burger"

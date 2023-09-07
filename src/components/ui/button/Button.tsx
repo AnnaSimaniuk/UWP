@@ -3,7 +3,9 @@ import {
   HTMLAttributes,
   QwikIntrinsicElements,
   Slot,
+  useStyles$,
 } from "@builder.io/qwik";
+import styles from "./Button.css?inline";
 import type { VariantProps } from "class-variance-authority";
 import { cva } from "class-variance-authority";
 
@@ -39,6 +41,7 @@ interface ButtonProps
 }
 
 export const Button = component$((props: ButtonProps) => {
+  useStyles$(styles);
   const { variant, size, className, ...otherProps } = props;
   return (
     <button

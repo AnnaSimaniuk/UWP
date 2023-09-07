@@ -1,4 +1,11 @@
-import { component$, Signal, useSignal, useTask$ } from "@builder.io/qwik";
+import {
+  component$,
+  Signal,
+  useSignal,
+  useTask$,
+  useStyles$,
+} from "@builder.io/qwik";
+import styles from "./FaqItem.css?inline";
 import { MinesIcon, PlusIcon } from "~/assets/icons";
 
 interface FaqItemProps {
@@ -9,6 +16,7 @@ interface FaqItemProps {
 }
 
 export const FaqItem = component$((props: FaqItemProps) => {
+  useStyles$(styles);
   const { question, answer, index, activeQuestion } = props;
   const title = useSignal(false);
   const icon = useSignal(false);

@@ -1,9 +1,11 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
+import styles from "./FooterNav.css?inline";
 import { MainNavList } from "~/components/shared/footer/nav/main-nav-list/MainNavList";
 import { SecondaryNavList } from "~/components/shared/footer/nav/secondary-nav-list/SecondaryNavList";
 import { Social } from "~/components/shared/social/Social";
 
 export const FooterNav = component$(() => {
+  useStyles$(styles);
   return (
     <nav class="lg:grid lg:grid-cols-1">
       <MainNavList />

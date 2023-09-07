@@ -1,0 +1,31 @@
+.border__top {
+  @apply border-t-[1px] border-t-middleGrey;
+}
+.cards {
+  @apply 2xl:w-[calc(100%-2px)];
+}
+
+.cards-text__right {
+  @apply lg:pl-[33px];
+}
+
+.cards__link {
+  @apply flex  text-xl  font-bold leading-6 text-inherit lg:flex lg:justify-between xl:gap-0 xl:text-[32px];
+}
+
+.cards__title {
+  @apply mb-[25px] text-xl font-bold leading-[120%] text-dark dark:text-white lg:mb-[66px] 2xl:mb-[30px] 2xl:text-[27px] 2xl:leading-[120%] 3xl:text-[32px];
+}
+
+.cards__btn {
+  @apply flex h-max;
+}
+
+/* lg:mb-[95px] */
+.cards__text {
+  @apply mb-[40px] text-sm font-medium text-dark dark:text-white lg:text-base lg:leading-[140%];
+}
+
+.cards__desc {
+  @apply text-xs font-medium uppercase leading-[140%] text-dark dark:text-white lg:text-[14px] xl:text-base;
+}

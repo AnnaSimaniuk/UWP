@@ -1,4 +1,9 @@
-import { component$, useSignal, useStyles$, useTask$ } from "@builder.io/qwik";
+import {
+  component$,
+  useSignal,
+  useStyles$,
+  useTask$,
+} from "@builder.io/qwik";
 import styles from "./ServiceCard.css?inline";
 import {
   ServicesCardPicture,
@@ -26,7 +31,6 @@ interface ServicesCardProps {
 
 export const ServicesCardRight = component$((props: ServicesCardProps) => {
   useStyles$(styles);
-
   const {
     heading,
     href,

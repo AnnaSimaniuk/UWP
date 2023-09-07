@@ -1,19 +1,23 @@
-/*.isFixed {*/
-/*    @apply top-[-78px] right-0 left-0*/
-/*    transition-all  duration-300 ease-in*/
-/*    lg:top-[-87px]*/
-/*    xl:top-[-91px];*/
-/*}*/
+.header {
+  @apply fixed top-0 right-0 left-0 z-30;
+}
 
-/*.isVisible {*/
-/*    @apply fixed top-0 transition-all duration-300*/
-/*    ease-in;*/
-/*}*/
+.isFixed {
+  @apply top-[-78px] right-0 left-0
+     transition-all  duration-300 ease-in
+     lg:top-[-87px]
+     xl:top-[-91px];
+}
 
-/*.header {*/
-/*    @apply fixed top-0 right-0 left-0 z-30;*/
-/*}*/
+.isVisible {
+  @apply fixed top-0 transition-all duration-300
+     ease-in;
+}
 
-/*.header--active .btn-language {*/
-/*    @apply absolute left-5 top-[128px] flex;*/
-/*}*/
+.header--active .btn-language {
+  @apply absolute left-5 top-[128px] flex;
+}
+
+header {
+  @apply fixed top-0 right-0 left-0 z-30;
+}

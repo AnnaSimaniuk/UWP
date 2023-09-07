@@ -1,4 +1,11 @@
-import { component$, Signal, useSignal, useTask$ } from "@builder.io/qwik";
+import {
+  component$,
+  Signal,
+  useSignal,
+  useTask$,
+  useStyles$,
+} from "@builder.io/qwik";
+import styles from "../../../../ui/custom-link/CustomLink.css?inline";
 import { ArrowRightIcon } from "~/assets/icons";
 import { useTranslate } from "qwik-speak";
 import { Link, useLocation, useNavigate } from "@builder.io/qwik-city";
@@ -16,6 +23,7 @@ interface BurgerNavItemProps {
 }
 
 export const BurgerNavItem = component$((props: BurgerNavItemProps) => {
+  useStyles$(styles);
   const { burgerMenuData, text, link, classWrapper, serviceMenuActive } = props;
   const t = useTranslate();
   const { url } = useLocation();

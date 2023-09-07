@@ -1,8 +1,11 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
+import styles from "./SecondaryNavList.css?inline";
 import { NAV_LINKS } from "~/tools/variables/navLinks";
 import { SecondaryNavLink } from "~/components/shared/footer/nav/secondary-nav-list/secondary-nav-link/SecondaryNavLink";
 
 export const SecondaryNavList = component$(() => {
+  useStyles$(styles);
+
   return (
     <ul
       class="border__bottom border__top xl:border__top xl:border__bottom flex flex-col gap-y-5 pt-[32px]

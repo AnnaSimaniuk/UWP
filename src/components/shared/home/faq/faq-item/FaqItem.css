@@ -1,0 +1,19 @@
+.border__bottom {
+  @apply border-b-[1px] border-b-middleGrey;
+}
+
+.title + .content {
+  @apply hidden;
+}
+
+.title + .content.c_active {
+  @apply block;
+}
+
+.title-accordion {
+  @apply cursor-pointer gap-7 pt-[21px] pb-[18px] text-base font-semibold leading-[130%] text-dark ease-in dark:text-white dark:active:text-main lg:pt-[31px] lg:pb-[32px] lg:text-2xl xl:pt-[35px] xl:pb-[32px] xl:text-2xl 2xl:pb-[43px];
+}
+
+.text-accordion {
+  @apply pb-[19px] text-sm font-medium leading-5 text-dark  transition-all duration-300 ease-in dark:text-white lg:pb-[31px] lg:text-base lg:leading-[140%] xl:pb-[30px] xl:pr-[140px] xl:text-base 2xl:pb-10;
+}

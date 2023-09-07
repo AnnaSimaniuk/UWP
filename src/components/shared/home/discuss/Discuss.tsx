@@ -1,4 +1,10 @@
-import { component$, useStyles$, useVisibleTask$ } from "@builder.io/qwik";
+import {
+  component$,
+  useStyles$,
+  useVisibleTask$,
+  useStyles$,
+} from "@builder.io/qwik";
+import styles from "./Discuss.css?inline";
 import { ButtonSticky } from "~/components/ui/button/ButtonSticky";
 import { DiscussSlide } from "~/components/shared/home/discuss/discuss-slide/DiscussSlide";
 
@@ -36,6 +42,8 @@ const data = [
 ];
 
 export const Discuss = component$(() => {
+  useStyles$(styles);
+
   return (
     <section class="discuss bg-dark pt-[62px] pb-[80px] lg:pt-[65px] lg:pb-[80px] xl:pt-[47px] xl:pb-[41px] 2xl:pt-[110px] 2xl:pb-[41px]">
       <div class="container sm:max-w-full lg:px-[30px] 3xl:max-w-[1920px] 3xl:px-[135px]">
