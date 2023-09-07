@@ -1,4 +1,5 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
+import styles from "./CaseCardPicture.css?inline";
 
 interface CaseCardPictureProps {
   src: string;
@@ -13,6 +14,7 @@ interface CaseCardPictureProps {
 }
 
 export const CaseCardPicture = component$((props: CaseCardPictureProps) => {
+  useStyles$(styles);
   const {
     src,
     alt,
