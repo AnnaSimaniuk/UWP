@@ -1,4 +1,5 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
+import styles from "./Cases.css?inline";
 import { ButtonSticky } from "~/components/ui/button/ButtonSticky";
 import {
   CaseCardLeft,
@@ -45,6 +46,7 @@ const cases = [
 ];
 
 export const Cases = component$(() => {
+  useStyles$(styles);
   const t = useTranslate();
   const { href } = useHref(t("cases.btn_href"));
   return (

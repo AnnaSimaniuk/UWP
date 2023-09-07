@@ -91,9 +91,9 @@ img-desc-
   Border position
   ==================================*/
 
-.border__top {
+/* .border__top {
   @apply border-t-[1px] border-t-middleGrey;
-}
+} */
 
 .border__left {
   @apply border-l-[1px] border-l-middleGrey;
