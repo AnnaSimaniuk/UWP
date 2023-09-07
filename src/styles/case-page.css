@@ -103,9 +103,9 @@ img-desc-
   @apply border-r-[1px] border-r-middleGrey;
 }
 
-.border__bottom {
+/* .border__bottom {
   @apply border-b-[1px] border-b-middleGrey;
-}
+} */
 
 .border__rounded {
   @apply rounded-full border-[1px] border-middleGrey hover:border-white;
