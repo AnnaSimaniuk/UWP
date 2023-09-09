@@ -1,16 +1,19 @@
-import { component$, useStyles$ } from "@builder.io/qwik";
-import styles from "./About.css?inline";
+import { component$ } from "@builder.io/qwik";
 import { useTranslate } from "qwik-speak";
 import { AboutImage } from "~/assets/icons";
+import { AboutCardValue } from "../about-card-value/AboutCardValue";
 
 const aboutUsData = {
   heading: "About Us",
   subtitle: "WE WILL TRANSFORM YOUR THOUGHTS ABOUT DIGITAL MARKETING",
-  text: ["Paragraph 1", "Paragraph 2", "Paragraph 3"],
+  text: [
+    "We are UWP Digital — an international company with Ukrainian roots. Our team consists of the best marketers in different parts of the world, who are united by one idea — the development of marketing with the help of smart technologies.",
+    "Paragraph 2",
+    "Paragraph 3",
+  ],
 };
 
-export const About = component$(() => {
-  useStyles$(styles);
+export const AboutAbout = component$(() => {
   const t = useTranslate();
 
   return (
@@ -41,6 +44,16 @@ export const About = component$(() => {
                 {/* {t("about.paragraph")} */}
               </p>
             ))}
+            <div class="flex flex-col">
+              <ul class="flex flex-row gap-[5vw] lg:w-[47.5%] lg:self-center xl:w-[62%] xl:self-start">
+                <AboutCardValue title="projects" value="300+" />
+                <AboutCardValue title="years in marketing" value="7+" />
+              </ul>
+              <ul class="flex flex-row gap-[5vw] lg:w-[47.5%] lg:self-end xl:w-[62%]">
+                <AboutCardValue title="employees" value="50+" />
+                <AboutCardValue title="countries" value="4+" />
+              </ul>
+            </div>
           </div>
         </div>
       </div>

@@ -1,12 +1,9 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Speak, useTranslate } from "qwik-speak";
-import { About } from "~/components/shared/about/About";
+import { Speak } from "qwik-speak";
+import { AboutAbout } from "~/components/shared/about/about-about/AboutAbout";
+import { AboutTeam } from "~/components/shared/about/about-team/AboutTeam";
 import { HomeForm } from "~/components/shared/home/home-form/HomeForm";
-
-export const Page = component$(() => {
-  return <div class="content">Paaaaage</div>;
-});
 
 export default component$(() => {
   return (
@@ -15,7 +12,8 @@ export default component$(() => {
      */
     <Speak assets={["about"]}>
       <main class="z-10">
-        <About />
+        <AboutAbout />
+        <AboutTeam />
         <HomeForm />
       </main>
     </Speak>
@@ -23,6 +21,6 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "runtime.head.page.title",
-  meta: [{ name: "description", content: "runtime.head.page.description" }],
+  title: "runtime.head.about.title",
+  meta: [{ name: "description", content: "runtime.head.about.description" }],
 };
