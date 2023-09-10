@@ -31,11 +31,13 @@ export const DiscussSlide = component$((props: DiscussSlideProps) => {
 
   return (
     <div class="splide__slide">
+      {/* splide__slide */}
       <div class="relative float-left w-full">
-        <div class=" border-t-[1px] border-middleGrey pb-[76px] lg:flex lg:pb-[88px] xl:gap-[40px] xl:border-t-0 xl:pl-[50px] 2xl:gap-[63px] 2xl:pl-[152px]">
+        <div class="border-t-[1px] border-middleGrey pb-[76px] lg:flex lg:pb-[88px] xl:gap-[40px] xl:border-t-0 xl:pl-[50px] 2xl:gap-[63px] 2xl:pl-[152px]">
           <div class="relative mt-[34px] mb-9 flex lg:mt-10 lg:mb-0 lg:basis-[320px] xl:mt-[50px]">
             <div class="relative h-fit">
               <picture>
+                {/* замена  https://unpic.pics/img/qwik/*/}
                 <source type="image/webp" srcSet={srcWebp} />
                 <source type="image/jpg" srcSet={srcJpg} />
                 <img
@@ -62,7 +64,6 @@ export const DiscussSlide = component$((props: DiscussSlideProps) => {
                   }
                 }}
               >
-
                 <svg
                   class="rounded-full"
                   fill="none"
