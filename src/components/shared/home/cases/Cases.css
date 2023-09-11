@@ -1,0 +1,11 @@
+/*================================================ 
+BEGIN: 05-sections-our-cases    achievements
+=================================================*/
+
+.achievements__title {
+  @apply mb-[29px] text-4xl font-bold uppercase text-black lg:mb-[29px] lg:text-[45px] lg:leading-[50px] xl:mb-[25px] xl:border-b-0 xl:text-[50px] 2xl:mb-[71px] 2xl:border-b-0 2xl:text-[90px];
+}
+
+.achievements__subtitle {
+  @apply pt-[30px] pb-[20px] text-base font-medium leading-[22px] text-dark dark:text-white lg:pt-[31px] lg:pb-[38px];
+}

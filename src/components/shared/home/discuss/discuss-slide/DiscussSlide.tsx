@@ -1,99 +1,28 @@
 import { component$ } from "@builder.io/qwik";
+import { Image } from "@unpic/qwik";
+import { type IAchievementsItems, type IItemsDiscuss } from "~/types/IDiscuss";
 
-interface DiscussSlideProps {
-  heading: string;
-  subtitle: string;
-  text: string;
-  text_1: string;
-  text_2: string;
-  text_3: string;
-  text_4: string;
-  srcWebp: string;
-  srcJpg: string;
-  src: string;
-  alt: string;
+export interface IButtonNextSlide extends IItemsDiscuss {
+  button: any;
 }
 
-export const DiscussSlide = component$((props: DiscussSlideProps) => {
-  const {
-    src,
-    alt,
-    srcJpg,
-    srcWebp,
-    subtitle,
-    heading,
-    text,
-    text_1,
-    text_4,
-    text_2,
-    text_3,
-  } = props;
+export const DiscussSlide = component$((props: IItemsDiscuss) => {
+  const { achievements, description, image, name, position } = props;
 
   return (
-    <div class="splide__slide">
-      {/* splide__slide */}
+    <div class="splide__slide sm: min-w-[88vw] min-h-[800px] md: lg:min-h-[460px] xl: 1xl:min-w-[60vw] 2xl:min-w-[60vw] 3xl:min-w-[60vw] ">
       <div class="relative float-left w-full">
         <div class="border-t-[1px] border-middleGrey pb-[76px] lg:flex lg:pb-[88px] xl:gap-[40px] xl:border-t-0 xl:pl-[50px] 2xl:gap-[63px] 2xl:pl-[152px]">
           <div class="relative mt-[34px] mb-9 flex lg:mt-10 lg:mb-0 lg:basis-[320px] xl:mt-[50px]">
             <div class="relative h-fit">
-              <picture>
-                {/* замена  https://unpic.pics/img/qwik/*/}
-                <source type="image/webp" srcSet={srcWebp} />
-                <source type="image/jpg" srcSet={srcJpg} />
-                <img
-                  alt={alt}
-                  class="lazyload max-w-[150px] sm:max-w-[240px] xl:max-w-[390px]"
-                  decoding="async"
-                  loading="lazy"
-                  src={src}
-                  width="390"
-                  height="520"
-                />
-              </picture>
-              {/* <button
-                aria-label="Next slide"
-                aria-controls="splide01-track"
-                class="splide__arrow splide__arrow--next  group absolute bottom-0 left-0 flex h-[39px] w-[39px] translate-y-1/2 items-center justify-center rounded-full border-0 bg-light p-0 text-center text-white hover:text-main lg:left-0 lg:h-[58px] lg:w-[58px] lg:rounded-full xl:h-[72px] xl:w-[72px]"
-                type="button"
-                onClick$={() => {
-                  console.log("CLICK");
-                  const el: HTMLElement =
-                    document.querySelector("#splide01-list")!;
-                  if (el) {
-                    // el.style.transform = `translateX(-1240px)`;
-                  }
-                }}
-              >
-                <svg
-                  class="rounded-full"
-                  fill="none"
-                  viewBox="0 0 39 39"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    class="fill-light"
-                    height="38"
-                    rx="19"
-                    width="38"
-                    x=".5"
-                    y=".5"
-                  />
-                  <path
-                    class="fill-dark transition-all ease-out"
-                    clip-rule="evenodd"
-                    d="m24.511 18.374-6.04-6.04 1.592-1.593 8.76 8.759-8.76 8.76-1.593-1.593 6.041-6.04H11.304v-2.253H24.51z"
-                  />
-                  <rect
-                    class="h-[38px] w-[38px]"
-                    height="38"
-                    rx="19"
-                    stroke="currentColor"
-                    width="38"
-                    x=".5"
-                    y=".5"
-                  />
-                </svg>
-              </button> */}
+              <Image
+                class="lazyload max-w-[150px] sm:max-w-[240px] xl:max-w-[390px]"
+                src={image}
+                layout="constrained"
+                width={390}
+                height={520}
+                alt="???"
+              />
             </div>
             <div class="mt-2 ml-5 lg:hidden">
               <svg
@@ -111,14 +40,14 @@ export const DiscussSlide = component$((props: DiscussSlideProps) => {
                 </g>
               </svg>
               <h3 class="my-[10px] text-xl font-medium leading-5 text-light lg:text-2xl lg:leading-[110%]">
-                {heading}
+                {name}
               </h3>
               <p class="text-xs font-medium leading-4 tracking-[0.14px] text-middleGrey">
-                {subtitle}
+                {position}
               </p>
             </div>
           </div>
-          <div class="lg:mt-10 lg:flex lg:flex-col">
+          <div class="lg:mt-10 lg:flex lg:flex-col lg:w-[430px]">
             <div class="hidden lg:mb-[30px] lg:block">
               <div class="items-end lg:flex lg:gap-7 xl:gap-[29px]">
                 <svg
@@ -143,36 +72,35 @@ export const DiscussSlide = component$((props: DiscussSlideProps) => {
                 </svg>
                 <div class="mb-0">
                   <h3 class="my-[10px] text-xl font-medium leading-5 text-light lg:text-2xl lg:leading-[110%] xl:text-[32px] xl:leading-[35px]">
-                    {heading}
+                    {name}
                   </h3>
                   <p class="text-xs font-medium leading-4 tracking-[0.14px] text-middleGrey lg:tracking-[1.14px] xl:text-base xl:leading-[19px]">
-                    {subtitle}
+                    {position}
                   </p>
                 </div>
               </div>
             </div>
             <div class="lg:grow 2xl:grid 2xl:gap-[115px]">
-              <p class="mb-[99px] text-base font-medium leading-[139%] text-light lg:mb-[53px] lg:max-w-[456px] 2xl:max-w-[637px] 2xl:text-2xl 2xl:leading-[34px]">
-                {text}
+              <p class="mb-[99px] text-base font-medium leading-[139%] text-light lg:mb-[53px] lg:max-w-[456px] xl:max-w-[400px] 2xl:min-w-[470px] 3xl:min-w-[630px] 2xl:text-2xl 2xl:leading-[34px]">
+                {description}
               </p>
             </div>
-            <div class="flex gap-[35px] lg:gap-[60px]">
-              <div class="flex items-center gap-2">
-                <div class="text-[28px] font-bold leading-[1.2] tracking-[2.56px] text-[#FF304D] xl:text-[38px] 2xl:text-[64px]">
-                  {text_1}
-                </div>
-                <div class="text-[10px] font-medium leading-[1.2] text-light xl:text-base">
-                  {text_2}
-                </div>
-              </div>
-              <div class="flex items-center gap-2">
-                <div class="text-[28px] font-bold leading-[1.2] tracking-[2.56px] text-[#FF304D] xl:text-[38px] 2xl:text-[64px]">
-                  {text_3}
-                </div>
-                <div class="text-[10px] font-medium leading-[1.2] text-light xl:text-base">
-                  {text_4}
-                </div>
-              </div>
+            <div class="flex gap-[35px] lg:gap-0">
+              {achievements.map((item: IAchievementsItems) => {
+                return (
+                  <>
+                    <div class="flex items-center gap-2">
+                      <div class="text-[28px] font-bold leading-[1.2] tracking-[2.56px] text-[#FF304D] xl:text-[38px] 2xl:text-[64px]">
+                        {item.text_1}
+                      </div>
+                      <div class="text-[10px] font-medium leading-[1.2] text-light xl:text-base">
+                        {item.text_2}
+                      </div>
+                    </div>
+                    ;
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>

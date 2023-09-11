@@ -1,0 +1,4 @@
+.border__rounded {
+  @apply rounded-full border-[1px] border-middleGrey
+      hover:border-white;
+}

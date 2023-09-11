@@ -1,0 +1,29 @@
+.btn_a--svg:hover .btn_a--svg__border--left .path_a,
+.btn_a--svg:hover .btn_a--svg__border--right .path_a {
+  stroke-dasharray: 61.8204345703125 61.8204345703125;
+  stroke-dashoffset: 0;
+
+  transition-delay: 0.25s;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-property: stroke-dashoffset;
+}
+
+@media (min-width: 820px) {
+  .btn_a--svg__border .btn_a--svg__border--left .path_a,
+  .btn_a--svg__border .btn_a--svg__border--right .path_a {
+    stroke-dasharray: 61.8204345703125 61.8204345703125;
+    transition-duration: 0s;
+    transition-timing-function: ease-in-out;
+    transition-property: stroke-dashoffset;
+    transition-delay: 0.5s;
+  }
+
+  .btn_a--svg__border--left .path_a {
+    stroke-dashoffset: -61.8204345703125;
+  }
+
+  .btn_a--svg__border--right .path_a {
+    stroke-dashoffset: 61.8204345703125;
+  }
+}

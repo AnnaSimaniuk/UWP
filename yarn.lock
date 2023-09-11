@@ -504,6 +504,11 @@
     "@typescript-eslint/types" "5.61.0"
     eslint-visitor-keys "^3.3.0"
 
+"@unpic/qwik@^0.0.25":
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/@unpic/qwik/-/qwik-0.0.25.tgz#c0a11da676817ffdbe00388acde8cd92894e5d36"
+  integrity sha512-8YvmmOwk7dWdtAlZFiNM+z7SWHJ/M6uoleVr8y82eeu2yxPvr5n8kUgG1MdXX+re0RBtumF1vfEe4GP2UJoFMg==
+
 "@vitest/expect@0.33.0":
   version "0.33.0"
   resolved "https://registry.yarnpkg.com/@vitest/expect/-/expect-0.33.0.tgz#f48652591f3573ad6c2db828ad358d5c078845d3"
@@ -3266,11 +3271,6 @@ svgo@^3.0.2:
     css-tree "^2.2.1"
     csso "^5.0.5"
     picocolors "^1.0.0"
-
-swiper@^10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-10.2.0.tgz#e7369ff56f4e10069f2244a4436f732b8925deb0"
-  integrity sha512-nktQsOtBInJjr3f5DicxC8eHYGcLXDVIGPSon0QoXRaO6NjKnATCbQ8SZsD3dN1Ph1RH4EhVPwSYCcuDRFWHGQ==
 
 tailwindcss@^3.3.3:
   version "3.3.3"

@@ -1,70 +1,33 @@
-import {
-  component$,
-  useStyles$,
-  useVisibleTask$,
-  $,
-  useOnWindow,
-} from "@builder.io/qwik";
+import { component$, useStyles$, useVisibleTask$ } from "@builder.io/qwik";
+import { useDiscussData } from "~/routes/[...lang]";
+import { useTranslate } from "qwik-speak";
 import { ButtonSticky } from "~/components/ui/button/ButtonSticky";
 import { DiscussSlide } from "~/components/shared/home/discuss/discuss-slide/DiscussSlide";
+import { DiscussButtonNext } from "~/components/ui/button/DiscussButtonNext";
+import { type IItemsDiscuss } from "~/types/IDiscuss";
 import Splide from "@splidejs/splide";
-import { MyTransition } from "...";
-// import "@splidejs/splide/css/core";
-
 import styles from "./discuss.css?inline";
-
-const data = [
-  {
-    heading: "Serhii",
-    src: "https://uwp.digital/s/img/about/serhii-founder-medium.webp",
-    alt: "Serhii",
-    srcWebp: "https://uwp.digital/s/img/about/serhii-founder-medium.webp",
-    srcJpg: "https://uwp.digital/s/img/about/serhii-founder-medium.webp",
-    subtitle: "CEO & Founder",
-    text: "Successful financier in the marketing world. UWP Digital is a special project for me. I wanted to assemble a team of top Ukrainian talent and take marketing to the next level. When we talk about the Ukrainian team, we first talk about courage, experience, creativity, and incredibly hard work. All this formed the basis for the UWP Digital creation.",
-    text_1: "5",
-    text_2: "founded companies",
-    text_3: "2+",
-    text_4: "years in marketing",
-  },
-  {
-    heading: "Daniella",
-    src: "https://uwp.digital/s/img/about/daniella-project-manager-medium.webp",
-    alt: "Daniella",
-    srcWebp:
-      "https://uwp.digital/s/img/about/daniella-project-manager-medium.webp",
-    srcJpg:
-      "https://uwp.digital/s/img/about/daniella-project-manager-medium.webp",
-    subtitle: "Project manager",
-    text: "Words are my superpower. Made my way up from copywriter to project manager. I believe that marketing is much more than an attractive picture. It is an opportunity to convey values to people also through words.",
-    text_1: "3+",
-    text_2: "years in marketing",
-    text_3: "150",
-    text_4: "successful projects",
-  },
-];
 
 export const Discuss = component$(() => {
   useStyles$(styles);
 
+  const t = useTranslate();
+  const data = useDiscussData();
+
   useVisibleTask$(() => {
-    new Splide(".discussSlider", {
+    const sp = new Splide(".discussSlider", {
       type: "fade",
       autoHeight: true,
+      autoplay: true,
       rewind: true,
       speed: 200,
       pagination: true,
       interval: 2500,
       pauseOnHover: true,
-      arrowPath: "m15.5 0.932-4.3 4.38",
       live: true,
-    }).mount();
+    });
+    sp.mount();
   });
-
-  useOnWindow(
-    "load",
-    $((event) => {})
-  );
 
   return (
     <section class="discuss overflow-x-hidden bg-dark pt-[62px] pb-[80px] lg:pt-[65px] lg:pb-[80px] xl:pt-[47px] xl:pb-[41px] 2xl:pt-[110px] 2xl:pb-[41px]">
@@ -72,24 +35,26 @@ export const Discuss = component$(() => {
         <h2 class=" mb-[33px] text-4xl font-bold uppercase leading-[120%] text-light lg:mb-[39px] lg:text-[45px] xl:mb-[15px] xl:text-[49px] xl:leading-[96px] xl:tracking-[0.7px] 2xl:mb-[50px] 2xl:text-[90px] 2xl:leading-[108px]">
           LET’S DISCUSS THE PROJECT
         </h2>
-        <div class=" discussSlider splide xl:flex xl:flex-row-reverse xl:justify-between xl:border-t-[1px] xl:border-middleGrey">
-          <div class="splide__track ">
-            <div class="splide__list flex">
-              {data.map((item, index) => (
-                <DiscussSlide key={item.heading} {...item} /> //spslide
+        <div class=" discussSlider h-[700px] splide xl:flex xl:flex-row-reverse xl:justify-between xl:border-t-[1px] xl:border-middleGrey">
+          <div class="splide__track overflow-hidden sm:h-[800px] md:h-[800px] lg:h-[485px] xl:h-[650px] 3xl:h-[650px]">
+            <div class="splide__list flex ">
+              {data.value.items.map((item: IItemsDiscuss) => (
+                <DiscussSlide key={item.name} {...item} />
               ))}
             </div>
           </div>
+          <DiscussButtonNext />
+          <div class="splide__pagination relative top-[-80px] left-[calc(100vw/2-38px)] lg:top-[-60px] xl:top-[656px] xl:left-[36vmax] splide__pagination--ltr flex w-0 h-0 z-[2] gap-6 3xl:gap-8"></div>
           <div class="xl:border-r w-full border-t-[1px] border-middleGrey pt-[32px] xl:max-w-[317px] xl:border-t-0 xl:pt-[50px] xl:pr-[28px] 2xl:max-w-[407px] 2xl:pr-[50px]">
             <p class="pb-[30px] text-base font-medium leading-[22px] tracking-[0.4px] text-light lg:mt-0 lg:pt-[31px] lg:pb-10 xl:mt-0 xl:pb-[34px] xl:pt-[27px] 2xl:mt-0 2xl:pb-[53px] 2xl:pt-[50px]">
-              Marketing is often viewed as simply creating beautiful
-              advertising. We want to change this impression and turn it 180°.
-              If you need an SEO agency, an AdWords agency, a personal web
-              programmer, or an entire digital media agency — welcome to UWP
-              Digital.
+              {t(data.value.description)}
             </p>
             {/*{list}*/}
-            <ButtonSticky text={"Order"} href={"/contact"} />
+            <ButtonSticky
+              text={t(data.value.btn_text)}
+              href={t(data.value.btn_href)}
+            />
+            C
           </div>
         </div>
       </div>
