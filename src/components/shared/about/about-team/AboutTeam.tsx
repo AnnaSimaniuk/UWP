@@ -8,19 +8,19 @@ const teamMembers = [
   {
     memberName: "Serhii",
     role: "Ceo & founder",
-    srcSeJpg:
-      "https://uwp.digital/s/img/about/daniella-project-manager@2x.webp",
-    srcSetWebp: "https://uwp.digital/s/img/about/serhii-founder@2x.webp",
+    // srcSeJpg:
+    //   "https://uwp.digital/s/img/about/daniella-project-manager@2x.webp",
+    // srcSetWebp: "https://uwp.digital/s/img/about/serhii-founder@2x.webp",
     alt: "Serhii",
     src: "https://uwp.digital/s/img/about/serhii-founder@2x.webp",
   },
   {
     memberName: "Daniella",
     role: "Project manager",
-    srcSeJpg:
-      "https://uwp.digital/s/img/about/daniella-project-manager@2x.webp",
-    srcSetWebp:
-      "https://uwp.digital/s/img/about/daniella-project-manager@2x.webp",
+    // srcSeJpg:
+    //   "https://uwp.digital/s/img/about/daniella-project-manager@2x.webp",
+    // srcSetWebp:
+    //   "https://uwp.digital/s/img/about/daniella-project-manager@2x.webp",
     alt: "Daniella",
     src: "https://uwp.digital/s/img/about/daniella-project-manager@2x.webp",
   },

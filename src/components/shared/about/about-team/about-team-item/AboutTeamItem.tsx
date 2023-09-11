@@ -6,9 +6,6 @@ interface AboutTeamItemProps {
   memberName: string;
   role: string;
   alt: string;
-  src: string;
-  srcSetWebp: string;
-  srcSeJpg: string;
 }
 
 export const AboutTeamItem = component$((props: AboutTeamItemProps) => {
