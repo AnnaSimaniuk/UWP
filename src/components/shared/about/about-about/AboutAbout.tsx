@@ -2,24 +2,17 @@ import { component$ } from "@builder.io/qwik";
 import { useTranslate } from "qwik-speak";
 import { AboutImage } from "~/assets/icons";
 import { AboutCardValue } from "../about-card-value/AboutCardValue";
-
-const aboutUsData = {
-  heading: "About Us",
-  subtitle: "WE WILL TRANSFORM YOUR THOUGHTS ABOUT DIGITAL MARKETING",
-  text: [
-    "We are UWP Digital — an international company with Ukrainian roots. Our team consists of the best marketers in different parts of the world, who are united by one idea — the development of marketing with the help of smart technologies.",
-    "We provide a full range of business promotion services: from web development and conversion optimization to developing marketing strategies. Our mission is to observe the partnership format of cooperation with each client. It means that we share your values, and ideas and turn them into a stable income. For the successful implementation of the project, we analyze market changes, budgets, and your business goals.",
-    "That’s why UWP Digital is your trusted digital partner in the marketing world.",
-  ],
-};
+import { Breadcrumb } from "../../../ui/breadcrumb/Breadcrumd";
 
 export const AboutAbout = component$(() => {
   const t = useTranslate();
 
+  const breadcrumbItems = [{ text: "Home", href: "/" }, { text: "About us" }];
+
   return (
     <section class="about bg-dark text-light dark:bg-dark dark:text-light">
       <div class="container max-w-full lg:px-[30px] lg:pb-[80px] xl:pb-[105px] 3xl:max-w-[1920px] 3xl:px-[135px]">
-        {/* Здесь можно добавить breadcrumb*/}
+        <Breadcrumb items={breadcrumbItems} currentPage={"about-us"} />
         <div class="mb-10 flex flex-wrap items-center justify-between pt-8 lg:mb-8 lg:pt-8 xl:mb-[57px] xl:justify-start xl:pt-[20px]">
           <h1 class="mb-7 text-4xl font-bold uppercase leading-[1.1] lg:mb-0 lg:text-[60px] xl:text-[min(7vw,120px)]">
             {t("about_us.title")}

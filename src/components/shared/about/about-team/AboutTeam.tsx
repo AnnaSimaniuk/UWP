@@ -47,7 +47,7 @@ export const AboutTeam = component$(() => {
             <p class="mb-[40px] pt-[30px] leading-[1.35] lg:max-w-[500px] xl:mb-[55px] xl:border-t-0 xl:pt-0">
               {aboutTeamData.subtitle}
             </p>
-            <ButtonSticky text={t("about.btn_text")} href={href} />
+            <ButtonSticky text={t("about_us.btn_text")} href={href} />
           </div>
           <div>
             <ul class="mb-[50px] grid grid-cols-2 lg:mb-8 lg:grid-cols-[calc(100%/3-12px),calc(100%/3+12px),calc(100%/3-12px)] xl:mb-[42px] xl:grid-cols-[calc(100%/3-28px),calc(100%/3+28px),calc(100%/3-28px)] xl:pt-[68px] xl:pl-[max(5vw,60px)] 2xl:pl-[min(8vw,153px)]">
