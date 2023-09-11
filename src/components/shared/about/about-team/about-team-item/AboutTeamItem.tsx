@@ -1,6 +1,6 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 import { AboutTeamPicture } from "./about-team-picture/AboutTeamPicture";
-// import styles from "./AboutTeamItem.css?inline";
+import styles from "./AboutTeamItem.css?inline";
 
 interface AboutTeamItemProps {
   memberName: string;
@@ -12,7 +12,7 @@ interface AboutTeamItemProps {
 }
 
 export const AboutTeamItem = component$((props: AboutTeamItemProps) => {
-  //   useStyles$(styles);
+  useStyles$(styles);
   const { memberName, role } = props;
 
   return (
