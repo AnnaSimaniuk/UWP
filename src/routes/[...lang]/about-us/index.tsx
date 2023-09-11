@@ -10,7 +10,7 @@ export default component$(() => {
     /**
      * Add Page translations (only available in child components)
      */
-    <Speak assets={["about"]}>
+    <Speak assets={["about_us"]}>
       <main class="z-10">
         <AboutAbout />
         <AboutTeam />

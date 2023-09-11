@@ -9,6 +9,7 @@ interface AboutTeamPictureProps {
 
 export const AboutTeamPicture = component$((props: AboutTeamPictureProps) => {
   const { alt, srcSetWebp, srcSeJpg, src } = props;
+
   return (
     <picture>
       <source type="image/webp" srcSet={srcSetWebp} />
