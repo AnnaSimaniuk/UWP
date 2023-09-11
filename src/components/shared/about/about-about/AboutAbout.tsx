@@ -8,8 +8,8 @@ const aboutUsData = {
   subtitle: "WE WILL TRANSFORM YOUR THOUGHTS ABOUT DIGITAL MARKETING",
   text: [
     "We are UWP Digital — an international company with Ukrainian roots. Our team consists of the best marketers in different parts of the world, who are united by one idea — the development of marketing with the help of smart technologies.",
-    "Paragraph 2",
-    "Paragraph 3",
+    "We provide a full range of business promotion services: from web development and conversion optimization to developing marketing strategies. Our mission is to observe the partnership format of cooperation with each client. It means that we share your values, and ideas and turn them into a stable income. For the successful implementation of the project, we analyze market changes, budgets, and your business goals.",
+    "That’s why UWP Digital is your trusted digital partner in the marketing world.",
   ],
 };
 

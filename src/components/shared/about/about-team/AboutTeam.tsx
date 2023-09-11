@@ -35,7 +35,7 @@ const aboutTeamData = {
 
 export const AboutTeam = component$(() => {
   const t = useTranslate();
-  const { href } = useHref(t("cases.btn_href"));
+  const { href } = useHref(t("about.btn_href"));
   return (
     <section class="about bg-dark text-light dark:bg-dark dark:text-light">
       <div class="container max-w-none pt-[36px] pb-[120px] lg:px-[30px] lg:pt-3 lg:pb-[60px] xl:pt-[24px] xl:pb-[213px] 3xl:max-w-[1920px] 3xl:px-[135px]">
