@@ -33,7 +33,7 @@ export const Discuss = component$(() => {
     <section class="discuss overflow-x-hidden bg-dark pt-[62px] pb-[80px] lg:pt-[65px] lg:pb-[80px] xl:pt-[47px] xl:pb-[41px] 2xl:pt-[110px] 2xl:pb-[41px]">
       <div class="container sm:max-w-full lg:px-[30px] 3xl:max-w-[1920px] 3xl:px-[135px]">
         <h2 class=" mb-[33px] text-4xl font-bold uppercase leading-[120%] text-light lg:mb-[39px] lg:text-[45px] xl:mb-[15px] xl:text-[49px] xl:leading-[96px] xl:tracking-[0.7px] 2xl:mb-[50px] 2xl:text-[90px] 2xl:leading-[108px]">
-          LET’S DISCUSS THE PROJECT
+          {t(data.value.title)}
         </h2>
         <div class=" discussSlider h-[700px] splide xl:flex xl:flex-row-reverse xl:justify-between xl:border-t-[1px] xl:border-middleGrey">
           <div class="splide__track overflow-hidden sm:h-[800px] md:h-[800px] lg:h-[485px] xl:h-[650px] 3xl:h-[650px]">
