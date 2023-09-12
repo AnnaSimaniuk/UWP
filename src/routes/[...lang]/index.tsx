@@ -12,7 +12,13 @@ import { Cooperation } from "~/components/shared/home/cooperation/Cooperation";
 import { Faq } from "~/components/shared/home/faq/Faq";
 import { HomeForm } from "~/components/shared/home/home-form/HomeForm";
 import { Discuss } from "~/components/shared/home/discuss/Discuss";
+import { Blog } from "~/components/shared/home/blog/Blog";
 import { getDiscuss } from "~/lib/actions/discuss.action";
+import { getBlog } from "~/lib/actions/blog.action";
+
+export const useBlogData = routeLoader$(async (requestEvent) => {
+  return await getBlog(requestEvent);
+});
 
 export const useDiscussData = routeLoader$(async (requestEvent) => {
   return await getDiscuss(requestEvent);
@@ -32,7 +38,7 @@ export default component$(() => {
         <Cases />
         <Services />
         <Discuss />
-        {/*<Blog/>*/}
+        <Blog />
         <Cooperation />
         <Faq />
         <HomeForm />

@@ -21,7 +21,6 @@ export const Discuss = component$(() => {
       autoplay: true,
       rewind: true,
       speed: 200,
-      pagination: true,
       interval: 2500,
       pauseOnHover: true,
       live: true,

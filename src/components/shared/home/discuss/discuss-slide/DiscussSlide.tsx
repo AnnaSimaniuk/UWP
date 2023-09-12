@@ -2,10 +2,6 @@ import { component$ } from "@builder.io/qwik";
 import { Image } from "@unpic/qwik";
 import { type IAchievementsItems, type IItemsDiscuss } from "~/types/IDiscuss";
 
-export interface IButtonNextSlide extends IItemsDiscuss {
-  button: any;
-}
-
 export const DiscussSlide = component$((props: IItemsDiscuss) => {
   const { achievements, description, image, name, position } = props;
 
