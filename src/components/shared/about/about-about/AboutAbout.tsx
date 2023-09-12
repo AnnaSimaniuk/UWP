@@ -7,7 +7,10 @@ import { Breadcrumb } from "../../../ui/breadcrumb/Breadcrumd";
 export const AboutAbout = component$(() => {
   const t = useTranslate();
 
-  const breadcrumbItems = [{ text: "Home", href: "/" }, { text: "About us" }];
+  const breadcrumbItems = [
+    { text: "Home", href: "/" },
+    { text: t("about_us.title") },
+  ];
 
   return (
     <section class="about bg-dark text-light dark:bg-dark dark:text-light">
@@ -29,10 +32,10 @@ export const AboutAbout = component$(() => {
             <p class="mb-[26px] leading-[1.35] lg:mb-[24px] xl:mb-[48px] xl:text-[min(2.3vw,32px)] xl:leading-[1.4]">
               {t("about_us.p_1")}
             </p>
-            <p class="mb-[26px] leading-[1.35] lg:mb-[24px] xl:mb-[48px] xl:text-[min(2.3vw,32px)] xl:leading-[1.4]">
+            <p class="mb-[26px] leading-[1.35] lg:mb-[30px] xl:mb-[48px] xl:text-[min(2.3vw,32px)] xl:leading-[1.4]">
               {t("about_us.p_2")}
             </p>
-            <p class="mb-[62px] leading-[1.35] lg:mb-[24px] xl:mb-[48px] xl:text-[min(2.3vw,32px)] xl:leading-[1.4]">
+            <p class="mb-[62px] leading-[1.35] lg:mb-[40px] xl:mb-[108px] xl:text-[min(2.3vw,32px)] xl:leading-[1.4]">
               {t("about_us.p_3")}
             </p>
             <div class="flex flex-col">
