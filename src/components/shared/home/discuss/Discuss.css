@@ -1,3 +1,41 @@
 .border__right {
   @apply border-r-[1px] border-r-middleGrey;
 }
+
+@media (min-width: 320px) and (max-width: 1023px) {
+  .discussSlider > .splide__pagination > li > .splide__pagination__page {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .discussSlider > .splide__pagination > li > .splide__pagination__page {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .discussSlider > .splide__pagination > li > .splide__pagination__page {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.discussSlider > .splide__pagination > li > .splide__pagination__page {
+  border-radius: 30px;
+  background-color: white;
+}
+
+.discussSlider > .splide__pagination > li {
+  list-style-type: none;
+  width: 0;
+}
+.discussSlider > .splide__pagination > li > .is-active {
+  background-color: #ff304d;
+}
+.discussSlider > .splide__track > .splide__list > .is-prev,
+.discussSlider > .splide__track > .splide__list > .is-next {
+  opacity: 0;
+}
