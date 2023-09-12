@@ -5,6 +5,7 @@ import styles from "./AboutTeamItem.css?inline";
 interface AboutTeamItemProps {
   name: string;
   position: string;
+  index: number;
   alt: string;
   src: string;
 }
