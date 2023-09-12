@@ -27,6 +27,6 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "runtime.head.about.title",
-  meta: [{ name: "description", content: "runtime.head.about.description" }],
+  title: "runtime.head.about-us.title",
+  meta: [{ name: "description", content: "runtime.head.about-us.description" }],
 };

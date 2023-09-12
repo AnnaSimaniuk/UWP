@@ -8,7 +8,7 @@ export const AboutAbout = component$(() => {
   const t = useTranslate();
 
   const breadcrumbItems = [
-    { text: "Home", href: "/" },
+    { text: t("header.label_logo"), href: "/" },
     { text: t("about_us.title") },
   ];
 
