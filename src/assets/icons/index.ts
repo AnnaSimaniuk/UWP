@@ -19,3 +19,4 @@ export { UnmutedIcon } from "./UnmutedIcon";
 export { ArrowCardIcon } from "./ArrowCardIcon";
 export { PlusIcon } from "./PlusIcon";
 export { MinesIcon } from "./MinesIcon";
+export { AboutImage } from "./AboutImage";
