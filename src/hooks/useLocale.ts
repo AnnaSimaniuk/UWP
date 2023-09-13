@@ -1,13 +1,15 @@
 import { useLocation } from "@builder.io/qwik-city";
-import { SpeakLocale, useSpeakConfig, useSpeakLocale } from "qwik-speak";
+import { useSpeakConfig, useSpeakLocale } from "qwik-speak";
 import { $ } from "@builder.io/qwik";
 
 export const useLocale = () => {
   const loc = useLocation();
   const config = useSpeakConfig();
   const locale = useSpeakLocale();
+
   const navigateByLocale$ = $((newLocale: string) => {
     const url = new URL(location.href);
+
     if (loc.params.lang) {
       if (newLocale !== config.defaultLocale.lang) {
         url.pathname = url.pathname.replace(loc.params.lang, newLocale);

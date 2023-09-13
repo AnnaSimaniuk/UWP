@@ -15,6 +15,9 @@ import { Discuss } from "~/components/shared/home/discuss/Discuss";
 import { Blog } from "~/components/shared/home/blog/Blog";
 import { getDiscuss } from "~/lib/actions/discuss.action";
 import { getBlog } from "~/lib/actions/blog.action";
+import { getCasesForHomePage } from "~/lib/actions/cases.action";
+import { getServicesForHomePage } from "~/lib/actions/services.action";
+import { getCooperationForHomePage } from "~/lib/actions/cooperation.action";
 
 export const useBlogData = routeLoader$(async (requestEvent) => {
   return await getBlog(requestEvent);
@@ -28,9 +31,31 @@ export const useFaqData = routeLoader$(async (requestEvent) => {
   return await getFaqs(requestEvent);
 });
 
+export const useCasesData = routeLoader$(async (requestEvent) => {
+  return await getCasesForHomePage(requestEvent);
+});
+
+export const useServicesData = routeLoader$(async (requestEvent) => {
+  return await getServicesForHomePage(requestEvent);
+});
+
+export const useCooperationData = routeLoader$(async (requestEvent) => {
+  return await getCooperationForHomePage(requestEvent);
+});
+
 export default component$(() => {
   return (
-    <Speak assets={["cases", "services", "faq"]}>
+    <Speak
+      assets={[
+        "cases",
+        "services",
+        "faq",
+        "hero",
+        "video",
+        "agency",
+        "cooperation",
+      ]}
+    >
       <main class="z-10">
         <Hero />
         <Video />

@@ -23,7 +23,7 @@ export const NavbarLink = component$((props: NavbarLinkProps) => {
 
   useTask$(({ track }) => {
     track(() => url.pathname);
-    activeLink.value = url.pathname.includes(href);
+    activeLink.value = url.pathname.includes(t(`${link}`));
   });
   return (
     <>

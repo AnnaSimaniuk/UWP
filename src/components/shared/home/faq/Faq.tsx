@@ -1,7 +1,8 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { FaqItem } from "~/components/shared/home/faq/faq-item/FaqItem";
 import { useTranslate } from "qwik-speak";
-import {useFaqData} from "~/routes/[...lang]";
+import { useFaqData } from "~/routes/[...lang]";
+
 export const Faq = component$(() => {
   const activeQuestion = useSignal(0);
   const t = useTranslate();

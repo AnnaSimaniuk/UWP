@@ -10,11 +10,20 @@ export default defineConfig(() => {
       minify: false, // To inspect production files
     },
     plugins: [
-      qwikCity(),
+      qwikCity({
+        rewriteRoutes: [
+          {
+            prefix: "en",
+            paths: {
+              "om-oss": "about-us",
+            },
+          },
+        ],
+      }),
       qwikVite(),
       qwikSpeakInline({
-        supportedLangs: ["en-US", "it-IT"],
-        defaultLang: "en-US",
+        supportedLangs: ["en", "sv"],
+        defaultLang: "sv",
         assetsPath: "i18n",
       }),
       tsconfigPaths(),

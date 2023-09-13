@@ -1,6 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import { NAV_LINKS } from "~/tools/variables/navLinks";
 import { NavbarLink } from "~/components/shared/navbar/navbar-list/navbar-link/NavbarLink";
+import { Link } from "@builder.io/qwik-city";
 
 export const NavbarList = component$(() => {
   return (

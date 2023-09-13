@@ -23,10 +23,10 @@ export const ButtonLanguage = component$((props: ButtonLanguageProps) => {
   useTask$(({ track }) => {
     track(() => lang);
     languageData.forEach((lang) => {
-      if (t(lang.href) === locale.lang) {
-        activeLanguage.text = t(lang.text);
-        activeLanguage.icon = t(lang.icon);
-        activeLanguage.href = t(lang.href);
+      if (lang.href === locale.lang) {
+        activeLanguage.text = lang.text;
+        activeLanguage.icon = lang.icon;
+        activeLanguage.href = lang.href;
       }
     });
   });
@@ -54,18 +54,18 @@ export const ButtonLanguage = component$((props: ButtonLanguageProps) => {
                     return (
                       <li class="group" key={lang.text}>
                         <button
-                          aria-label={t(lang.text)}
+                          aria-label={lang.text}
                           class="language-item flex items-center gap-[5.5px] rounded-[5px] p-2.5 transition-all ease-in hover:bg-[#4E4E4E] lg:flex"
-                          onClick$={() => navigateByLocale$(t(lang.href))}
+                          onClick$={() => navigateByLocale$(lang.href)}
                         >
                           <Image
                             src={lang.icon}
-                            alt={t(lang.text)}
+                            alt={lang.text}
                             width={33}
                             height={24}
                           />
                           <span class="btn__language-desc uppercase  transition-all ease-in group-hover:text-main">
-                            {t(lang.text)}
+                            {lang.text}
                           </span>
                         </button>
                       </li>
