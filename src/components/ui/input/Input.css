@@ -1,4 +1,50 @@
 .border__rounded {
-  @apply rounded-full border-[1px] border-middleGrey
-      hover:border-white;
+    @apply rounded-full border-[1px] border-middleGrey
+    hover:border-white;
+}
+
+.formControl {
+    @apply relative;
+}
+
+.formControl > .form-control::placeholder {
+    @apply text-transparent;
+}
+
+.formControl.error > p {
+    @apply block;
+}
+
+.formControl.error > input {
+    @apply border-main;
+}
+
+/*translateX(0.15rem)*/
+.formControl > .form-control:focus ~ label {
+    opacity: 0.65;
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.4rem);
+}
+
+/*=============*/
+.formControl > .form-control:not(:placeholder-shown) ~ label {
+    opacity: 0.65;
+    transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+}
+
+.formControl > label {
+    padding-left: 24px;
+    padding-top: 19px;
+}
+
+.formControl > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 21px 0 24px 29px;
+    pointer-events: none;
+    border: 1px solid transparent;
+    transform-origin: 0 0;
+    transition: opacity 0.1s ease-in-out,
+    transform 0.1s ease-in-out;
 }

@@ -16,18 +16,8 @@ import { Input } from "~/components/ui/input/Input";
 import { InputFile } from "~/components/ui/input/InputFile";
 import { ArrowUpIcon, SpinnerIcon } from "~/assets/icons";
 import { Button } from "~/components/ui";
+import { useTranslate } from "qwik-speak";
 import { PopupProvider } from "~/context/popup-context/PopupProvider";
-
-const SERVICES = [
-  "Web Design",
-  "Web Development",
-  "Mobile App Development",
-  "Ecommerce Development",
-  "SMM",
-  "SEO",
-  "PPC",
-  "Content Marketing",
-];
 
 interface FeedbackFormProps {
   services?: boolean;
@@ -37,6 +27,8 @@ interface FeedbackFormProps {
 export type FeedbackFormType = z.infer<typeof FeedbackValidationSchema>;
 export const FeedbackForm = component$(
   ({ classForm = "", services = false }: FeedbackFormProps) => {
+    const t = useTranslate();
+    const servicesList: [string] | string = t("project_form.categories");
     const [feedbackForm, { Form, Field }] = useForm<FeedbackFormType>({
       loader: useFormLoader(),
       validate: zodForm$(FeedbackValidationSchema),
@@ -67,9 +59,10 @@ export const FeedbackForm = component$(
                   role="group"
                   aria-labelledby="checkbox-group"
                 >
-                  {SERVICES.map((service) => (
-                    <Chip label={service} {...props} />
-                  ))}
+                  {Array.isArray(servicesList) &&
+                    servicesList.map((service) => (
+                      <Chip label={service} {...props} />
+                    ))}
                 </div>
               )}
             </Field>
@@ -81,8 +74,8 @@ export const FeedbackForm = component$(
               {(field, props) => (
                 <Input
                   value={field.value || ""}
-                  placeholder={"Name"}
-                  label={"Name"}
+                  placeholder={t("project_form.fields.placeholder_username")}
+                  label={t("project_form.fields.placeholder_username")}
                   {...props}
                   field={field}
                   type={"text"}
@@ -95,8 +88,8 @@ export const FeedbackForm = component$(
               {(field, props) => (
                 <Input
                   value={field.value || ""}
-                  placeholder={"Email"}
-                  label={"Email"}
+                  placeholder={t("project_form.fields.placeholder_email")}
+                  label={t("project_form.fields.placeholder_email")}
                   {...props}
                   field={field}
                   type={"text"}
@@ -108,8 +101,8 @@ export const FeedbackForm = component$(
               {(field, props) => (
                 <Input
                   value={field.value || ""}
-                  placeholder={"Phone"}
-                  label={"Phone"}
+                  placeholder={t("project_form.fields.placeholder_phone")}
+                  label={t("project_form.fields.placeholder_phone")}
                   {...props}
                   field={field}
                   type={"tel"}
@@ -121,8 +114,8 @@ export const FeedbackForm = component$(
               {(field, props) => (
                 <Input
                   value={field.value || ""}
-                  placeholder={"Company"}
-                  label={"Company"}
+                  placeholder={t("project_form.fields.placeholder_company")}
+                  label={t("project_form.fields.placeholder_company")}
                   {...props}
                   field={field}
                   type={"text"}
@@ -135,8 +128,8 @@ export const FeedbackForm = component$(
             {(field, props) => (
               <Input
                 value={field.value || ""}
-                placeholder={"Message"}
-                label={"Message"}
+                placeholder={t("project_form.fields.placeholder_message")}
+                label={t("project_form.fields.placeholder_message")}
                 {...props}
                 field={field}
                 type={"text"}
@@ -151,16 +144,15 @@ export const FeedbackForm = component$(
                 data-nosnippet={true}
                 class="py-[24px] text-xs font-medium leading-4 text-middleGrey lg:pb-0"
               >
-                By submitting this form you agree to our Privacy Policy and
-                allow us to contact you regarding your enquiry
+                {t("project_form.terms_description")}
                 <Link
-                  aria-label="read-more"
+                  aria-label={t("project_form.terms_btn_text")}
                   class="pl-[10px] text-xs font-medium leading-4 text-mainTextBlue underline hover:text-linkActive active:text-linkActive"
-                  href="{link_href}"
+                  href={t("project_form.terms_href")}
                   rel="noreferrer noopener"
                   target="_blank"
                 >
-                  Read more
+                  {t("project_form.terms_btn_text")}
                 </Link>
               </p>
             </div>
@@ -171,7 +163,7 @@ export const FeedbackForm = component$(
                 type="submit"
                 variant={"submit"}
               >
-                Sent
+                {t("project_form.btn_text")}
                 {loading ? <ArrowUpIcon /> : <SpinnerIcon />}
               </Button>
               <input type="hidden" name="form" value="form_header" />
