@@ -1,15 +1,23 @@
-import { $, component$, useSignal, useStore, useTask$ } from "@builder.io/qwik";
+import {
+  $,
+  component$,
+  useContext,
+  useSignal,
+  useStore,
+} from "@builder.io/qwik";
 import { Chip } from "~/components/ui/chip/Chip";
 import { FeedbackValidationSchema } from "~/tools/validation/feedbackValidation";
-import { Link, z } from "@builder.io/qwik-city";
-import { SubmitHandler, useForm, zodForm$ } from "@modular-forms/qwik";
+import type { z } from "@builder.io/qwik-city";
+import { Link } from "@builder.io/qwik-city";
+import type { SubmitHandler } from "@modular-forms/qwik";
+import { useForm, zodForm$ } from "@modular-forms/qwik";
 import { useFormLoader } from "~/routes/layout";
 import { Input } from "~/components/ui/input/Input";
 import { InputFile } from "~/components/ui/input/InputFile";
 import { ArrowUpIcon, SpinnerIcon } from "~/assets/icons";
 import { Button } from "~/components/ui";
-import { Popup } from "~/components/ui/popup/Popup";
 import { useTranslate } from "qwik-speak";
+import { PopupProvider } from "~/context/popup-context/PopupProvider";
 
 interface FeedbackFormProps {
   services?: boolean;
@@ -25,26 +33,20 @@ export const FeedbackForm = component$(
       loader: useFormLoader(),
       validate: zodForm$(FeedbackValidationSchema),
     });
+    const { showPopup } = useContext(PopupProvider);
     const file = useStore({
       data: {},
       error: null,
     });
     const loading = useSignal(false);
-    const popupData = useStore({
-      open: false,
-      heading: "",
-      subtitle: "",
-      text: "",
-      href: "",
-    });
 
-    const handleSubmit = $<SubmitHandler<FeedbackFormType>>((values, event) => {
-      console.log("values", values);
-      console.log(file.data);
-      popupData.open = true;
-      popupData.heading = "Some text";
-      popupData.subtitle = "Some text";
-    });
+    const handleSubmit = $<SubmitHandler<FeedbackFormType>>(
+      async (values, event) => {
+        console.log("values", values);
+        console.log(file.data);
+        await showPopup();
+      },
+    );
 
     return (
       <Form class={`pb-20 2xl:mr-[78px] ${classForm}`} onSubmit$={handleSubmit}>
@@ -168,13 +170,6 @@ export const FeedbackForm = component$(
             </div>
           </div>
         </div>
-        <Popup
-          href={popupData.href}
-          heading={popupData.heading}
-          open={popupData.open}
-          subtitle={popupData.subtitle}
-          text={popupData.text}
-        />
       </Form>
     );
   },
