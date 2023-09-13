@@ -21,6 +21,7 @@ export const CaseCardPicture = component$((props: CaseCardPictureProps) => {
         <Image
           class="lazyload duration-250 inset-0 h-auto w-full object-cover transition ease-out group-hover/scale:scale-105 group-hover/scale:ease-in"
           src={image}
+          cdn={"builder.io"}
           alt={name}
           width={780}
           height={585}
