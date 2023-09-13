@@ -5,7 +5,7 @@ import type { SpeakConfig } from "qwik-speak";
  */
 export const config: SpeakConfig = {
   defaultLocale: {
-    lang: "sv-SE",
+    lang: "sv",
     currency: "EUR",
     timeZone: "Europe/Stockholm",
     units: { length: "kilometer" },
@@ -13,14 +13,14 @@ export const config: SpeakConfig = {
   },
   supportedLocales: [
     {
-      lang: "en-US",
+      lang: "en",
       currency: "USD",
       timeZone: "America/Los_Angeles",
       units: { length: "mile" },
       dir: "ltr",
     },
     {
-      lang: "sv-SE",
+      lang: "sv",
       currency: "EUR",
       timeZone: "Europe/Stockholm",
       units: { length: "kilometer" },

@@ -18,7 +18,7 @@ export const ButtonLanguage = component$((props: ButtonLanguageProps) => {
     icon: "",
     href: "",
   });
-  const lang = useComputed$(() => locale.lang);
+  const lang = useComputed$(() => locale.lang.slice(0, 2));
 
   useTask$(({ track }) => {
     track(() => lang);

@@ -8,81 +8,15 @@ import {
 import { useMediaQuery } from "~/hooks/useMediaQuery";
 import { useTranslate } from "qwik-speak";
 import { useHref } from "~/hooks/useHref";
-
-const data = [
-  {
-    heading: "Web development",
-    href: "/services/web-development",
-    srcSetWebp:
-      "https://uwp.digital/s/img/services/digital-marketing-small.webp",
-    srcSetPng:
-      "https://uwp.digital/s/img/services/digital-marketing-small.webp",
-    src: "https://uwp.digital/s/img/services/digital-marketing-small.webp",
-    alt: "Web development",
-    srcSetWebpMobile:
-      "https://uwp.digital/s/img/services/digital-marketing-small.webp",
-    srcSetPngMobile:
-      "https://uwp.digital/s/img/services/digital-marketing-small.webp",
-    srcMobile:
-      "https://uwp.digital/s/img/services/digital-marketing-small.webp",
-    altMobile: "Web development",
-    text: "We create websites and web applications of any complexity, from simple landing pages to complex web services and online stores.",
-    btnText: "Web development",
-  },
-  {
-    heading: "Mobile development",
-    href: "/services/mobile-development",
-    srcSetWebp: "https://uwp.digital/s/img/services/smm-small.webp",
-    srcSetPng: "https://uwp.digital/s/img/services/smm-small.webp",
-    src: "https://uwp.digital/s/img/services/smm-small.webp",
-    alt: "Mobile development",
-    srcSetWebpMobile: "https://uwp.digital/s/img/services/smm-small.webp",
-    srcSetPngMobile: "https://uwp.digital/s/img/services/smm-small.webp",
-    srcMobile: "https://uwp.digital/s/img/services/smm-small.webp",
-    altMobile: "Mobile development",
-    text: "We develop mobile applications for iOS and Android. We create applications of any complexity, from simple applications to complex services.",
-    btnText: "Mobile development",
-  },
-  {
-    heading: "UI/UX design",
-    href: "/services/ui-ux-design",
-    srcSetWebp: "https://uwp.digital/s/img/services/seo-small.webp",
-    srcSetPng: "https://uwp.digital/s/img/services/seo-small.webp",
-    src: "https://uwp.digital/s/img/services/seo-small.webp",
-    alt: "UI/UX design",
-    srcSetWebpMobile: "https://uwp.digital/s/img/services/seo-small.webp",
-    srcSetPngMobile: "https://uwp.digital/s/img/services/seo-small.webp",
-    srcMobile: "https://uwp.digital/s/img/services/seo-small.webp",
-    altMobile: "UI/UX design",
-    text: "We create a unique design for your product. We develop a design concept, create a prototype, and design the interface.",
-    btnText: "UI/UX design",
-  },
-  {
-    heading: "Branding",
-    href: "/services/branding",
-    srcSetWebp:
-      "https://uwp.digital/s/img/services/website-development-small.webp",
-    srcSetPng:
-      "https://uwp.digital/s/img/services/website-development-small.webp",
-    src: "https://uwp.digital/s/img/services/website-development-small.webp",
-    alt: "Branding",
-    srcSetWebpMobile:
-      "https://uwp.digital/s/img/services/website-development-small.webp",
-    srcSetPngMobile:
-      "https://uwp.digital/s/img/services/website-development-small.webp",
-    srcMobile:
-      "https://uwp.digital/s/img/services/website-development-small.webp",
-    altMobile: "Branding",
-    text: "We create a unique brand for your product. We develop a brand concept, create a logo, and design a corporate identity.",
-    btnText: "Branding",
-  },
-];
+import { useServicesData } from "~/routes/[...lang]";
 
 export const Services = component$(() => {
   useStyles$(styles);
   const isLgScreen = useMediaQuery("lg");
   const t = useTranslate();
   const { href } = useHref(t("services.btn_href"));
+  const data = useServicesData();
+
   return (
     <section
       class="services bg-light pt-[24px] pb-[44px] dark:bg-dark dark:text-white lg:pt-[2px] lg:pb-[111px] xl:pt-[31px] xl:pb-[182px]"
@@ -101,12 +35,12 @@ export const Services = component$(() => {
             id="servicesCardsWrp"
           >
             <div class="xl:border-l-[1px] xl:border-l-middleGrey lg:basis-[50%] xl:pl-[50px]">
-              {data.map((item, index) => {
-                if (index % 2 !== 0) {
+              {data.value.map((item, index) => {
+                if (index % 2 === 0) {
                   return (
                     <ServicesCardLeft
                       {...item}
-                      key={item.heading}
+                      key={item.name}
                       isLgScreen={isLgScreen}
                       index={index}
                     />
@@ -115,12 +49,12 @@ export const Services = component$(() => {
               })}
             </div>
             <div class="lg:basis-[50%] lg:border-l-[1px] lg:border-l-middleGrey lg:mt-[90px]">
-              {data.map((item, index) => {
-                if (index % 2 === 0) {
+              {data.value.map((item, index) => {
+                if (index % 2 !== 0) {
                   return (
                     <ServicesCardRight
                       {...item}
-                      key={item.heading}
+                      key={item.name}
                       isLgScreen={isLgScreen}
                       index={index}
                     />

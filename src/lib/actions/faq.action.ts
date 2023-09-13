@@ -1,11 +1,8 @@
 import { RequestEventLoader } from "@builder.io/qwik-city";
-import { extractLanguage, isFourthCharacterUppercase } from "~/tools/stringFn";
 import { IFaq } from "~/types/IFaq";
 
 export const getFaqs = async (requestEvent: RequestEventLoader) => {
-  const lang = isFourthCharacterUppercase(requestEvent.params.lang)
-    ? extractLanguage(requestEvent.params.lang)
-    : "sv-SE";
+  const lang = requestEvent.params.lang !== "en" ? "sv" : "en";
   const res = await fetch(
     `${requestEvent.env.get("URI_API")}/i18n/${lang}/faq.json`,
   );
