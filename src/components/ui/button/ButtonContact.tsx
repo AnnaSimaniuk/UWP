@@ -1,8 +1,10 @@
-import { component$, Signal, useContext, useStyles$ } from "@builder.io/qwik";
+import { component$, useContext, useStyles$ } from "@builder.io/qwik";
 import { PencilIcon } from "~/assets/icons";
 import { ModalProvider } from "~/context";
 import { useTranslate } from "qwik-speak";
 import styles from "./ButtonContact.css?inline";
+import { PopupProvider } from "~/context/popup-context/PopupProvider";
+
 interface ButtonContactProps {
   isHoveredPhoneLink: {
     isHovered: boolean;
@@ -16,6 +18,7 @@ export const ButtonContact = component$((props: ButtonContactProps) => {
   useStyles$(styles);
   const t = useTranslate();
   const { showDynamicForm } = useContext(ModalProvider);
+  const { closePopup } = useContext(PopupProvider);
 
   return (
     <>
@@ -30,9 +33,10 @@ export const ButtonContact = component$((props: ButtonContactProps) => {
         }
         `}
         id="{id}"
-        onClick$={() => {
+        onClick$={async () => {
           props.burgerMenuData.isActive = false;
-          showDynamicForm();
+          await showDynamicForm();
+          await closePopup();
         }}
       >
         <span
